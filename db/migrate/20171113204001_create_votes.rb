@@ -3,7 +3,8 @@ class CreateVotes < ActiveRecord::Migration[5.1]
     create_table :votes do |t|
       t.references :poll, foreign_key: true
       t.references :user, foreign_key: true
-      t.references :proposition, foreign_key: true
+      t.references :accepted_proposition
+      t.references :rejected_proposition
 
       t.timestamps
     end

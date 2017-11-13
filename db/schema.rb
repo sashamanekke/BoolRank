@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171113165748) do
+ActiveRecord::Schema.define(version: 20171113204001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,11 +77,13 @@ ActiveRecord::Schema.define(version: 20171113165748) do
   create_table "votes", force: :cascade do |t|
     t.bigint "poll_id"
     t.bigint "user_id"
-    t.bigint "proposition_id"
+    t.bigint "accepted_proposition_id"
+    t.bigint "rejected_proposition_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["accepted_proposition_id"], name: "index_votes_on_accepted_proposition_id"
     t.index ["poll_id"], name: "index_votes_on_poll_id"
-    t.index ["proposition_id"], name: "index_votes_on_proposition_id"
+    t.index ["rejected_proposition_id"], name: "index_votes_on_rejected_proposition_id"
     t.index ["user_id"], name: "index_votes_on_user_id"
   end
 
@@ -91,6 +93,5 @@ ActiveRecord::Schema.define(version: 20171113165748) do
   add_foreign_key "profiles", "users"
   add_foreign_key "propositions", "polls"
   add_foreign_key "votes", "polls"
-  add_foreign_key "votes", "propositions"
   add_foreign_key "votes", "users"
 end
