@@ -3,4 +3,6 @@ class Poll < ApplicationRecord
   has_many :participants, dependent: :destroy
   has_many :propositions, dependent: :destroy
   has_many :votes, dependent: :destroy
+  #validations
+  validates :title, presence: true
 end

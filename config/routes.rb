@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       #get "share_poll", to: 'polls#share_poll'
       #get "show", to: 'polls#home'
       get "compare", to: 'polls#compare'
+      get "add_propositions", to: 'polls#add_propositions'
     end
     resources :participants, only: [:index, :create, :destroy]
   end

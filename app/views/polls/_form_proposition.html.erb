@@ -1,0 +1,8 @@
+<%= simple_form_for([@poll, @proposition], url: poll_propositions_path(@poll), method: 'post') do |f| %>
+    <%= f.input :name, placeholder: "Name of the proposition"%>
+    <%= f.hidden_field :score, value: 0 %>
+    <%= f.input :photo, placeholder: "Add a photo (optional)"%>
+    <%= f.hidden_field :hashtag, value: "#" %>
+    <%= f.input :description, placeholder: "Give a small description (optional)" %>
+    <%= f.button :submit, class: "btn-medium"  %>
+<% end %>

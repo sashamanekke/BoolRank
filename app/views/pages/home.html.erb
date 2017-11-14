@@ -7,7 +7,8 @@
     <p>Let the BoolMan Choose for you</p>
     <%= simple_form_for(@poll, url: new_poll_path, method: 'get') do |f| %>
       <%= f.input :title, placeholder: "What can't you decide?", label: false %>
-      <%= f.button :submit, class: "btn-medium"  %>
+      <!-- QUESTION?? WHERE CAN I EDIT THE PLACEHOLDER OF THE BUTTON?????-->
+      <%= f.button :submit, class: "btn-medium" %>
     <% end %>
   </div>
 </div>
