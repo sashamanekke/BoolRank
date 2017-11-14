@@ -10,17 +10,11 @@ Rails.application.routes.draw do
     resources :propositions
     resources :votes, only: [:create]
     member do
-      get "share_poll", to: 'poll#share_poll'
-      get "home", to: 'polls#home'
+      #get "share_poll", to: 'polls#share_poll'
+      #get "show", to: 'polls#home'
       get "compare", to: 'polls#compare'
-      get "ask_rank", to: 'polls#ask_rank'
-      get "rank", to: 'polls#rank'
-      get "share_rank", to: 'polls#share_rank'
     end
-    # collection do
-    #   get 'top-3', to: 'polls#top_3'
-    # end
-    resources :participants, only: [:index, :show, :create, :update, :destroy]
+    resources :participants, only: [:index, :create, :destroy]
   end
-  resources :profiles, only: [:show, :new, :create, :edit]
+  resource :profiles, only: [:show, :new, :create, :edit, :update]
 end
