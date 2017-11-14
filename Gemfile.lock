@@ -59,6 +59,8 @@ GEM
       warden (~> 1.2.3)
     erubi (1.7.0)
     execjs (2.7.0)
+    faker (1.8.4)
+      i18n (~> 0.5)
     ffi (1.9.18)
     figaro (1.1.1)
       thor (~> 0.14)
@@ -169,6 +171,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
+    ui_faces (0.1.4)
     warden (1.2.7)
       rack (>= 1.0)
     web-console (3.5.1)
@@ -187,6 +190,7 @@ DEPENDENCIES
   autoprefixer-rails
   bootstrap-sass
   devise
+  faker
   figaro
   font-awesome-sass
   jbuilder (~> 2.0)
@@ -203,6 +207,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   uglifier
+  ui_faces
   web-console (>= 3.3.0)
 
 RUBY VERSION
