@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 ruby '2.3.5'
 
+gem 'faker'
+gem 'ui_faces'
+
 gem 'devise'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
