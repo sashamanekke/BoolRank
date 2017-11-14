@@ -1,23 +1,32 @@
-<h1> <%= @poll.title %></h1>
-<h2>Add Propositions</h2>
-<%= render "form_proposition" %>
-<ul>
-  <% @poll.propositions.each do |proposition|%>
-    <div class="product">
-      <div class='product-upvote'>
-        <div class="product-arrow"></div>
-        <div class='product-count'>95</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <h1> <%= @poll.title %></h1>
+      <h2>Add Propositions</h2>
+      <%= render "form_proposition" %>
+      <div class="btn-medium"">
+        <%= link_to "Continue", poll_path %>
       </div>
-      <img src="kudoz.jpg" alt="kudoz" class="product-image hidden-xs">
-      <div class='product-body'>
-        <h3><%= proposition.name %></h3>
-        <p>hello</p>
-      </div>
-      <ul class="list-inline product-controls hidden-sm hidden-xs">
-        <li><a href=""><i class="fa fa-heart"></i></a></li>
-        <li><a href=""><i class="fa fa-share"></i></a></li>
-        <li><a href=""><i class="fa fa-star"></i></a></li>
+      <ul>
+        <% @poll.propositions.each do |proposition|%>
+        <div class="product">
+          <div class='product-upvote'>
+            <div class="product-arrow"></div>
+            <div class='product-count'>95</div>
+          </div>
+          <img src="kudoz.jpg" alt="kudoz" class="product-image hidden-xs">
+          <div class='product-body'>
+            <h3><%= proposition.name %></h3>
+            <p>hello</p>
+          </div>
+          <ul class="list-inline product-controls hidden-sm hidden-xs">
+            <li><a href=""><i class="fa fa-heart"></i></a></li>
+            <li><a href=""><i class="fa fa-share"></i></a></li>
+            <li><a href=""><i class="fa fa-star"></i></a></li>
+          </ul>
+        </div>
+        <% end %>
       </ul>
     </div>
-  <% end %>
-</ul>
+  </div>
+</div>
