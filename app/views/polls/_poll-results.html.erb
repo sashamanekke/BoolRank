@@ -1,6 +1,4 @@
-
-
- <div class="best-prop" style="height: 588px; background-image: url('<%= cl_image_path  @propositions.first.photo.path , crop: :fill %>')">
+<div class="best-prop" style="height: 588px; background-image: url('<%= cl_image_path  @propositions.first.photo.path , crop: :fill %>')">
         </div>
 
 <% @propositions.select{ |f| f != @propositions.first }.each do |proposition|%>
