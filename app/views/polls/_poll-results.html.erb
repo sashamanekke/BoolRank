@@ -1,0 +1,11 @@
+
+
+ <div class="best-prop" style="height: 588px; background-image: url('<%= cl_image_path  @propositions.first.photo.path , crop: :fill %>')">
+        </div>
+
+<% @propositions.select{ |f| f != @propositions.first }.each do |proposition|%>
+         <div class="other-prop" style="height: 588px; background-image: url('<%= cl_image_path  @proposition.photo.path , crop: :fill %>')">
+        </div>
+        <% end %>
+
+        @polls.participants.count
