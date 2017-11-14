@@ -58,15 +58,4 @@ end
   # end
 
 
-   create_table "votes", force: :cascade do |t|
-    t.bigint "poll_id"
-    t.bigint "user_id"
-    t.bigint "accepted_proposition_id"
-    t.bigint "rejected_proposition_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["accepted_proposition_id"], name: "index_votes_on_accepted_proposition_id"
-    t.index ["poll_id"], name: "index_votes_on_poll_id"
-    t.index ["rejected_proposition_id"], name: "index_votes_on_rejected_proposition_id"
-    t.index ["user_id"], name: "index_votes_on_user_id"
-  end
+

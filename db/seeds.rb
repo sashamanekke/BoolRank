@@ -53,7 +53,7 @@ puts 'Creating 5 fake polls...'
     proposition = Proposition.new(
       name: Faker::Food.ingredient,
       score: rand(1..10),
-      photo: "https://source.unsplash.com/1600x900/?fruits",
+      photo: "https://source.unsplash.com/1600x900/?random",
       hashtag: "#",
       description: "Add some nice description about this proposition"
       )

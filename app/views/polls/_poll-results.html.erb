@@ -1,11 +1,15 @@
 
-
- <div class="best-prop" style="height: 588px; background-image: url('<%= cl_image_path  @propositions.first.photo.path , crop: :fill %>')">
+ <div class="best-prop" style="height: 588px; background-image: url('<%= image_path  @propositions.first.photo  %>')">
         </div>
 
-<% @propositions.select{ |f| f != @propositions.first }.each do |proposition|%>
-         <div class="other-prop" style="height: 588px; background-image: url('<%= cl_image_path  @proposition.photo.path , crop: :fill %>')">
+<% @propositions[1..-1].each_with_index do |proposition, index|%>
+         <div class="other-prop" style="height: 588px; background-image: url('<%= image_path  proposition.photo %>')">
         </div>
+        <%= index %>
         <% end %>
 
-        @polls.participants.count
+
+<h1><%= link_to 'Participants', poll_participants_path(@poll) %></h1>
+      <div class="participants-nbr"><h1><%= @poll.participants.count %></h1>
+<!-- </div> -->
+
