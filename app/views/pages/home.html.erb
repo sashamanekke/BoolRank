@@ -1,13 +1,13 @@
 <div class="banner">
   <div class="banner-content">
     <div>
-      <%= image_tag "Boolrank-white.png" %>
+      <%= image_tag "Boolrank-white.png", class: "logo-front-page" %>
     </div>
     <h1>Create a BoolPoll</h1>
     <p>Let the BoolMan Choose for you</p>
     <%= simple_form_for(@poll, url: new_poll_path, method: 'get') do |f| %>
-      <%= f.input :title, placeholder: "Title", label: false %>
-      <%= f.button :submit, class: "btn btn-primary"  %>
+      <%= f.input :title, placeholder: "What can't you decide?", label: false %>
+      <%= f.button :submit, class: "btn-medium"  %>
     <% end %>
   </div>
 </div>

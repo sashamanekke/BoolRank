@@ -1,0 +1,6 @@
+<%= simple_form_for(@poll) do |f| %>
+    <%= f.input :title, placeholder: "Title", value: @poll.title %>
+    <%= f.input :description, placeholder: "Add a description" %>
+    <%= f.input :photo, placeholder: "Add a photo"%>
+    <%= f.button :submit, class: "btn-medium"  %>
+<% end %>

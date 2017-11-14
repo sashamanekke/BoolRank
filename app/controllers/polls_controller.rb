@@ -18,9 +18,15 @@ class PollsController < ApplicationController
   end
 
   def new
+    # if params[:title]
+      @poll = Poll.new(poll_params)
+    # else
+      # @poll = Poll.new()
+    # end
   end
 
   def create
+
   end
 
   def edit
