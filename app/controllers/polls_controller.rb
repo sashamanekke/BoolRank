@@ -60,6 +60,7 @@ class PollsController < ApplicationController
     all_combinations = generate_combinations(@poll.propositions)
     #Here need to add the fact to delete the comparisons already done
     # something like existing_combinations = generate_existing_combinations()
+    #existing_combinations = generate_combinations(@poll.votes)
     @comparison = all_combinations.sample
   end
 
@@ -87,6 +88,17 @@ class PollsController < ApplicationController
       end
     end
     all_combinations
+  end
+
+  def generate_existing_combinations(votes)
+    existing_combinations = []
+
+    votes.each_with_index do |p1, index|
+      combinaison = [votes.accepted, votes.rejected]
+      combinaison.sort!
+      existing_combinations << combination
+    end
+    existing_combinations
   end
 
 end
