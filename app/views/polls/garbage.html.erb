@@ -10,3 +10,53 @@
     <% end %>
   </div>
 </div>
+
+<a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#search-by-title"><i class="fa fa-search" aria-hidden="true"></i></a>
+
+<div class="modal fade" id="search-by-title" tabindex="-1" role="dialog" aria-labelledby="search-by-title" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Search by title</h4>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for :global_search do |f| %>
+        <%= f.input :query , placeholder:"title", label: false, collection: Invoice.uniq.pluck(:title), input_html: { id: 'invoice_search_input' } %>
+        <%= f.submit "Search", class: "btn", id: 'invoice_search_fancy_button' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+js
+
+$ ->
+  modal_holder_selector = '#modal-holder'
+  modal_selector = '.modal'
+
+  $(document).on 'click', 'a[data-modal]', ->
+    location = $(this).attr('href')
+    #Load modal dialog from server
+    $.get location, (data)->
+      $(modal_holder_selector).html(data).
+      find(modal_selector).modal()
+    false
+
+  $(document).on 'ajax:success',
+    'form[data-modal]', (event, data, status, xhr)->
+      url = xhr.getResponseHeader('Location')
+      if url
+        # Redirect to url
+        window.location = url
+      else
+        # Remove old modal backdrop
+        $('.modal-backdrop').remove()
+
+        # Replace old modal with new one
+        $(modal_holder_selector).html(data).
+        find(modal_selector).modal()
+
+      false

@@ -1,15 +1,40 @@
 
- <div class="best-prop" style="height: 588px; background-image: url('<%= image_path  @propositions.first.photo  %>')">
-
-        </div>
-
-<% @propositions[1..-1].each do |proposition|%>
-         <div class="other-prop" style="height: 588px; background-image: url('<%= image_path  proposition.photo %>')">
-        </div>
-        <% end %>
+<div class="container">
+  <div class="grid ">
+    <div class="main">
+      <div class="best-prop" style="height: 588px; background-image: url('<%= image_path  @propositions.first.photo  %>')">
+      </div>
+    </div>
 
 
-<h1><%= link_to 'Participants', poll_participants_path(@poll) %></h1>
+    <div class="stat">
+
+      <% @propositions[1..-1].each_with_index do |proposition, index|%>
+      <div class="other-prop hidden-xs hidden-sm">
+        <div class="photo lg" style="background-image: url('<%= image_path  proposition.photo %>') "></div>
+        <div class="text">
+          <ul>
+          <li><h1><%= index += 2 %>:              <%= proposition.name %></h1></li>
+         <li><p>Description: <%= proposition.description %></p></li>
+         <li><h3>Score: <%= proposition.score %></h3></li>
+       </ul> </div>
+
+     </div>
+
+     <div class="other-prop hidden-md hidden-lg">
+      <div class="photo xs" style=" background-image: url('<%= image_path  proposition.photo %>') "><h1><%= proposition.name %></h1>
+      </div>
+    </div>
+    <% end %>
+
+  </div>
+<!-- <div class="participants">
+<h1><%#= link_to 'Participants', poll_participants_path(@poll) %></h1>
       <div class="participants-nbr"><h1><%= @poll.participants.count %></h1>
  </div>
+</div> -->
+</div>
+</div>
+
+
 
