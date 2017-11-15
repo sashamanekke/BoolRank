@@ -1,7 +1,6 @@
 class PollsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :create, :show]
-
-  before_action :set_poll, only: [:show, :add_propositions, :edit, :update, :destroy, :compare, :results]
+  before_action :set_poll, only: [:show, :add_propositions, :edit, :update, :destroy, :compare, :results, :start]
 
 
   def index
@@ -56,13 +55,15 @@ class PollsController < ApplicationController
   end
 
   def compare
-
     #At one point show a button "see result" wich will show back the poll page
     #Which will integrate then the results
     all_combinations = generate_combinations(@poll.propositions)
     #Here need to add the fact to delete the comparisons already done
     # something like existing_combinations = generate_existing_combinations()
     @comparison = all_combinations.sample
+  end
+
+  def start
 
   end
 

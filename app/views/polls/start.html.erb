@@ -1,0 +1,9 @@
+<div class="banner">
+  <div class="banner-content text-center">
+    <%= link_to 'Start Poll!', compare_poll_path(@poll), :class => "btn btn-primary" %>
+    <div id="modal-holder"></div>
+  </div>
+</div>
+
+<%= link_to 'All Participants', poll_participants_path(@poll), :class => "btn btn-primary" %>
+
