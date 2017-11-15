@@ -1,10 +1,12 @@
 class PollsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :create, :show]
-  before_action :set_poll, only: [:show, :edit, :update, :start, :destroy]
+  before_action :set_poll, only: [:show, :add_propositions, :edit, :update, :destroy, :results, :start]
+
 
   def index
     @polls = Poll.all
   end
+
 
   def show
     @propositions = @poll.propositions.order(:score)
@@ -18,9 +20,26 @@ class PollsController < ApplicationController
   end
 
   def new
+    # if params[:title]
+    @poll = Poll.new(poll_params)
+    # else
+      # @poll = Poll.new()
+    # end
+  end
+
+  def add_propositions
+    @proposition = Proposition.new()
   end
 
   def create
+    @poll = Poll.new(poll_params)
+    # add current user when login is set !!!!!!!!!!!!!!!!
+    @poll.user = current_user
+    if @poll.save!
+      redirect_to add_propositions_poll_path(@poll)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -43,12 +62,16 @@ class PollsController < ApplicationController
   def start
   end
 
+   def results
+    @propositions = @poll.propositions.order(:score)
+   end
+
   private
   def set_poll
     @poll = Poll.find(params[:id])
   end
   def poll_params
-    params.require(:poll).permit(:title, :description, :status, :price, :photo)
+    params.require(:poll).permit(:title, :description, :photo, :status)
   end
 end
 

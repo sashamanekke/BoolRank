@@ -15,6 +15,9 @@ Rails.application.routes.draw do
       get "compare", to: 'polls#compare'
       get "start", to: 'polls#start'
       get "results", to: 'polls#results'
+      get "start", to: 'polls#start'
+      get "results", to: 'polls#results'
+      get "add_propositions", to: 'polls#add_propositions'
     end
     resources :participants, only: [:index, :create, :destroy]
   end

@@ -3,10 +3,9 @@
 
         </div>
 
-<% @propositions[1..-1].each_with_index do |proposition, index|%>
+<% @propositions[1..-1].each do |proposition|%>
          <div class="other-prop" style="height: 588px; background-image: url('<%= image_path  proposition.photo %>')">
         </div>
-        <%= index %>
         <% end %>
 
 
