@@ -2,7 +2,7 @@
 .grid {
   display: grid;
   grid-template-columns: 500px 1fr 1fr 1fr 1fr;
-  grid-template-row: 1fr 1fr 1fr 1fr;
+  grid-template-row: 400px 1fr 1fr 1fr;
 
 padding: 10px;
   line-height: 1.4em;
@@ -10,24 +10,29 @@ padding: 10px;
 
     letter-spacing: 1px;
     opacity: 0.9;
-    // border: 1px solid #5985ff;
+    border: 1px solid #5985ff;
 
 }
 
 
 .main {
-  grid-row: 1 / span 2;
+  grid-row: 1 / span 1;
   grid-column: 1 / span 1;
-  // border: 1px solid #5985ff;
+  border: 1px solid #5985ff;
 
 }
 
 .stat {
   grid-row: 1 / span 3;
   grid-column:  2 / span 4;
-  // border: 1px solid #5985ff;
+  border: 1px solid #5985ff;
 
 
+}
+
+.participants {
+  grid-row: 2 / span 3;
+  grid-column:  1 / span 1;
 }
 
 .best-prop {
@@ -86,6 +91,25 @@ p {
     margin: 0px;
   }
 
+//   .main {
+//   height: 100vh;
+//   display: flex;
+
+//    // align-items: center;
+
+// }
+
+
+
+.best-prop {
+  max-height: 300px;
+
+  background-size: cover !important;
+  background-image: center;
+  margin: 0px;
+
+}
+
   .other-prop {
   display: flex;
   margin: 10px;
@@ -106,17 +130,97 @@ p {
 
 }
 
-.best-prop {
-  max-height: 300px;
 
-  background-size: cover !important;
-  background-image: center;
-  margin: 0px;
+
 
 }
 
 
-}
+
+// @import url('https://fonts.googleapis.com/css?family=Muli');
+
+
+// .card-results {
+//     margin: 10px;
+//     display: inline-block;
+//     position: relative;
+
+//     max-height: 250px;
+//     opacity: 0.85;
+// }
+// .front,
+// .back {
+//     width: 100%;
+//     height: 100%;
+//     position: absolute;
+//     -webkit-backface-visibility: hidden;
+//             backface-visibility: hidden;
+//     -webkit-transition: -webkit-transform 300ms;
+//     transition: -webkit-transform 300ms;
+//     transition: transform 300ms;
+//     transition: transform 300ms, -webkit-transform 300ms;
+//     -webkit-transition-timing-function: linear;
+//             transition-timing-function: linear;
+//     border-radius: 5px;
+// }
+// .front {
+//     transform: rotateY(0deg);
+//     background: -webkit-linear-gradient(top left, #84DD63, #009970);
+//     background: linear-gradient(to bottom right, #84DD63, #009970);
+//     text-align: center;
+//     padding: 30px;
+// }
+// .back {
+//     background: -webkit-linear-gradient(top left, #009970, #84DD63);
+//     background: linear-gradient(to bottom right, #009970, #84DD63);
+//     -webkit-transform: rotateY(180deg);
+//             transform: rotateY(180deg);
+//     padding: 40px 15px;
+//     color: #fff;
+// }
+// .card-results:hover .front {
+//     -webkit-transform: rotateY(-180deg);
+//             transform: rotateY(-180deg);
+// }
+// .card-results:hover .back {
+//     -webkit-transform: rotateY(0deg);
+//             transform: rotateY(0deg);
+// }
+// //styling
+// .front .contact {
+//     height: 120px;
+//     width: 120px;
+//     border: 5px solid #B2DBBF;
+//     border-radius: 50%;
+//     display: inline-block;
+//     margin-bottom: 10px;
+// }
+// .front .name {
+//     display: inline-block;
+//     font-size: 18px;
+//     color: #fff;
+// }
+// .front .job {
+//     color: #fff;
+// }
+// .front hr {
+//     border: none;
+//     color: #B2DBBF;
+//     border: 1px solid;
+// }
+// .back .icon {
+//     fill: currentColor;
+//     color: inherit;
+//     height: 33px;
+//     width: 33px;
+//     margin-top: 15px;
+//     color: white;
+// }
+// .back .icon:hover {
+//     cursor: pointer;
+//     color: #648767;
+// }
+
 
 
 
