@@ -1,7 +1,7 @@
 class PollsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :create, :show]
 
-  before_action :set_poll, only: [:show, :add_propositions, :edit, :update, :destroy, :results]
+  before_action :set_poll, only: [:show, :add_propositions, :edit, :update, :destroy, :compare, :results]
 
 
   def index
@@ -53,13 +53,19 @@ class PollsController < ApplicationController
   end
 
   def compare
+
     #At one point show a button "see result" wich will show back the poll page
     #Which will integrate then the results
+    all_combinations = generate_combinations(@poll.propositions)
+    #Here need to add the fact to delete the comparisons already done
+    # something like existing_combinations = generate_existing_combinations()
+    @comparison = all_combinations.sample
+
   end
 
-   def results
+  def results
     @propositions = @poll.propositions.order(:score)
-   end
+  end
 
   private
   def set_poll
@@ -68,6 +74,17 @@ class PollsController < ApplicationController
   def poll_params
     params.require(:poll).permit(:title, :description, :photo, :status)
   end
+
+  def generate_combinations(props)
+    all_combinations = []
+    props.each_with_index do |p1, index|
+      props[(index + 1)..-1].each do |p2|
+        all_combinations << [p1,p2]
+      end
+    end
+    all_combinations
+  end
+
 end
 
 
