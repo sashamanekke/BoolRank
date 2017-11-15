@@ -9,7 +9,7 @@ class VotesController < ApplicationController
     @vote.accepted_proposition = accepted_proposition
     @vote.rejected_proposition = rejected_proposition
     @vote.user = current_user
-    # ALSO need to add 1 to the score of the accepted proposition
+    # add 1 to the score of the accepted proposition
     accepted_proposition.score += 1
     accepted_proposition.save!
     if @vote.save!
