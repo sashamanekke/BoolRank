@@ -49,7 +49,7 @@ puts 'Creating 5 fake polls...'
   poll.save!
   #shower.picture_urls = [url]
   puts 'Creating 5 fake proposition per poll...'
-  5.times do
+  15.times do
     proposition = Proposition.new(
       name: Faker::Food.ingredient,
       score: rand(1..10),
@@ -68,6 +68,14 @@ puts 'Creating 5 fake polls...'
     vote.accepted_proposition = poll.propositions.sample
     vote.rejected_proposition = poll.propositions.sample
     vote.save!
+  end
+
+    puts "Creating 10 fake participants for poll #{x}"
+  10.times do |y|
+    participant = Participant.new()
+    participant.poll = poll
+    participant.user = User.all.sample
+    participant.save!
   end
 end
 puts 'Finished!'
