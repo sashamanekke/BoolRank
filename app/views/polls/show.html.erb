@@ -1,6 +1,6 @@
   <div class="banner">
     <div class="container text-center">
-      <%= link_to 'Start Poll Page', start_poll_path(@poll), :class => "btn btn-medium" %>
+      <%= link_to 'Start Poll', compare_poll_path(@poll), :class => "btn btn-medium" %>
 
       <button type="button" class="btn btn-medium" data-toggle="modal" data-target="#share-modal">
         Share Poll!
@@ -8,6 +8,8 @@
     </div>
   </div>
       <%= render "polls/share_poll" %>
+
+
 
 
   <%#= render "poll-start" %>
