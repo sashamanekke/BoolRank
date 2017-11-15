@@ -17,7 +17,7 @@ private
 #   @user = User.find(params[:user_id])
 # end
 
-def set_participants
+def participants_params
   params.require(:participants).permit(:user, :profile)
 end
 
