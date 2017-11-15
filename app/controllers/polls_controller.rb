@@ -55,13 +55,22 @@ class PollsController < ApplicationController
   end
 
   def compare
-    #At one point show a button "see result" wich will show back the poll page
-    #Which will integrate then the results
+    #At one point show a button "see result"
     all_combinations = generate_combinations(@poll.propositions)
-    #Here need to add the fact to delete the comparisons already done
-    # something like existing_combinations = generate_existing_combinations()
-    #existing_combinations = generate_combinations(@poll.votes)
-    @comparison = all_combinations.sample
+    existing_combinations = generate_existing_combinations(@poll.votes.where(user: current_user))
+    @comparison = (all_combinations - existing_combinations).sample
+
+    ### Just to test and see
+    @test_array = all_combinations.map{ |el|
+        [el.first.id, el.last.id]
+    }
+    @test_array_2 = existing_combinations.map{ |el|
+        [el.first.id, el.last.id]
+    }
+    test_array_3 = @poll.votes.where(user: current_user).map{ |el|
+        [el.accepted_proposition.id, el.rejected_proposition.id]
+    }
+    ###
   end
 
   def start
@@ -84,7 +93,7 @@ class PollsController < ApplicationController
     all_combinations = []
     props.each_with_index do |p1, index|
       props[(index + 1)..-1].each do |p2|
-        all_combinations << [p1,p2]
+        all_combinations << [p1,p2].sort! { |a, b|  a.id <=> b.id }
       end
     end
     all_combinations
@@ -92,10 +101,9 @@ class PollsController < ApplicationController
 
   def generate_existing_combinations(votes)
     existing_combinations = []
-
-    votes.each_with_index do |p1, index|
-      combinaison = [votes.accepted, votes.rejected]
-      combinaison.sort!
+    votes.each do |vote|
+      combination = [vote.accepted_proposition, vote.rejected_proposition]
+      combination.sort! { |a, b|  a.id <=> b.id }
       existing_combinations << combination
     end
     existing_combinations
