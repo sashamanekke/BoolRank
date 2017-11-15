@@ -1,7 +1,6 @@
 class PollsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :create, :show]
-
-  before_action :set_poll, only: [:show, :add_propositions, :edit, :update, :destroy, :results]
+  before_action :set_poll, only: [:show, :add_propositions, :edit, :update, :destroy, :results, :start]
 
 
   def index
@@ -53,8 +52,14 @@ class PollsController < ApplicationController
   end
 
   def compare
-    #At one point show a button "see result" wich will show back the poll page
-    #Which will integrate then the results
+    # At one point show a button "see result" wich will show back the poll page
+    # Which will integrate then the results
+    # assign vote to selected prop
+    # created vote should redirect to next proposition
+    # if all propositions are finished, redirect to results page
+  end
+
+  def start
   end
 
    def results
