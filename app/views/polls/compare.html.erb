@@ -1,4 +1,37 @@
-<h1>Polls#compare</h1>
-<p>Find me in app/views/polls/compare.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <h1>WYR</h1>
+      <p>Click on the option your prefer</p>
+        <!-- Proposition 1-->
 
-
+        <%= link_to(poll_votes_path(@poll, accepted: @comparison.first.id, rejected: @comparison.last.id), method: :post)  do %>
+        <div class="product">
+          <div class='product-upvote'>
+            <div class="product-arrow"></div>
+            <div class='product-count'>95</div>
+          </div>
+          <img src="kudoz.jpg" alt="kudoz" class="product-image hidden-xs">
+          <div class='product-body'>
+            <h3><%= @comparison.first.name %></h3>
+            <p>hello</p>
+          </div>
+        </div>
+        <% end %>
+        <!-- Proposition 2-->
+        <%= link_to poll_votes_path(@poll, accepted: @comparison.last.id, rejected: @comparison.first.id), method: :post do %>
+        <div class="product">
+          <div class='product-upvote'>
+            <div class="product-arrow"></div>
+            <div class='product-count'>95</div>
+          </div>
+          <img src="kudoz.jpg" alt="kudoz" class="product-image hidden-xs">
+          <div class='product-body'>
+            <h3><%= @comparison.last.name %></h3>
+            <p>hello</p>
+          </div>
+        </div>
+        <% end %>
+    </div>
+  </div>
+</div>
