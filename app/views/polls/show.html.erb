@@ -1,7 +1,15 @@
-<h1>Polls#show</h1>
-<p>Find me in app/views/polls/show.html.erb</p>
+  <div class="banner">
+    <div class="container text-center">
+      <%= link_to 'Start Poll Page', start_poll_path(@poll), :class => "btn btn-medium" %>
 
-<%#= render "poll-start" %>
+      <button type="button" class="btn btn-medium" data-toggle="modal" data-target="#share-modal">
+        Share Poll!
+      </button>
+    </div>
+  </div>
+      <%= render "polls/share_poll" %>
 
-<!-- if minimum 1 poll is finished ==> if end poll >= 1 / click btn end poll event listener-->
 
+  <%#= render "poll-start" %>
+
+  <!-- if minimum 1 poll is finished ==> if end poll >= 1 / click btn end poll event listener-->
