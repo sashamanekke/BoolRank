@@ -8,6 +8,9 @@ class PollsController < ApplicationController
     @polls = Poll.all
   end
 
+  def start
+
+  end
 
   def show
     @propositions = @poll.propositions.order(:score)
