@@ -1,6 +1,8 @@
 class PollsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :create, :show]
-  before_action :set_poll, only: [:show, :add_propositions, :edit, :update, :destroy]
+
+  before_action :set_poll, only: [:show, :add_propositions, :edit, :update, :destroy, :results]
+
 
   def index
     @polls = Poll.all
@@ -54,6 +56,10 @@ class PollsController < ApplicationController
     #At one point show a button "see result" wich will show back the poll page
     #Which will integrate then the results
   end
+
+   def results
+    @propositions = @poll.propositions.order(:score)
+   end
 
   private
   def set_poll
