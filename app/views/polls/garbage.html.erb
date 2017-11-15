@@ -60,3 +60,50 @@ $ ->
         find(modal_selector).modal()
 
       false
+
+
+
+<div ng-controller="QuestionController">
+  <form accept-charset="UTF-8" action="/questions" class="new_question" id="new_question" method="post" name="newQuestionForm"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="hvDtuT8i+RHVYOF+IGRa+lOwzZz49C4Kiukgda5a6lM=" /></div>
+    <div class="field">
+      <input autocomplete="off" class="large" id="question_title" name="question[title]" ng_model="question" placeholder="Add your question here" type="text" />
+    </div>
+
+    <h3>Add your options below:</h3>
+
+    <div class="field" ng-repeat="option in options track by $index">
+      <input autocomplete="off" id="options__title" name="options[][title]" ng_blur="optionBlur($index, option)" ng_model="options[$index]" placeholder="Option {{$index+1}}" type="text" />
+    </div>
+
+
+    <small ng-hide="optionsShown">
+      <a href="#" ng-click="optionsShown = true" >Options</a>
+      <br>
+    </small>
+
+
+    <div id="options" ng-show="optionsShown">
+      <hr>
+      <input autocomplete="off" class="input--small" id="question_secret" maxlength="16" name="question[secret]" ng_model="secret" placeholder="Optional custom URL" type="text" unique_secret="{{ secret }}" value="" />
+      <p ng-show="newQuestionForm.$invalid"><small>Sorry! This URL is taken.</small></p>
+    </div>
+
+
+    <br>
+
+    <div class="actions">
+      <input disabled="disabled" name="commit" ng_disabled="formDisabled()" type="submit" value="Start" />
+    </div>
+
+    <br><small class="subtle">or</small><br>
+      <small>View an example <a href="/ukb2NQtysb6QUEw4HFF_NQ">Question</a> and <a href="/ukb2NQtysb6QUEw4HFF_NQ/results">Results</a></small>
+</form></div>
+
+    <br>
+
+
+
+    input[type=text] {
+    fz: lighter
+  }
+
