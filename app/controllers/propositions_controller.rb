@@ -1,10 +1,11 @@
 class PropositionsController < ApplicationController
   before_action :set_proposition, only: [:show, :add_propositions, :edit, :update, :destroy]
-  before_action :set_poll, only: [:create]
+  before_action :set_poll, only: [:create, :show]
   def index
   end
 
   def show
+
   end
 
   def new

@@ -14,6 +14,7 @@
           <div class="proposition red-background">
             <% if @comparison.first.photo.nil? %>
             <% else %>
+            <%= @proposition.photo.first %>
             <% end %>
             <div>
               <h3><%= @comparison.first.name %></h3>
