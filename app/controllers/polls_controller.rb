@@ -1,5 +1,5 @@
 class PollsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :create, :show]
+  skip_before_action :authenticate_user!, only: [:start]
   before_action :set_poll, only: [:show, :add_propositions, :edit, :update, :destroy, :compare, :results, :start]
 
 
@@ -38,10 +38,10 @@ class PollsController < ApplicationController
     @poll = Poll.new(poll_params)
     # add current user when login is set !!!!!!!!!!!!!!!!
     @poll.user = current_user
-    if @poll.save!
+    if @poll.save
       redirect_to add_propositions_poll_path(@poll)
     else
-      render :new
+      render 'pages/home'
     end
   end
 
@@ -49,6 +49,12 @@ class PollsController < ApplicationController
   end
 
   def update
+    @poll.title = params[:poll][:title]
+    if @poll.save
+      redirect_to add_propositions_poll_path(@poll)
+    else
+      render :new
+    end
   end
 
   def destroy
@@ -62,13 +68,13 @@ class PollsController < ApplicationController
 
     ### Just to test and see
     @test_array = all_combinations.map{ |el|
-        [el.first.id, el.last.id]
+      [el.first.id, el.last.id]
     }
     @test_array_2 = existing_combinations.map{ |el|
-        [el.first.id, el.last.id]
+      [el.first.id, el.last.id]
     }
     test_array_3 = @poll.votes.where(user: current_user).map{ |el|
-        [el.accepted_proposition.id, el.rejected_proposition.id]
+      [el.accepted_proposition.id, el.rejected_proposition.id]
     }
     ###
   end

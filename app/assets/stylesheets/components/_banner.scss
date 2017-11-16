@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #FECB45;
+  background-color: #FECB45//#FECB45 //$yellow;// #FECB45;
 }
 .banner h1 {
   font-size: 50px;
@@ -20,4 +20,9 @@
   color: rgb(255, 255, 255);
   opacity: 0.6;
   margin-bottom: 30px;
+}
+body {
+  background-image: image-url("background.png");
+    //  background-repeat: no-repeat;
+    background-size: 30%;
 }
