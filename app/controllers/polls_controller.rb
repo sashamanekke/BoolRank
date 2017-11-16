@@ -84,7 +84,7 @@ class PollsController < ApplicationController
   end
 
   def results
-    @propositions = @poll.propositions.order(:score)
+    @propositions = @poll.propositions.order(:score).reverse
   end
 
   private
