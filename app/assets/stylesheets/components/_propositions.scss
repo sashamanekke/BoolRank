@@ -34,6 +34,15 @@
   border: 2px solid blue;
 }
 
+.result-bar{
+  height: 100%;
+  width: 0%;
+  left: 0;
+  top: 0;
+  background-color: rgba(0,0,0,0.5);
+  position: absolute;
+  border-radius: 10px 0px 0px 10px;
+}
 
 // .proposition-user {
 //   position: absolute;
