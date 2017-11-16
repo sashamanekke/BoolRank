@@ -3,7 +3,7 @@
     <div>
       <%= image_tag "Boolrank-white.png", class: "logo-front-page" %>
     </div>
-    <h1>Create a BoolPoll</h1>
+    <h1>Create a NoodlePoll</h1>
     <p>Let the BoolMan Choose for you</p>
     <%= simple_form_for(@poll, url: polls_path, method: 'post') do |f| %>
       <%= f.input :title, placeholder: "What can't you decide?", label: false %>
