@@ -5,7 +5,7 @@ class PropositionsController < ApplicationController
   end
 
   def show
-
+    @proposition.poll = @poll
   end
 
   def new
