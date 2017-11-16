@@ -1,40 +1,43 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <h1 class="text-center">New Poll</h1>
+      <div class="form-new-poll">
+        <h1 class="text-center">New Poll</h1>
 
-      <%= render 'form' %>
+        <%= render 'form' %>
 
-      <h1> <%= @poll.title %></h1>
-      <h2>Add Propositions</h2>
+        <h2> <%= @poll.title %></h2>
+        <h1>Add Propositions</h1>
 
-      <%= render "form_proposition" %>
-      <div class="btn btn-medium"">
-        <%= link_to "Continue", poll_path %>
-      </div>
-      <ul>
-        <% @poll.propositions.each do |proposition|%>
-        <div class="product">
-          <!-- <div class='product-upvote'>
-            <div class="product-arrow"></div>
-            <div class='product-count'>95</div>
-          </div> -->
-          <div class="product-image">
-            <% if @proposition.photo? %>
-            <%= cl_image_tag @proposition.photo.path %>
-            <% end %>
-          </div>
-          <div class='product-body'>
-            <h3><%= @proposition.name %></h3>
-          </div>
-          <ul class="list-inline product-controls hidden-sm hidden-xs">
-            <li><a href=""><i class="fa fa-heart"></i></a></li>
-            <li><a href=""><i class="fa fa-share"></i></a></li>
-            <li><a href=""><i class="fa fa-star"></i></a></li>
-          </ul>
+        <%= render "form_proposition" %>
+        <div class="btn white-btn"">
+          <%= link_to "Continue", poll_path %>
         </div>
-        <% end %>
+        <ul>
+          <% @poll.propositions.each do |proposition|%>
+            <div class="product">
+              <!-- <div class='product-upvote'>
+                <div class="product-arrow"></div>
+                <div class='product-count'>95</div>
+              </div> -->
+              <div class="product-image">
+                <% if @proposition.photo? %>
+                <%= cl_image_tag @proposition.photo.path %>
+                <% end %>
+              </div>
+              <div class='product-body'>
+                <h3><%= @proposition.name %></h3>
+              </div>
+              <ul class="list-inline product-controls hidden-sm hidden-xs">
+                <li><a href=""><i class="fa fa-heart"></i></a></li>
+                <li><a href=""><i class="fa fa-share"></i></a></li>
+                <li><a href=""><i class="fa fa-star"></i></a></li>
+              </ul>
+            </div>
+          <% end %>
       </ul>
+      </div>
     </div>
   </div>
 </div>
+

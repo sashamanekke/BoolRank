@@ -1,9 +1,16 @@
-<%= simple_form_for([@poll, @proposition], url: poll_propositions_path(@poll), method: 'post') do |f| %>
+
+
+
+        <%= simple_form_for([@poll, @proposition], url: poll_propositions_path(@poll), method: 'post') do |f| %>
+  <div class="form-inputs">
     <%= f.input :name, placeholder: "Name of the proposition"%>
     <%= f.hidden_field :score, value: 0 %>
     <%= f.input :photo, as: :attachinary %>
-    <%= f.hidden_field :hashtag, value: "#" %>
+     <%= f.hidden_field :hashtag, value: "#" %>
     <%= f.hidden_field :description, placeholder: "Give a small description (optional)" %>
-    <%= f.button :submit, class: "btn btn-medium"  %>
-<% end %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn white-btn"  %>
+  </div>
 
+<% end %>

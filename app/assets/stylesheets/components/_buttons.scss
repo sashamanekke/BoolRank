@@ -24,4 +24,27 @@
   color: white;
 }
 
+.white-btn {
+
+    float: left;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-left: 10px;
+    font-size: 1.3rem;
+    background-color: #fff;
+    border: 2px solid #041030;
+    transition: background .33333s;
+
+    a {
+        font-size: 1.6rem;
+    line-height: 2.1;
+
+    }
+
+}
+
 /* Build your own button classes ! */

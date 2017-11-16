@@ -1,4 +1,4 @@
-<div class="navbar-wagon">
+<div class="navbar-wagon <%= yield(:navbar_class) %>" >
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "Boolrank-yellow.png" %>
@@ -47,6 +47,7 @@
   <!-- Dropdown list appearing on mobile only -->
   <div class="navbar-wagon-item hidden-md hidden-lg">
     <div class="dropdown">
+      <%= yield(:navbar_link) %>
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <li><a href="#">Some mobile link</a></li>
