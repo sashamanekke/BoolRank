@@ -12,7 +12,7 @@
         <% if @propositions.first.photo =! "" %>
         <div class="best-prop" style=" background-image: url('<%= image_path  @propositions.first.photo  %>')"></div>
         <% else %>
-        <div class="best-prop" style="background-color: black"><h1 class="text-center">1</h1></div>
+        <div class="best-prop" style="background-color:  black"><h1 class="text-center">1</h1></div>
         <% end %>
         <div class="text">
           <ul>
@@ -32,7 +32,7 @@
             <% if proposition.photo =! "" %>
             <div class="photo" style="background-image: url('<%= image_path  proposition.photo %>') "></div>
             <% else %>
-            <div class="photo" style="background-color: black"><h1 class="text-center"><%= index += 2 %></h1></div>
+            <div class="photo" style="background-color:  black"><h1 class="text-center"><%= index += 2 %></h1></div>
             <% end %>
             <div class="text">
               <ul>
