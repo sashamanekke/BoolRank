@@ -1,5 +1,5 @@
 class PollsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :create, :show]
+  skip_before_action :authenticate_user!, only: [:start]
   before_action :set_poll, only: [:show, :add_propositions, :edit, :update, :destroy, :compare, :results, :start]
 
 
@@ -38,10 +38,10 @@ class PollsController < ApplicationController
     @poll = Poll.new(poll_params)
     # add current user when login is set !!!!!!!!!!!!!!!!
     @poll.user = current_user
-    if @poll.save!
+    if @poll.save
       redirect_to add_propositions_poll_path(@poll)
     else
-      render :new
+      render 'pages/home'
     end
   end
 
@@ -50,7 +50,7 @@ class PollsController < ApplicationController
 
   def update
     @poll.title = params[:poll][:title]
-    if @poll.save!
+    if @poll.save
       redirect_to add_propositions_poll_path(@poll)
     else
       render :new

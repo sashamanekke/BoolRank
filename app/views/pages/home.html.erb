@@ -8,9 +8,21 @@
     <%= simple_form_for(@poll, url: polls_path, method: 'post') do |f| %>
       <%= f.input :title, placeholder: "What can't you decide?", label: false %>
       <!-- QUESTION?? WHERE CAN I EDIT THE PLACEHOLDER OF THE BUTTON?????-->
-      <%= f.button :submit, class: "btn-medium" %>
+      <%= f.button :submit, class: "btn-medium", id: "home-button" %>
     <% end %>
   </div>
 </div>
 
 
+
+<script>
+  // const button = document.getElementById("home-btn")
+  // button.addEventListener('click', (e) => {
+  //   if (button.innerText == "") {
+  //     e.preventDefault;
+  //     button.addClass('red-border');
+  //     button.addLabel("cant be blank");
+  //   }
+  // });
+
+</script>
