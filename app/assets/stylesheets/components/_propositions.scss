@@ -1,0 +1,77 @@
+.center-text {
+  text-align: center;
+}
+
+.proposition {
+  height: 175px;
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  position: relative;
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 10px;
+}
+.red-background {
+  background-color: $red;
+}
+.blue-background {
+  background-color: $blue;
+}
+.no-link a:link {
+  text-decoration:none;
+}
+.red-background:hover {
+  background-color: white;
+  color: red;
+  border: 2px solid red;
+}
+.blue-background:hover {
+  background-color: white;
+  color: blue;
+  border: 2px solid blue;
+}
+
+
+// .proposition-user {
+//   position: absolute;
+//   right: 10px;
+//   top: 10px;
+//   width: 40px;
+//   border-radius: 50%;
+// }
+// .proposition-category {
+//   position: absolute;
+//   top: 10px;
+//   left: 10px;
+//   font-size: 15px;
+//   text-transform: uppercase;
+// }
+// .proposition-description {
+//   position: absolute;
+//   bottom: 10px;
+//   left: 10px;
+// }
+// .proposition-description h2 {
+//   font-size: 24px;
+// }
+// .proposition-description p {
+//   font-size: 14px;
+//   opacity: 0.7;
+//   font-weight: lighter;
+// }
+// .proposition-link {
+//   position: absolute;
+//   top: 0;
+//   bottom: 0;
+//   right: 0;
+//   width: 100%;
+//   z-index: 2;
+//   background: black;
+//   opacity: 0;
+// }
+// .proposition-link:hover {
+//   opacity: 0.1;
+// }

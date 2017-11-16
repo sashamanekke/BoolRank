@@ -1,43 +1,36 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <h1>WYR</h1>
-
+      <h3 class="center-text">WYR</h3>
       <% if @comparison == nil %>
-      <%= link_to "results", results_poll_path(@poll) %>
+        <%= link_to "results", results_poll_path(@poll) %>
       <% else %>
-      <p>Click on the option your prefer</p>
-      <!-- <%= @test_array %> -->
-      <!-- <%= @test_array_2 %> -->
-      <!-- Proposition 1-->
+        <p class="center-text">Click on the option your prefer</p>
+        <!-- <%= @test_array %> -->
+        <!-- <%= @test_array_2 %> -->
+        <!-- Proposition 1-->
+        <div class="no-link">
+          <%= link_to(poll_votes_path(@poll, accepted: @comparison.first.id, rejected: @comparison.last.id), method: :post)  do %>
+          <div class="proposition red-background">
+            <% if @comparison.first.photo.nil? %>
+            <% else %>
+            <% end %>
+            <div>
+              <h3><%= @comparison.first.name %></h3>
+            </div>
+          </div>
+          <% end %>
+        </div>
 
-      <%= link_to(poll_votes_path(@poll, accepted: @comparison.first.id, rejected: @comparison.last.id), method: :post)  do %>
-      <div class="product">
-        <div class='product-upvote'>
-          <div class="product-arrow"></div>
-          <div class='product-count'>95</div>
+        <h3 class="center-text">or</h3>
+        <!-- Proposition 2-->
+        <div class="no-link">
+          <%= link_to poll_votes_path(@poll, accepted: @comparison.last.id, rejected: @comparison.first.id), method: :post do %>
+            <div class="proposition blue-background">
+            <h3><%= @comparison.last.name %></h3>
+            </div>
+          <% end %>
         </div>
-        <img src="kudoz.jpg" alt="kudoz" class="product-image hidden-xs">
-        <div class='product-body'>
-          <h3><%= @comparison.first.name %></h3>
-          <p>hello</p>
-        </div>
-      </div>
-      <% end %>
-      <!-- Proposition 2-->
-      <%= link_to poll_votes_path(@poll, accepted: @comparison.last.id, rejected: @comparison.first.id), method: :post do %>
-      <div class="product">
-        <div class='product-upvote'>
-          <div class="product-arrow"></div>
-          <div class='product-count'>95</div>
-        </div>
-        <img src="kudoz.jpg" alt="kudoz" class="product-image hidden-xs">
-        <div class='product-body'>
-          <h3><%= @comparison.last.name %></h3>
-          <p>hello</p>
-        </div>
-      </div>
-      <% end %>
       <% end %>
     </div>
   </div>
