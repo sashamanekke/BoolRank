@@ -3,6 +3,7 @@ body {
   line-height: 1.6;
   margin: 0;
   padding: 0;
+<<<<<<< HEAD
    background-image: image-url("background.png");
     //  background-repeat: no-repeat;
     background-size: 30%;
@@ -10,6 +11,12 @@ body {
   // background-repeat: no-repeat;
   background-attachment: fixed;
 
+=======
+  background-color: #FECB45;
+  //background-size: cover !important;
+  //background-repeat: no-repeat;
+  //background-attachment: fixed;
+>>>>>>> master
 }
 
 *{box-sizing: border-box;}
