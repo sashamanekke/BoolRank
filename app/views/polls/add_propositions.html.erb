@@ -15,14 +15,17 @@
       <ul>
         <% @poll.propositions.each do |proposition|%>
         <div class="product">
-          <div class='product-upvote'>
+          <!-- <div class='product-upvote'>
             <div class="product-arrow"></div>
             <div class='product-count'>95</div>
+          </div> -->
+          <div class="product-image">
+            <% if @proposition.photo? %>
+            <%= cl_image_tag @proposition.photo.path %>
+            <% end %>
           </div>
-          <img src="Boolrank-yellow.png" alt="kudoz" class="product-image hidden-xs">
           <div class='product-body'>
-            <h3><%= proposition.name %></h3>
-            <p>hello</p>
+            <h3><%= @proposition.name %></h3>
           </div>
           <ul class="list-inline product-controls hidden-sm hidden-xs">
             <li><a href=""><i class="fa fa-heart"></i></a></li>
