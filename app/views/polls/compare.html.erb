@@ -1,7 +1,7 @@
 <div class="prop-container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-4 col-md-4 col-md-offset-4">
-      <h3 class=" prop-title center-text">WYR</h3>
+      <h3 class="poll-prop-title center-text">WYR</h3>
       <% if @comparison == nil %>
       <%= link_to "results", results_poll_path(@poll) %>
       <% else %>
@@ -11,16 +11,18 @@
       <!-- Proposition 1-->
       <div class="no-link">
         <%= link_to(poll_votes_path(@poll, accepted: @comparison.first.id, rejected: @comparison.last.id), method: :post, class: "top") do %>
-        <div class="prop-card" data-vote=1 id="vote-1">
-          <div class="result-bar"></div>
+        <div class="proposition" data-vote=1 id="vote-1">
           <% if @comparison.first.photo.nil? %>
-          <div class="proposition red-background"></div>
+          <div class="no-prop color-<%= (1..10).to_a.sample %>"></div>
           <% else %>
-          <%= cl_image_tag @comparison.first.photo.path, class: "prop-img" %>
+          <div class="prop-card">
+            <%= cl_image_tag @comparison.first.photo.path, class: "prop-img" %>
+          </div>
           <% end %>
+          <div class="result-bar"></div>
           <div>
             <div class="prop-card-category">
-            <h3 class="prop-card-category"><%= @comparison.first.name %></h3>
+              <h3><%= @comparison.first.name %></h3>
             </div>
           </div>
         </div>
@@ -31,12 +33,14 @@
       <!-- Proposition 2-->
       <div class="no-link">
         <%= link_to poll_votes_path(@poll, accepted: @comparison.last.id, rejected: @comparison.first.id), method: :post do %>
-        <div class="prop-card" data-vote=2 id="vote-2">
+        <div class="proposition" data-vote=2 id="vote-2">
           <div class="result-bar"></div>
           <% if @comparison.last.photo.nil? %>
-          <div class="proposition blue-background"></div>
+          <div class="no-prop color-<%= (1..10).to_a.sample %>"></div>
           <% else %>
-          <%= cl_image_tag @comparison.last.photo.path, class: "prop-img" %>
+          <div class="prop-card">
+            <%= cl_image_tag @comparison.last.photo.path, class: "prop-img" %>
+          </div>
           <% end %>
           <div class="prop-card-category">
             <h3><%= @comparison.last.name %></h3>
