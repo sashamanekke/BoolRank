@@ -4,11 +4,11 @@ body {
   margin: 0;
   padding: 0;
 
-   background-image: image-url("background.png");
-    //  background-repeat: no-repeat;
-    background-size: 30%;
-  // background-size: cover !important;
-  // background-repeat: no-repeat;
+   background-image: image-url("background.gif");
+
+    // background-size: 30%;
+  background-size: cover !important;
+  background-repeat: no-repeat;
   background-attachment: fixed;
 
 }

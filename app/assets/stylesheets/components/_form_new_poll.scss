@@ -1,72 +1,179 @@
 
 
-// .form{
-//   background: #F7E53C;
-//   padding: 10px 20px;
-//   margin-top: 50px;
-//   border-radius: 3px;
-//   box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-//   h2 {
-//     font-size: 25px;
-//     font-weight: bold;
-//     margin-bottom: 30px;
-//     text-align: center;
-//   }
-//   .btn {
-//     width: 100%;
-//     margin-bottom: 20px
-//   }
-// }
+// // .form{
+// //   background: #F7E53C;
+// //   padding: 10px 20px;
+// //   margin-top: 50px;
+// //   border-radius: 3px;
+// //   box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+// //   h2 {
+// //     font-size: 25px;
+// //     font-weight: bold;
+// //     margin-bottom: 30px;
+// //     text-align: center;
+// //   }
+// //   .btn {
+// //     width: 100%;
+// //     margin-bottom: 20px
+// //   }
+// // }
 
 .form-control {
-      width: 100%;
-    padding: 0 1.5em;
-    height: 45px;
-    color: #041030;
+      display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #19365c;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #19365c;
+    border-radius: 0;
+
+
+    &:hover{
+      box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+
+
+    color: $gray;
     font-size: 1.4rem;
     background-color: #fff;
-    border: 2px solid #041030;
+
     border-radius: 50px;
     outline: none;
 }
 
-.form-new-poll{
-  background-color: #F7E53C;
-  padding: 10px 20px;
-  margin-top: 50px;
-  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-  h2 {font-size: 25px;
-    font-weight: bold;
-    margin-bottom: 30px;
-    text-align: center;
+.product {
+   color: $gray;
+}
 
+
+.form-new-poll{
+
+  background: rgba(255, 233, 168, 0.5);
+  padding: 0;
+  margin-top: 50px;
+  margin: 10px;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+      border: 0.5px solid #19365c;
+  h2 {font-size: 20px;
+    margin-bottom: 5px;
+    text-align: center;
+    margin-top: 20px;
+
+  }
+    h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    color: $gray;
+   margin-bottom: 5px;
+    margin-top: 20px;
   }
   .btn {
-    width: 100%;
-    margin-bottom: 20px
+        text-transform: uppercase;
+        color:$fun-yellow;
+        display: inline-block;
+    font-weight: 400;
+    text-align: center;
+
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 0;
+
+
+  }
+
+  p {
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    color: $gray;
+   margin-bottom: 10px;
+    margin-top: 5px;
   }
 }
 
-.product-controls a {
-    padding: 0 20px;
-    font-size: 17px;
-    color: #333333;
+.update-poll {
+  //   display: flex;
+  //   flex-direction: column;
+  // align-items: center;
+  justify-content:center;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 12px;
+
+  border-bottom: 0.5px solid #19365c;
 }
 
-.proposition_photo {
-  font-size: 15px;
+.add-prop {
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  justify-content:center;
+  padding: 12px;
+  margin-left: 10px;
+  margin-right: 10px;
+
 
 }
 
-.photo-btn {
 
-    padding: 0 1.5em;
-    height: 45px;
-    color: #041030;
-    font-size: 1.4rem;
-    background-color: #fff;
-    border: 2px solid #041030;
-    outline: none;
-
+.flex-box {
+  display:flex;
+  align-items: center;
+  justify-content: center;
 }
+.label-photo {
+  max-width: 93px;
+  height: auto;
+  background: $gray;
+  padding: 20px;
+  border-radius: 5px;
+  opacity: 1;
+  flex: 0 0 30%;
+  text-align: center;
+  &:hover {
+    opacity: 0.6;
+
+    cursor: pointer;
+  }
+  &.active {
+  background: $brand-primary;
+  color: white;
+  opacity: 1;
+  }
+  color: $fun-yellow;
+}
+
+
+// .product-controls a {
+//     padding: 0 20px;
+//     font-size: 17px;
+//     color: $gray;
+// }
+
+// .proposition_photo {
+//   font-size: 15px;
+
+// }
+
+// .photo-btn {
+
+//     padding: 0 1.5em;
+//     height: 45px;
+//     color: $gray;
+//     font-size: 1.4rem;
+//     background-color: #fff;
+//     border: 0.5px solid $gray;
+//     outline: none;
+
+// }
 
