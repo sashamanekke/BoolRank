@@ -248,6 +248,7 @@ DEPENDENCIES
   attachinary!
   autoprefixer-rails
   bootstrap-sass
+  byebug
   cloudinary (= 1.1.7)
   coffee-rails
   devise

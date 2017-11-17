@@ -24,4 +24,49 @@
   color: white;
 }
 
+.gray-btn {
+
+width: 100%;
+text-align: center;
+    font-size: 1.3rem;
+    background-color: $dark-gray;
+    border: 0.5px solid $dark-gray;
+    transition: background .33333s, transform 2s;
+    color: $dark-gray;
+
+
+
+     a:hover {
+
+
+        font-size: 1.6rem;
+    line-height: 2.1;
+
+    }
+
+}
+
+.white-btn-funny {
+
+    float: left;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-left: 10px;
+    font-size: 1.3rem;
+    background-color: #fff;
+    border: 2px solid #041030;
+    transition: background .33333s;
+
+    a {
+        font-size: 1.6rem;
+    line-height: 2.1;
+
+    }
+
+}
+
 /* Build your own button classes ! */

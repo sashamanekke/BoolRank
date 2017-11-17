@@ -1,40 +1,57 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <h1 class="text-center">New Poll</h1>
+      <div class="form-new-poll">
+       <div class="update-poll">
+        <h1 >New Poll</h1>
 
-      <%= render 'form' %>
-
-      <h1> <%= @poll.title %></h1>
-      <h2>Add Propositions</h2>
-
-      <%= render "form_proposition" %>
-      <div class="btn btn-medium"">
-        <%= link_to "Continue", poll_path %>
+        <%= render 'form_new_poll' %>
       </div>
-      <ul>
+      <div class="add-prop">
         <% @poll.propositions.each do |proposition|%>
-        <div class="product">
-          <!-- <div class='product-upvote'>
-            <div class="product-arrow"></div>
-            <div class='product-count'>95</div>
-          </div> -->
-          <div class="product-image">
-            <% if @proposition.photo? %>
-            <%= cl_image_tag @proposition.photo.path %>
-            <% end %>
+        <div class="flex-box-2">
+          <div class="name-box">
+            <div class="created-name">
+              <h3><%= proposition.name %></h3>
+              <!-- <div class='product-upvote'>
+                <div class="product-arrow"></div>
+                <div class='product-count'>95</div>
+              </div> -->
+            </div></div>
+            <div class="photo-box">
+
+              <% unless proposition.photo.nil?  %>
+                <div class="created-photo" style="background-image: url('<%= cl_image_path  proposition.photo.path %>')"></div>
+              <% else %>
+                <div class="created-photo" style="background-color: black"></div>
+
+              <% end %>
+
+              <%#= cl_image_tag proposition.photo.path %>
+            </div>
+             <!--
+              <ul class="list-inline product-controls">
+                <li><a href=""><i class="fa fa-heart"></i></a></li>
+                <li><a href=""><i class="fa fa-share"></i></a></li>
+                <li><a href=""><i class="fa fa-star"></i></a></li>
+              </ul>
+            -->
           </div>
-          <div class='product-body'>
-            <h3><%= @proposition.name %></h3>
-          </div>
-          <ul class="list-inline product-controls hidden-sm hidden-xs">
-            <li><a href=""><i class="fa fa-heart"></i></a></li>
-            <li><a href=""><i class="fa fa-share"></i></a></li>
-            <li><a href=""><i class="fa fa-star"></i></a></li>
-          </ul>
+
+          <% end %>
         </div>
-        <% end %>
-      </ul>
+        <div class="add-prop-2">
+          <!-- <h1>Add Propositions</h1> -->
+          <%= render "form_proposition" %>
+          <div class="btn gray-btn">
+            <%= link_to "Continue", poll_path %>
+          </div>
+        </div>
+
+
+      </div>
     </div>
   </div>
 </div>
+
+
