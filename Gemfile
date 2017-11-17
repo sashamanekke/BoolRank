@@ -5,6 +5,8 @@ gem 'faker'
 gem 'ui_faces'
 gem 'omniauth-facebook'
 
+gem 'byebug'
+
 gem 'devise'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'

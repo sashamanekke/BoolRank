@@ -3,12 +3,21 @@ body {
   line-height: 1.6;
   margin: 0;
   padding: 0;
+
+
+   //background-image: image-url("background.gif");
+  //background-size: cover !important;
+  //background-repeat: no-repeat;
+  //background-attachment: fixed;
+
+
   background-color: #FECB45;
   //background-size: cover !important;
   //background-repeat: no-repeat;
   //background-attachment: fixed;
   background-image: image-url("background.png");
   background-size: 30%;
+
 }
 
 *{box-sizing: border-box;}
@@ -43,6 +52,7 @@ p {
 
 a
 {
+  cursor: auto;
  text-decoration:none;
 }
 a:link

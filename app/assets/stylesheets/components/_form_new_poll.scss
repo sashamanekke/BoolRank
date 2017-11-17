@@ -1,0 +1,130 @@
+
+.form-control {
+      display: block;
+      text-align: center;
+    width: 90%;
+    margin-left:25px;
+    height: 34px;
+    margin-top: 20px;
+    // padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: $dark-gray;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid $dark-gray;
+    border-radius: 0;
+
+    padding: 6px 12px;
+
+
+    &:hover{
+      box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+
+
+
+    font-size: 1.4rem;
+
+
+    outline: none;
+}
+
+
+
+.form-new-poll{
+
+  // background: rgba(255, 233, 168, 0.5);
+ background-image: url(https://media.giphy.com/media/4RduUxmi6IMmI/giphy.gif);
+    padding: 0;
+    margin-top: 50px;
+    margin: 10px;
+    -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    border: 3px solid $dark-gray;
+
+  h2 {font-size: 20px;
+    margin-bottom: 5px;
+    text-align: center;
+    margin-top: 20px;
+
+  }
+    h1 {
+      font-weight: 400;
+    line-height: 1.1;
+    color: inherit;
+    text-align: center;
+
+
+    color: $dark-gray;
+   margin-bottom: 5px;
+    margin-top: 20px;
+  }
+  .btn {
+        text-transform: uppercase;
+        color: white;
+        display: inline-block;
+    font-weight: 400;
+    text-align: center;
+
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 0;
+
+
+  }
+
+  p {
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    color: $dark-gray;
+   margin-bottom: 10px;
+    margin-top: 5px;
+  }
+}
+
+.update-poll {
+     background-color: white;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+
+    border-top: 3px solid $dark-gray;
+    border-bottom: 3px solid $dark-gray;
+    margin-top: 40px;
+}
+
+
+
+
+
+
+// .product-controls a {
+//     padding: 0 20px;
+//     font-size: 17px;
+//     color: $dark-gray;
+// }
+
+// .proposition_photo {
+//   font-size: 15px;
+
+// }
+
+// .photo-btn {
+
+//     padding: 0 1.5em;
+//     height: 45px;
+//     color: $dark-gray;
+//     font-size: 1.4rem;
+//     background-color: #fff;
+//     border: 0.5px solid $dark-gray;
+//     outline: none;
+
+// }
+
