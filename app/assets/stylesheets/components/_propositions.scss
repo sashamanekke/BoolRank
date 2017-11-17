@@ -1,5 +1,18 @@
+.prop-container {
+  width: 100%;
+  // margin: 0 auto;
+}
+
+.prop-title {
+  margin-top: 20px;
+}
+
 .center-text {
   text-align: center;
+}
+
+.prop-img {
+  border-radius: 10px;
 }
 
 .prop-cards {
@@ -8,6 +21,7 @@
 }
 
 .prop-card {
+  border-radius: 10px;
   height: 175px;
   height: 30vh;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
@@ -18,11 +32,8 @@
   display: flex;
   text-align: center;
   justify-content: space-around;
-  // border-radius: .5em;
-  // padding: 50px;
   margin: 30px;
-  overflow: hidden;
-  z-index: 1;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 }
 
 .prop-card-category {
@@ -44,7 +55,7 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  border-radius: .5em;
+  border-radius: 10px;
 }
 .red-background {
   background-color: $red;

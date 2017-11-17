@@ -1,7 +1,7 @@
-<div class="container">
+<div class="prop-container">
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-4 col-md-6 col-md-offset-3">
-      <h3 class="center-text">WYR</h3>
+    <div class="col-xs-12 col-sm-6 col-sm-offset-4 col-md-4 col-md-offset-4">
+      <h3 class=" prop-title center-text">WYR</h3>
       <% if @comparison == nil %>
       <%= link_to "results", results_poll_path(@poll) %>
       <% else %>
@@ -14,8 +14,9 @@
         <div class="prop-card" data-vote=1 id="vote-1">
           <div class="result-bar"></div>
           <% if @comparison.first.photo.nil? %>
+          <div class="proposition red-background"></div>
           <% else %>
-          <%= cl_image_tag @comparison.first.photo.path, :radius => 40 %>
+          <%= cl_image_tag @comparison.first.photo.path, class: "prop-img" %>
           <% end %>
           <div>
             <div class="prop-card-category">
@@ -33,8 +34,9 @@
         <div class="prop-card" data-vote=2 id="vote-2">
           <div class="result-bar"></div>
           <% if @comparison.last.photo.nil? %>
+          <div class="proposition blue-background"></div>
           <% else %>
-          <%= cl_image_tag @comparison.last.photo.path, :radius => 40 %>
+          <%= cl_image_tag @comparison.last.photo.path, class: "prop-img" %>
           <% end %>
           <div class="prop-card-category">
             <h3><%= @comparison.last.name %></h3>
