@@ -1,28 +1,10 @@
 
-
-// // .form{
-// //   background: #F7E53C;
-// //   padding: 10px 20px;
-// //   margin-top: 50px;
-// //   border-radius: 3px;
-// //   box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-// //   h2 {
-// //     font-size: 25px;
-// //     font-weight: bold;
-// //     margin-bottom: 30px;
-// //     text-align: center;
-// //   }
-// //   .btn {
-// //     width: 100%;
-// //     margin-bottom: 20px
-// //   }
-// // }
-
 .form-control {
       display: block;
     width: 100%;
     height: 34px;
-    padding: 6px 12px;
+    margin-top: 20px;
+    // padding: 6px 12px;
     font-size: 14px;
     line-height: 1.42857143;
     color: #19365c;
@@ -45,19 +27,18 @@
     outline: none;
 }
 
-.product {
-   color: $gray;
-}
 
 
 .form-new-poll{
 
-  background: rgba(255, 233, 168, 0.5);
-  padding: 0;
-  margin-top: 50px;
-  margin: 10px;
-  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-      border: 0.5px solid #19365c;
+  // background: rgba(255, 233, 168, 0.5);
+ background-image: url(https://media.giphy.com/media/4RduUxmi6IMmI/giphy.gif);
+    padding: 0;
+    margin-top: 50px;
+    margin: 10px;
+    -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    border: 3px solid #19365c;
   h2 {font-size: 20px;
     margin-bottom: 5px;
     text-align: center;
@@ -102,56 +83,19 @@
 }
 
 .update-poll {
-  //   display: flex;
-  //   flex-direction: column;
-  // align-items: center;
-  justify-content:center;
-  margin-left: 10px;
-  margin-right: 10px;
-  padding: 12px;
+     background-color: white;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
 
-  border-bottom: 0.5px solid #19365c;
-}
-
-.add-prop {
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
-  justify-content:center;
-  padding: 12px;
-  margin-left: 10px;
-  margin-right: 10px;
-
-
+    border-top: 3px solid #19365c;
+    border-bottom: 3px solid #19365c;
+    margin-top: 40px;
 }
 
 
-.flex-box {
-  display:flex;
-  align-items: center;
-  justify-content: center;
-}
-.label-photo {
-  max-width: 93px;
-  height: auto;
-  background: $gray;
-  padding: 20px;
-  border-radius: 5px;
-  opacity: 1;
-  flex: 0 0 30%;
-  text-align: center;
-  &:hover {
-    opacity: 0.6;
 
-    cursor: pointer;
-  }
-  &.active {
-  background: $brand-primary;
-  color: white;
-  opacity: 1;
-  }
-  color: $fun-yellow;
-}
+
 
 
 // .product-controls a {

@@ -1,33 +1,21 @@
-
-
-
-
-
-<form novalidate="novalidate" class="simple_form new_proposition" id="new_proposition" enctype="multipart/form-data" action="/polls/39/propositions" accept-charset="UTF-8" method="post">
-  <input name="utf8" type="hidden" value="&#x2713;" />
-  <input type="hidden" name="authenticity_token" value="7taXz2Nd1iX+LfpewjyFP4xuy/ibCtJ4W2equukhCu1DCcHw9hBLQggmpJF2mWUGQjgQRl7wPpraicotwElkbQ==" />
-  <div class="form-inputs">
-    <div class="form-group string optional proposition_name">
-      <label class="control-label string optional" for="proposition_name"></label>
-      <input class="form-control string optional" placeholder="Name of the proposition" type="text" name="proposition[name]" id="proposition_name" />
+<%= simple_form_for([@poll, @proposition], url: poll_propositions_path(@poll), method: 'post') do |f| %><div class="flex-box">
+  <div class="name-box">
+    <%= f.input :name, placeholder: "Name of the proposition", label: false%>
+    <%= f.hidden_field :score, value: 0 %>
+</div>
+<div class="photo-box">
+    <%= f.input :photo, as: :attachinary %>
+</div>
     </div>
-    <input value="0" type="hidden" name="proposition[score]" id="proposition_score" />
-    <div class="form-group attachinary optional proposition_photo">
+    <%= f.hidden_field :hashtag, value: "#" %>
+    <%= f.hidden_field :description, placeholder: "Give a small description (optional)" %>
+    <%= f.button :submit, class: "btn gray-btn"  %>
 
-        <p>Add Image</p><div class="flex-box">
-
-      <label class="control-label attachinary optional label-photo" for="proposition_photo"><i class="fa fa-plus" aria-hidden="true"></i>
-      </label></div>
-      <input class="attachinary optional attachinary-input hidden" data-attachinary="{&quot;accessible&quot;:true,&quot;single&quot;:true,&quot;scope&quot;:&quot;photo&quot;,&quot;maximum&quot;:1,&quot;singular&quot;:&quot;photo&quot;,&quot;plural&quot;:&quot;photos&quot;,&quot;files&quot;:[]}" data-form-data="{&quot;callback&quot;:&quot;http://www.localhost:3000/attachinary/cors&quot;,&quot;tags&quot;:&quot;development_env,attachinary_tmp&quot;,&quot;timestamp&quot;:1510874973,&quot;signature&quot;:&quot;7ab008a5e68913769631349479dade66ef6a90dd&quot;,&quot;api_key&quot;:&quot;428459672123337&quot;}" data-url="https://api.cloudinary.com/v1_1/dhydlx8n5/auto/upload" type="file" name="proposition[photo]" id="proposition_photo" />
-    </div>
-    <input value="#" type="hidden" name="proposition[hashtag]" id="proposition_hashtag" />
-    <input placeholder="Give a small description (optional)" type="hidden" name="proposition[description]" id="proposition_description" />
-  </div>
-  <div class="form-actions">
-    <input type="submit" name="commit" value="Create Proposition" class="btn grey-btn" data-disable-with="Create Proposition" />
-  </div>
+<% end %>
 
 
-</form>
 
-
+<script>
+  // console.log(document.getElementsByClassName('control-label attachinary')[0])
+  document.getElementsByClassName('control-label attachinary')[0].innerHTML = "<i class='fa fa-plus'></i>";
+</script>
