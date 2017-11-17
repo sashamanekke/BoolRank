@@ -2,6 +2,38 @@
   text-align: center;
 }
 
+.prop-cards {
+  display: flex;
+  border-radius: 40px;
+}
+
+.prop-card {
+  height: 175px;
+  height: 30vh;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  position: relative;
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+  // border-radius: .5em;
+  // padding: 50px;
+  margin: 30px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.prop-card-category {
+  position: absolute;
+  left: 0px;
+  top: 50%;
+  width: 100%;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
 .proposition {
   height: 175px;
   background-size: cover !important;
@@ -12,7 +44,7 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  border-radius: 13px;
+  border-radius: .5em;
 }
 .red-background {
   background-color: $red;
@@ -33,6 +65,8 @@
   color: blue;
   border: 2px solid blue;
 }
+
+// ___________ temporary below ________________
 
 .fileUpload {
   position: relative;
