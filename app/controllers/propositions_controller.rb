@@ -17,7 +17,7 @@ class PropositionsController < ApplicationController
     colors = ["#FF0000","#FFFF00","#00FF00","#00FFFF"," #0000FF","#FF00FF"]
     @proposition = Proposition.new(proposition_params)
     @proposition.poll = @poll
-    @proposition.color = colors.sample
+    # @proposition.color = colors.sample
     if @proposition.save!
       redirect_to add_propositions_poll_path(@poll)
     else
