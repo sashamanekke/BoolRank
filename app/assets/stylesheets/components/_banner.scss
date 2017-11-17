@@ -10,6 +10,7 @@
   background-color: #FECB45;//$yellow;// #FECB45;
 }
 .banner h1 {
+  color: white;
   font-size: 50px;
   font-weight: bold;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
@@ -20,9 +21,4 @@
   color: rgb(255, 255, 255);
   opacity: 0.6;
   margin-bottom: 30px;
-}
-body {
-  background-image: image-url("background.png");
-    //  background-repeat: no-repeat;
-    background-size: 30%;
 }

@@ -1,21 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <%= favicon_link_tag asset_path('favicon.png'), :rel => 'icon', :type =>  'image/png' %>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-    <title>♉︎Boolrank♉︎</title>
-    <%= csrf_meta_tags %>
-    <%= action_cable_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-  </head>
-  <body>
-    <%= render 'shared/navbar', use_class: (controller_name == "pages" ? "navbar-landing-page" : "navbar-wagon") %>
-    <%= render 'shared/flashes' %>
-    <%= yield %>
-    <%= javascript_include_tag 'application' %>
-    <%= cloudinary_js_config %>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <%= favicon_link_tag asset_path('favicon.png'), :rel => 'icon', :type =>  'image/png' %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <title>♉︎Boolrank♉︎</title>
+  <%= csrf_meta_tags %>
+  <%= action_cable_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+</head>
+<body>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1110435302420692',
+        xfbml      : true,
+        version    : 'v2.11'
+      });
+      FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+ </script>
+ <%= render 'shared/navbar', use_class: (controller_name == "pages" ? "navbar-landing-page" : "navbar-wagon") %>
+ <%= render 'shared/flashes' %>
+ <%= yield %>
+ <%= javascript_include_tag 'application' %>
+ <%= cloudinary_js_config %>
+</body>
 </html>
