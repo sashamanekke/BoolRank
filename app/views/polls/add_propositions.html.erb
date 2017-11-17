@@ -9,7 +9,7 @@
       </div>
       <div class="add-prop">
         <% @poll.propositions.each do |proposition|%>
-        <div class="flex-box">
+        <div class="flex-box-2">
           <div class="name-box">
             <div class="created-name">
               <h3><%= proposition.name %></h3>
@@ -40,7 +40,7 @@
 
           <% end %>
         </div>
-        <div class="add-prop">
+        <div class="add-prop-2">
           <!-- <h1>Add Propositions</h1> -->
           <%= render "form_proposition" %>
           <div class="btn gray-btn">
