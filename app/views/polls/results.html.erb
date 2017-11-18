@@ -1,17 +1,20 @@
 
 <div class="container">
   <div class="link  hidden-md hidden-lg">
-  <a href="#top">Top</a>
-  <a href="#participants">Participants</a>
-  <a href="#else">Else</a>
-</div>
+    <a href="#top">Top</a>
+    <a href="#participants">Participants</a>
+    <a href="#else">Else</a>
+  </div>
   <div class="grid ">
     <div class="main">
       <div class="prop-1" id="top">
-        <% if @propositions.first.photo =! "" %>
-        <div class="best-prop" style=" background-image: url('<%=@propositions.first.photo  %>')"></div>
+        <% if @poll.propositions.first.photo.nil? %>
+        <div class="best-prop" style="background-color:  <%= @poll.propositions.first.color %>"><h1 class="text-center"><%= @poll.propositions.first.name %></h1></div>
         <% else %>
-        <div class="best-prop" style="background-color:  <%= @propositions.first.color %>"><h1 class="text-center"><%= @propositions.first.name %></h1></div>
+        <div class="best-prop">
+          <%= cl_image_tag @poll.propositions.first.photo.path %>
+
+        </div>
         <% end %>
         <div class="text">
           <ul>
@@ -23,20 +26,20 @@
     </div>
     <div class="stat">
       <div class="prop-2" id="else">
-        <% @propositions[1..-1].each_with_index do |proposition, index|%>
-          <div class="other-prop">
-            <% if proposition.photo =! "" %>
-            <div class="photo" style="background-image: url('<%=proposition.photo %>') "></div>
-            <% else %>
-            <div class="photo" style="background-color:  <%= proposition.color %>"><p class="text-center"><%= @propositions[index+1].name %></p></div>
-            <% end %>
-            <div class="text">
-              <ul>
-                <li><p>Description: <%= proposition.description %></p></li>
-                <li><h3>Score: <%= proposition.score %></h3></li>
-              </ul>
-            </div>
+        <% @poll.propositions[1..-1].each_with_index do |proposition, index|%>
+        <div class="other-prop">
+          <% if @poll.propositions.second.photo.nil? %>
+          <div class="photo" style="background-image: url('<%=proposition.photo %>') "></div>
+          <% else %>
+          <div class="photo" style="background-color:  <%= proposition.color %>"><p class="text-center"><%= @propositions[index+1].name %></p></div>
+          <% end %>
+          <div class="text">
+            <ul>
+              <li><p>Description: <%= proposition.description %></p></li>
+              <li><h3>Score: <%= proposition.score %></h3></li>
+            </ul>
           </div>
+        </div>
         <% end %>
       </div>
     </div>
@@ -46,12 +49,12 @@
         <h1><%= @poll.participants.count %></h1>
       </div>
       <% @poll.participants.each do |participant|%>
-        <div class="other-prop">
-          <div class="photo" style="background-image: url('<%= image_path  participant.user.profile.photo %>') "></div>
-          <div class="text">
-            <h1><%= participant.user.profile.name %> <br> <%= participant.user.profile.surname %></h1>
-          </div>
+      <div class="other-prop">
+        <div class="photo" style="background-image: url('<%= image_path  participant.user.profile.photo %>') "></div>
+        <div class="text">
+          <h1><%= participant.user.profile.name %> <br> <%= participant.user.profile.surname %></h1>
         </div>
+      </div>
       <% end %>
     </div>
   </div>
