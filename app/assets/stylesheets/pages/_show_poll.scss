@@ -21,12 +21,44 @@
 }
 
 .child-center {
-      position: absolute;
-    top: 50%;
-        transform: translate(0,-50%);
-    width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translate(0,-50%);
+  width: 100%;
 }
 
 .padding-module {
   padding: 0 12px;
+}
+
+.pull-left {
+  float: left!important;
+}
+
+.pull-right {
+  float: right!important;
+}
+
+.entry-title {
+  margin: 5rem 0 5rem;
+  font-size: 2em;
+}
+
+
+
+.borde-fino {
+    border-width: 1px;
+}
+
+.borde-r {
+    border-right: 3px solid #19365c;
+}
+
+.margin-tb {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.info-details .title {
+    font-size: 1.8em;
 }

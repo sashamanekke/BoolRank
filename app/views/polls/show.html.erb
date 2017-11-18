@@ -12,6 +12,18 @@
 
 <div class="container-poll">
   <div class="info-poll">
+    <div class="parent-center">
+      <div class="child-center padding-module">
+        <div class="pull-left">
+          <%= link_to '< Back', add_propositions_poll_path(@poll)%>
+
+        </div>
+        <div class="pull-right">
+          <%= link_to 'home / ', root_path%>
+        </div>
+
+      </div>
+    </div>
     <h1 class="text-center" ><%= @poll.title %></h1>
   </div>
 
