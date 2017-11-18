@@ -107,3 +107,132 @@ $ ->
     fz: lighter
   }
 
+<!-- _______louise add_prop div_________ -->
+
+
+
+         <div class="photo-box">
+              <% unless proposition.photo.nil?  %>
+              <div class="created-photo" style="background-image: url('<%= cl_image_path  proposition.photo.path %>')"></div>
+              <% else %>
+              <div class="created-photo" style="background-color: black"></div>
+              <% end %>
+              <%#= cl_image_tag proposition.photo.path %>
+            </div>
+
+
+
+
+<!-- ___________louise show_poll_page____________________ -->
+
+
+
+
+<%= content_for(:navbar_class, "navbar-show") %>
+<%= content_for(:navbar_link) do %>
+  <a href="#participants" class="text-center">Participants</a>
+<% end %>
+
+<!-- <div class="container">
+  <div class="link  hidden-md hidden-lg">
+  <a href="#top" >Top</a>
+  <a href="#participants">Participants</a>
+  <a href="#else">Else</a>
+</div> -->
+
+
+<h1 class="text-center" ><%= @poll.title %></h1>
+<h1 class="text-center" >Created by :<%= @poll.user.email%></h1>
+<% if @poll.photo =! "" %>
+            <div class="poll-photo" style="background-image: url('<%= image_path  poll.photo %>') "></div>
+            <% else %>
+            <div class="poll-photo" style="background-color: black"></div>
+            <% end %>
+
+
+
+
+
+
+      <div class="prop-2" id="else">
+        <% @poll.propositions.each_with_index do |proposition, index|%>
+          <div class="other-prop">
+            <% if proposition.photo =! "" %>
+            <div class="photo" style="background-image: url('<%= image_path  proposition.photo %>') "></div>
+            <% else %>
+            <div class="photo" style="background-color: black"><h1 class="text-center"><%= index += 1 %></h1></div>
+            <% end %>
+            <div class="text-show">
+              <ul>
+                <li><h1><%= index += 1 %>: <%= proposition.name %></h1></li>
+                <li><p>Description: <%= proposition.description %></p></li>
+              </ul>
+            </div>
+          </div>
+            <!-- <div class="other-prop hidden-md hidden-lg">
+              <div class="photo " style=" background-image: url('<%#= image_path  proposition.photo %>') "><h1><%#= proposition.name %></h1>
+              </div>
+            </div> -->
+        <% end %>
+      </div>
+
+
+    <div class="participants" id="participants">
+      <h1 class="text-center"><%= link_to 'Participants', poll_participants_path(@poll), class: "btn btn-medium" %></h1>
+      <div class="participants-nbr">
+        <h1><%= @poll.participants.count %></h1>
+      </div>
+      <% @poll.participants.each do |participant|%>
+        <div class="other-prop">
+          <div class="photo" style="background-image: url('<%= image_path  participant.user.profile.photo %>') "></div>
+          <div class="text">
+            <h1><%= participant.user.profile.name %> <br> <%= participant.user.profile.surname %></h1>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
+      <%= link_to 'Start Poll', compare_poll_path(@poll), :class => "btn btn-medium" %>
+
+      <button type="button" class="btn btn-medium" data-toggle="modal" data-target="#share-modal">
+        Share Poll!
+      </button>
+
+      <%= render "polls/share_poll" %>
+
+
+    <!--     create_table "polls", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "photo"
+    t.boolean "status"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_polls_on_user_id"
+  end -->
+
+<!--   create_table "propositions", force: :cascade do |t|
+    t.string "name"
+    t.integer "score"
+    t.string "photo"
+    t.string "hashtag"
+    t.text "description"
+    t.bigint "poll_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["poll_id"], name: "index_propositions_on_poll_id"
+  end
+ -->
+
+
+
+  <%#= render "poll-start" %>
+
+  <!-- if minimum 1 poll is finished ==> if end poll >= 1 / click btn end poll event listener-->
+
