@@ -6,6 +6,10 @@ body {
 
 
    //background-image: image-url("background.gif");
+  //background-size: cover !important;
+  //background-repeat: no-repeat;
+  //background-attachment: fixed;
+
 
   background-color: #FECB45;
   //background-size: cover !important;
@@ -17,6 +21,14 @@ body {
 }
 
 *{box-sizing: border-box;}
+
+*, div {
+    -webkit-transition: all .5s cubic-bezier(.215,.61,.355,1);
+    -o-transition: all .5s cubic-bezier(.215,.61,.355,1);
+    /* transition: all .5s cubic-bezier(.215,.61,.355,1); */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
 img {
   max-width: 100%;

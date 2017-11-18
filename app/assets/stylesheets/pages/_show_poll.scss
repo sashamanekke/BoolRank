@@ -1,0 +1,32 @@
+.container-poll {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+
+.info-poll {
+  margin: 5rem 0 5rem;
+  font-size: 2em;
+}
+
+.modulo-nav {
+  border: 3px solid #19365c;
+  height: 4rem;
+}
+
+.parent-center {
+  position: relative;
+}
+
+.child-center {
+      position: absolute;
+    top: 50%;
+        transform: translate(0,-50%);
+    width: 100%;
+}
+
+.padding-module {
+  padding: 0 12px;
+}
