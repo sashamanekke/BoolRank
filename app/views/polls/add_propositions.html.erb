@@ -9,7 +9,7 @@
       </div>
       <div class="add-prop">
         <% @poll.propositions.each do |proposition|%>
-        <div class="flex-box-2">
+        <div class="flex-box">
           <div class="name-box">
             <div class="created-name">
               <h3><%= proposition.name %></h3>
@@ -17,18 +17,19 @@
                 <div class="product-arrow"></div>
                 <div class='product-count'>95</div>
               </div> -->
-            </div></div>
-            <div class="photo-box">
 
-              <% unless proposition.photo.nil?  %>
-                <div class="created-photo" style="background-image: url('<%= cl_image_path  proposition.photo.path %>')"></div>
-              <% else %>
-                <div class="created-photo" style="background-color: black"></div>
-
-              <% end %>
-
-              <%#= cl_image_tag proposition.photo.path %>
             </div>
+          </div>
+          <div class="photo-box">
+
+            <% unless proposition.photo.nil?  %>
+            <div class="created-photo" style="background-image: url('<%= cl_image_path  proposition.photo.path %>')"></div>
+            <% else %>
+            <div class="created-photo" style="background-color: black"></div>
+
+            <% end %>
+          </div>
+
              <!--
               <ul class="list-inline product-controls">
                 <li><a href=""><i class="fa fa-heart"></i></a></li>
@@ -40,6 +41,7 @@
 
           <% end %>
         </div>
+
         <div class="add-prop-2">
           <!-- <h1>Add Propositions</h1> -->
           <%= render "form_proposition" %>
