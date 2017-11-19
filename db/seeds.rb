@@ -1,10 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 puts 'Cleaning database...'
 User.destroy_all
 Profile.destroy_all
@@ -12,10 +6,6 @@ Poll.destroy_all
 Proposition.destroy_all
 Vote.destroy_all
 Participant.destroy_all
-
-# url_image = "https://picsum.photos/1920/1080/?random"
-# avatar = "put here link for random...? if we don't use the UiFaces gem"
-# url_image_fruit = "https://unsplash.com/search/photos/fruits"
 
 puts 'Creating 5 fake users...'
 5.times do
@@ -32,7 +22,7 @@ puts 'Creating 5 fake profiles...'
     name:    Faker::Name.name,
     surname: Faker::Name.last_name
     )
-  profile.photo = UiFaces.face
+  # profile.photo = UiFaces.face
   profile.user = User.all[x]
   profile.save!
 end
@@ -43,40 +33,51 @@ puts 'Creating 5 fake polls...'
     user: User.all[x],
     title: Faker::Space.planet,
     description: "This poll is about ... (add what you want)",
-    photo: "https://picsum.photos/1920/1080/?random",
+    # photo: "https://picsum.photos/1920/1080/?random",
     status: true,
     )
   poll.save!
   #shower.picture_urls = [url]
-  puts 'Creating 5 fake proposition per poll...'
-  15.times do
+  puts 'Creating 6 fake proposition per poll...'
+  colors = ["#FF0000","#FFFF00","#00FF00","#00FFFF"," #0000FF","#FF00FF"]
+  photos_url = [
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9-yKOwhwjlGlHCeWZllhaw3GPukr2q95AsYSmBfnboUXLeQ_6iQ",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRZzAExN62lD9lJQ5TpjTP6vaP8RUg3W1rseem-59KqugvkMnS",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEQLDAtmhlQXVME_97PFOZ6EEPOg_xtgzsZ5CR1N4idg-fqho7sg",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsQQcjLoRBC4Sk7lUl8Nc2tCDQbiFeDCM3LgYE5Mh1ZNmuMMXfZw",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp8OEnaTQloWRufsrjvzN40FkDb1yN8WQmx-1x3VcxhhGCionEAQ",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpwYc8lRGsLHVR0VL193utzZJhYvsTy-lPMNgsHiuEQsVcXFXT",
+  ]
+  6.times do |i|
     proposition = Proposition.new(
       name: Faker::Food.ingredient,
-      score: rand(1..10),
-      photo: "https://source.unsplash.com/1600x900/?random",
+      score: 0,
+      # photo: "https://source.unsplash.com/1600x900/?random",
       hashtag: "#",
-      description: "Add some nice description about this proposition"
+      description: "Add some nice description about this proposition",
+      color: colors.sample,
       )
+    proposition.photo_url = photos_url[i-1]
     proposition.poll = poll
     proposition.save!
   end
-  puts "Creating 10 fake proposition for poll #{x}"
-  10.times do |y|
-    vote = Vote.new()
-    vote.poll = poll
-    vote.user = User.all.sample
-    vote.accepted_proposition = poll.propositions.sample
-    vote.rejected_proposition = poll.propositions.sample
-    vote.save!
-  end
+  # puts "Creating 10 fake votes for poll #{x}"
+  # 10.times do |y|
+  #   vote = Vote.new()
+  #   vote.poll = poll
+  #   vote.user = User.all.sample
+  #   vote.accepted_proposition = poll.propositions.sample
+  #   vote.rejected_proposition = poll.propositions.sample
+  #   vote.save!
+  # end
 
-    puts "Creating 10 fake participants for poll #{x}"
-  10.times do |y|
-    participant = Participant.new()
-    participant.poll = poll
-    participant.user = User.all.sample
-    participant.save!
-  end
+  #   puts "Creating 10 fake participants for poll #{x}"
+  # 10.times do |y|
+  #   participant = Participant.new()
+  #   participant.poll = poll
+  #   participant.user = User.all.sample
+  #   participant.save!
+  # end
 end
 puts 'Finished!'
 
