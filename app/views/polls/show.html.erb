@@ -20,16 +20,12 @@
 <% end %>
 
 
-
-
-
-
 <div class="prop-2" id="else">
   <% @poll.propositions.each_with_index do |proposition, index|%>
   <div class="other-prop">
     <% if proposition.poll.photo.nil? %>
     <div class="photo">
-      <%= cl_image_tag  proposition.poll.photo.path %>
+      <%= cl_image_tag proposition.poll.photo.path %>
     </div>
     <% else %>
     <div class="photo" style="background-color: black"><h1 class="text-center"><%= index += 1 %></h1></div>

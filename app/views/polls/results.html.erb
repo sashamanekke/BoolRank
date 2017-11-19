@@ -28,10 +28,12 @@
       <div class="prop-2" id="else">
         <% @poll.propositions[1..-1].each_with_index do |proposition, index|%>
         <div class="other-prop">
-          <% if @poll.propositions.second.photo.nil? %>
-          <div class="photo" style="background-image: url('<%=proposition.photo %>') "></div>
-          <% else %>
+          <% if @poll.propositions.first.photo.nil? %>
           <div class="photo" style="background-color:  <%= proposition.color %>"><p class="text-center"><%= @propositions[index+1].name %></p></div>
+          <% else %>
+          <div class="photo">
+          <%= cl_image_tag @poll.propositions.first.photo.path %>
+          </div>
           <% end %>
           <div class="text">
             <ul>
