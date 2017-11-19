@@ -6,8 +6,6 @@
       <%= link_to "results", results_poll_path(@poll) %>
       <% else %>
       <p class="center-text">Click on the option your prefer</p>
-      <!-- <%= @test_array %> -->
-      <!-- <%= @test_array_2 %> -->
       <!-- Proposition 1-->
       <div class="no-link">
         <%= link_to(poll_votes_path(@poll, accepted: @comparison.first.id, rejected: @comparison.last.id), method: :post, class: "top") do %>
@@ -34,7 +32,6 @@
       <div class="no-link">
         <%= link_to poll_votes_path(@poll, accepted: @comparison.last.id, rejected: @comparison.first.id), method: :post do %>
         <div class="proposition" data-vote=2 id="vote-2">
-          <div class="result-bar"></div>
           <% if @comparison.last.photo.nil? %>
           <div class="no-prop" style="background-color:  <%= @comparison.last.color %>""></div>
           <% else %>
@@ -42,8 +39,11 @@
             <%= cl_image_tag @comparison.last.photo.path, class: "prop-img" %>
           </div>
           <% end %>
-          <div class="prop-card-category">
-            <h3><%= @comparison.last.name %></h3>
+          <div class="result-bar"></div>
+          <div>
+            <div class="prop-card-category">
+              <h3><%= @comparison.last.name %></h3>
+            </div>
           </div>
         </div>
         <% end %>
