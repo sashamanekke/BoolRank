@@ -1,0 +1,231 @@
+
+
+
+
+.container-fluid {
+ margin-right: auto;
+ margin-left: auto;
+ padding-left: 6px;
+ padding-right: 6px;
+}
+
+.col-xs-4 {
+  width: 50%;
+  padding: 0px;
+
+}
+// .col {
+//       position: relative;
+//     min-height: 1px;
+//     padding-left: 6px;
+//     padding-right: 6px;
+// }
+
+.col-md-6 {
+    position: relative;
+    min-height: 1px;
+  padding-left: 6px;
+ padding-right: 6px;
+}
+
+.col-xs-12 {
+      position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+
+.row {
+    margin-left: -6px;
+    margin-right: -6px;
+}
+
+
+
+
+
+
+
+.info-poll {
+  margin: 5rem 0 5rem;
+
+  /*font-size: 2em;*/
+}
+
+.modulo-nav {
+  border: 3px solid #19365c;
+  height: 4rem;
+}
+
+
+.padding-module {
+  padding: 0 12px;
+}
+
+
+
+.entry-title {
+  margin: 5rem 0 5rem;
+  font-size: 2em;
+}
+
+.info-details .title {
+  font-size: 1.8em;
+}
+
+.info-details {
+  margin-bottom: 10rem;
+}
+ .profile-details {
+  margin: 0px;
+  max-height: 228px;
+}
+.profile-description {
+  margin: 15px;
+  height: 120px;
+}
+
+.profile-description .text {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+
+
+}
+
+
+
+.profile-avatar {
+  width: 100%;
+  height: 100%;
+}
+
+
+.profil-avatar.margin-tb  {
+
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+
+}
+
+.show-prop {
+  margin: 0px;
+  border: 0px;
+}
+
+.flex-box {
+   display:flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+
+
+
+
+
+.flex-box {
+ width:100%;
+ min-height: auto;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+.parent-center {
+  position: relative;
+}
+
+.child-center {
+  position: absolute;
+  top: 50%;
+  transform: translate(0,-50%);
+  width: 100%;
+}
+
+.parent-bottom {
+  position: relative;
+}
+
+.child-bottom {
+  position: absolute;
+  top: 50%;
+}
+
+
+.pull-left {
+  float: left!important;
+}
+
+.pull-right {
+  float: right!important;
+}
+
+
+
+.borde-r {
+  border-right: 3px solid #19365c;
+}
+
+.borde-t {
+  border-top: 3px solid #19365c;
+}
+
+.borde-b {
+  border-bottom: 3px solid #19365c;
+}
+
+.borde-l {
+  border-left: 3px solid #19365c;
+}
+
+.borde-fino {
+  border-width: 1px;
+}
+
+
+
+
+
+.margin-tb {
+  margin-top: 2.4rem;
+  margin-bottom: 2.35rem;
+}
+
+
+.margin-fluid {
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+.margin-b-small {
+    margin-bottom: 12px;
+}
+
+
+.padding-top-general {
+  padding-top: 6rem;
+}
+
+.background-blanco {
+    background-color: #fff;
+}
+
+
+.background-gif {
+  background-image: url("https://media.giphy.com/media/4RduUxmi6IMmI/giphy.gif");
+  width: 100%;
+  height: auto;
+  background-size: cover !important;
+
+}
+
+
+/*.col-xs-4 {
+    width: 50%;
+    }*/
+
+
