@@ -1,7 +1,7 @@
 <%= content_for(:navbar_class, "navbar-show") %>
-<%= content_for(:navbar_link) do %>
-<a href="#participants" class="text-center">Participants</a>
-<% end %>
+<%#= content_for(:navbar_link) do %>
+<!-- <a href="#participants" class="text-center">Participants</a> -->
+<%# end %>
 
 <!-- <div class="container">
   <div class="link  hidden-md hidden-lg">
@@ -9,105 +9,104 @@
   <a href="#participants">Participants</a>
   <a href="#else">Else</a>
 </div> -->
-
-<div class="container-poll">
-  <div class="info-poll">
-    <h1 class="text-center" ><%= @poll.title %></h1>
-  </div>
-
-
-</div>
-
-<h1 class="text-center" >Created by :<%= @poll.user.email%></h1>
-<% if @poll.photo =! "" %>
-<div class="poll-photo" style="background-image: url('<%= image_path  poll.photo %>') "></div>
-<% else %>
-<div class="poll-photo" style="background-color: black"></div>
-<% end %>
+<div class="site-content margin-fluid">
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="info-poll background-blanco">
 
 
+        <div class="modulo-nav parent-center">
+          <div class="child-center padding-module">
+            <div class="pull-left">
+              <%= link_to '< Back', add_propositions_poll_path(@poll)%>
+            </div>
+            <div class="pull-right">
+              <%= link_to 'home / ', root_path%>
+            </div>
+          </div>
+        </div>
+        <h1 class="entry-title text-center bold" ><%= @poll.title %></h1>
 
 
+        <div class="info-details borde-t">
+          <div class="row">
+            <div class="col-xs-12">
 
+              <div class="profile-details borde-b borde-fino">
+                <div class="row">
+                  <div class="col-xs-4 borde-r borde-fino">
+                    <div class="text-center borde-b ">
+                      <h2 class="bold title margin-tb">
+                        Created by :<%#= @poll.user.email%>
+                      </h2>
+                    </div>
 
-<div class="prop-2" id="else">
-  <% @poll.propositions.each_with_index do |proposition, index|%>
-  <div class="other-prop">
-    <% if proposition.photo =! "" %>
-    <div class="photo" style="background-image: url('<%= image_path  proposition.photo %>') "></div>
-    <% else %>
-    <div class="photo" style="background-color: black"><h1 class="text-center"><%= index += 1 %></h1></div>
-    <% end %>
-    <div class="text-show">
-      <ul>
-        <li><h1><%= index += 1 %>: <%= proposition.name %></h1></li>
-        <li><p>Description: <%= proposition.description %></p></li>
-      </ul>
-    </div>
-  </div>
-            <!-- <div class="other-prop hidden-md hidden-lg">
-              <div class="photo " style=" background-image: url('<%#= image_path  proposition.photo %>') "><h1><%#= proposition.name %></h1>
+                    <!-- background-gif -->
+                    <div class="background-gif">
+                      <div class="text-center">
+                        <div class="profile-avatar borde-b borde-l">
+                          <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+                          <%= image_tag avatar_url, class: "avatar-square-lg margin-tb"%>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-xs-4">
+                    <div class="profile-description">
+                      <p class="text">Lorem  ipsum  dignissimos odio con ipsum  dignissimos odio con ipsum  dignissimos odio con ipsum  dignissimos oodio con ipsum  dignissimos oodio con ipsum  dignissimos odio con ipsum  dignissimos odio consequatur, praesentium?</p>
+                      <%= link_to 'All polls', add_propositions_poll_path(@poll), class: "btn btn-default "%>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div> -->
-            <% end %>
+            </div>
           </div>
 
-
-          <div class="participants" id="participants">
-            <h1 class="text-center"><%= link_to 'Participants', poll_participants_path(@poll), class: "btn btn-medium" %></h1>
-            <div class="participants-nbr">
-              <h1><%= @poll.participants.count %></h1>
-            </div>
-            <% @poll.participants.each do |participant|%>
-            <div class="other-prop">
-              <div class="photo" style="background-image: url('<%= image_path  participant.user.profile.photo %>') "></div>
-              <div class="text">
-                <h1><%= participant.user.profile.name %> <br> <%= participant.user.profile.surname %></h1>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="description margin-tb">
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium nulla vitae commodi maiores voluptatum sed aut magni aliquam molestias ex, eligendi, labore, quasi adipisci magnam eveniet beatae sunt possimus numquam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae dicta impedit nesciunt, dolorum dolorem voluptas facere eaque ipsa iste ducimus, quia accusamus vel sequi laudantium, doloremque nam, aut sit."
               </div>
             </div>
-            <% end %>
+          </div>
+        </div>
+
+
+        <div class="poll-proposition zoom-gallery borde-t margin-tb">
+          <div class="row">
+            <div class=" col-xs-12 margin-b-small">
+              <div class="show-prop background-gif">
+                <% @poll.propositions.each do |proposition|%>
+                <div class="row">
+                  <div class="col-xs-12 margin-b-small">
+                    <div class="flex-box">
+                      <div class="name-box">
+                        <div class="created-name">
+                          <h3><%= proposition.name %></h3>
+                        </div>
+                      </div>
+                      <div class="photo-box">
+                        <% unless proposition.photo.nil?  %>
+                        <div class="created-photo" style="background-image: url('<%= cl_image_path  proposition.photo.path %>')"></div>
+                        <% else %>
+                        <div class="created-photo" style="background-color: black"></div>
+                        <% end %>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <% end %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+</div>
 
-
-
-
-      <%= link_to 'Start Poll', compare_poll_path(@poll), :class => "btn btn-medium" %>
-
-      <button type="button" class="btn btn-medium" data-toggle="modal" data-target="#share-modal">
-        Share Poll!
-      </button>
-
-      <%= render "polls/share_poll" %>
-
-
-    <!--     create_table "polls", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.string "photo"
-    t.boolean "status"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_polls_on_user_id"
-    end -->
-
-<!--   create_table "propositions", force: :cascade do |t|
-    t.string "name"
-    t.integer "score"
-    t.string "photo"
-    t.string "hashtag"
-    t.text "description"
-    t.bigint "poll_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["poll_id"], name: "index_propositions_on_poll_id"
-  end
--->
-
-
-
-<%#= render "poll-start" %>
-
-<!-- if minimum 1 poll is finished ==> if end poll >= 1 / click btn end poll event listener-->
