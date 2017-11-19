@@ -13,7 +13,7 @@
         <%= link_to(poll_votes_path(@poll, accepted: @comparison.first.id, rejected: @comparison.last.id), method: :post, class: "top") do %>
         <div class="proposition" data-vote=1 id="vote-1">
           <% if @comparison.first.photo.nil? %>
-
+          <div class="no-prop" style="background-color:  <%= @comparison.first.color %>"></div>
           <% else %>
           <div class="prop-card">
             <%= cl_image_tag @comparison.first.photo.path, class: "prop-img" %>
@@ -36,7 +36,7 @@
         <div class="proposition" data-vote=2 id="vote-2">
           <div class="result-bar"></div>
           <% if @comparison.last.photo.nil? %>
-
+          <div class="no-prop" style="background-color:  <%= @comparison.last.color %>""></div>
           <% else %>
           <div class="prop-card">
             <%= cl_image_tag @comparison.last.photo.path, class: "prop-img" %>

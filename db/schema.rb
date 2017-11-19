@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171117114847) do
+ActiveRecord::Schema.define(version: 20171119155341) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,7 +63,6 @@ ActiveRecord::Schema.define(version: 20171117114847) do
   create_table "propositions", force: :cascade do |t|
     t.string "name"
     t.integer "score"
-    t.string "photo"
     t.string "hashtag"
     t.text "description"
     t.bigint "poll_id"
