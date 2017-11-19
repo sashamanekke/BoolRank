@@ -25,7 +25,7 @@
             <% unless proposition.photo.nil?  %>
             <div class="created-photo" style="background-image: url('<%= cl_image_path  proposition.photo.path %>')"></div>
             <% else %>
-            <div class="created-photo" style="background-color: black"></div>
+            <div class="created-photo" style="background-color: <%=proposition.color%>"></div>
 
             <% end %>
           </div>
@@ -56,4 +56,17 @@
   </div>
 </div>
 
+
+<script>
+  const add_photo_box = document.querySelector(".control-label")
+  add_photo_box.addEventListener("click", (event) => {
+    add_photo_box.style.display = "none";
+    // const remove_button = add_photo_box.querySelector("a")
+    // remove_button.addEventListener("click", (event) => {
+    //   console.log("you did it!")
+    //   add_photo_box.style.display = "block";
+    // });
+  });
+
+</script>
 

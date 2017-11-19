@@ -89,7 +89,7 @@
                         <% unless proposition.photo.nil?  %>
                         <div class="created-photo" style="background-image: url('<%= cl_image_path  proposition.photo.path %>')"></div>
                         <% else %>
-                        <div class="created-photo" style="background-color: black"></div>
+                        <div class="created-photo" style="background-color: <%=proposition.color%>"></div>
                         <% end %>
                       </div>
                     </div>
