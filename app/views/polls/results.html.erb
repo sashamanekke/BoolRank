@@ -5,16 +5,16 @@
     <a href="#participants">Participants</a>
     <a href="#else">Else</a>
   </div>
+
   <div class="grid ">
     <div class="main">
       <div class="prop-1" id="top">
         <% if @propositions.first.photo.nil? %>
-        <div class="best-prop" style="background-color:  <%= @poll.propositions.first.color %>"><h1 class="text-center"><%= @poll.propositions.first.name %></h1></div>
-        <% else %>
-        <div class="best-prop">
-          <%= cl_image_tag @propositions.first.photo.path %>
-
-        </div>
+          <div class="best-prop" style="background-color:  <%= @poll.propositions.first.color %>"><h1 class="text-center"><%= @poll.propositions.first.name %></h1></div>
+          <% else %>
+          <div class="best-prop">
+            <%= cl_image_tag @propositions.first.photo.path %>
+          </div>
         <% end %>
         <div class="text">
           <ul>
@@ -24,16 +24,17 @@
         </div>
       </div>
     </div>
+
+
     <div class="stat">
       <div class="prop-2" id="else">
         <% @propositions[1..-1].each_with_index do |proposition, index|%>
         <div class="other-prop">
-
           <% if proposition.photo.nil? %>
           <div class="photo" style="background-color:  <%= proposition.color %>"><p class="text-center"><%= proposition[index+1].name %></p></div>
           <% else %>
           <div class="photo">
-          <%= cl_image_tag proposition.photo.path %>
+            <%= cl_image_tag proposition.photo.path %>
           </div>
           <% end %>
           <div class="text">
@@ -46,6 +47,7 @@
         <% end %>
       </div>
     </div>
+
     <div class="participants" id="participants">
       <h1 class="text-center"><%= link_to 'Participants', poll_participants_path(@poll), class: "btn btn-medium" %></h1>
       <div class="participants-nbr">
