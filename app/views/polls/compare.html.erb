@@ -12,7 +12,6 @@
       <div class="no-link">
         <%= link_to(poll_votes_path(@poll, accepted: @comparison.first.id, rejected: @comparison.last.id), method: :post, class: "top") do %>
         <div class="proposition" data-vote=1 id="vote-1">
-          <%= raise %>
           <% if @comparison.first.photo.nil? %>
 
           <% else %>
