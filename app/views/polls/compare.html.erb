@@ -11,9 +11,10 @@
       <!-- Proposition 1-->
       <div class="no-link">
         <%= link_to(poll_votes_path(@poll, accepted: @comparison.first.id, rejected: @comparison.last.id), method: :post, class: "top") do %>
-        <div class="proposition-1" data-vote=1 id="vote-1">
+        <div class="proposition" data-vote=1 id="vote-1">
+          <%= raise %>
           <% if @comparison.first.photo.nil? %>
-          <div class="no-prop color-<%= (1..10).to_a.sample %>"></div>
+
           <% else %>
           <div class="prop-card">
             <%= cl_image_tag @comparison.first.photo.path, class: "prop-img" %>
@@ -33,10 +34,10 @@
       <!-- Proposition 2-->
       <div class="no-link">
         <%= link_to poll_votes_path(@poll, accepted: @comparison.last.id, rejected: @comparison.first.id), method: :post do %>
-        <div class="proposition-2" data-vote=2 id="vote-2">
+        <div class="proposition" data-vote=2 id="vote-2">
           <div class="result-bar"></div>
           <% if @comparison.last.photo.nil? %>
-          <div class="no-prop color-<%= (1..10).to_a.sample %>"></div>
+
           <% else %>
           <div class="prop-card">
             <%= cl_image_tag @comparison.last.photo.path, class: "prop-img" %>

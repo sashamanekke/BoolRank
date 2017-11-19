@@ -31,7 +31,9 @@
         <% @propositions[1..-1].each_with_index do |proposition, index|%>
         <div class="other-prop">
           <% if proposition.photo.nil? %>
-          <div class="photo" style="background-color:  <%= proposition.color %>"><p class="text-center"><%= proposition[index+1].name %></p></div>
+          <div class="photo" style="background-color:  <%= proposition.color %>">
+            <p class="text-center"><%= proposition[index+1].name %></p>
+          </div>
           <% else %>
           <div class="photo">
             <%= cl_image_tag proposition.photo.path %>
@@ -64,6 +66,7 @@
     </div>
   </div>
 </div>
+
 
 
 
