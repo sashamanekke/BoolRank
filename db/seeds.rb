@@ -44,11 +44,9 @@ puts 'Creating 5 fake polls...'
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9-yKOwhwjlGlHCeWZllhaw3GPukr2q95AsYSmBfnboUXLeQ_6iQ",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRZzAExN62lD9lJQ5TpjTP6vaP8RUg3W1rseem-59KqugvkMnS",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEQLDAtmhlQXVME_97PFOZ6EEPOg_xtgzsZ5CR1N4idg-fqho7sg",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsQQcjLoRBC4Sk7lUl8Nc2tCDQbiFeDCM3LgYE5Mh1ZNmuMMXfZw",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp8OEnaTQloWRufsrjvzN40FkDb1yN8WQmx-1x3VcxhhGCionEAQ",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpwYc8lRGsLHVR0VL193utzZJhYvsTy-lPMNgsHiuEQsVcXFXT",
   ]
-  6.times do |i|
+  4.times do |i|
     proposition = Proposition.new(
       name: Faker::Food.ingredient,
       score: 0,
@@ -61,6 +59,20 @@ puts 'Creating 5 fake polls...'
     proposition.poll = poll
     proposition.save!
   end
+  2.times do |i|
+    proposition = Proposition.new(
+      name: Faker::Food.ingredient,
+      score: 0,
+      # photo: "https://source.unsplash.com/1600x900/?random",
+      hashtag: "#",
+      description: "Add some nice description about this proposition",
+      color: colors.sample,
+      )
+    proposition.poll = poll
+    proposition.save!
+  end
+
+
   # puts "Creating 10 fake votes for poll #{x}"
   # 10.times do |y|
   #   vote = Vote.new()
