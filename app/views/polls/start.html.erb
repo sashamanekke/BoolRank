@@ -4,15 +4,18 @@
     <% unless current_user.nil? %>
       <% user_present = false %>
       <% @poll.participants.each do |participant| %>
-        <% if participant.user = current_user %>
+        <% if participant.user == current_user %>
         <% user_present = true %>
+        <%= "YOU ARE A PARTICIPANT ALREADY" %>
+        <br>
+
         <% end %>
       <% end %>
       <% if user_present %>
-          <%= link_to 'Start Poll!', compare_poll_path(@poll), :class => "btn btn-medium" %>
-        <% else %>
-          <%= link_to 'Join Poll!', poll_participants_path(@poll), :class => "btn btn-medium", method: "post" %>
-        <% end %>
+        <%= link_to 'Start Poll!', compare_poll_path(@poll), :class => "btn btn-medium" %>
+      <% else %>
+        <%= link_to 'Join Poll!', poll_participants_path(@poll), :class => "btn btn-medium", method: "post" %>
+      <% end %>
     <% else %>
         <%= link_to 'Join Poll!', poll_participants_path(@poll), :class => "btn btn-medium", method: "post" %>
     <% end %>
@@ -25,6 +28,7 @@
 <% count = 0 %>
 
 <% @poll.participants.each do |participant| %>
+
   <%= participant.user_id %>
   <% count += 1 %>
 <% end %>
