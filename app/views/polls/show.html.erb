@@ -42,11 +42,16 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-xs-4">
-                      <div class="profile-description">
-                        <p class="text">Lorem  ipsum  dignissimos odio con ipsum  dignissimos odio con ipsum  dignissimos odio con ipsum  dignissimos oodio con ipsum  dignissimos oodio con ipsum  dignissimos odio con ipsum  dignissimos odio consequatur, praesentium?</p>
-                        <%= link_to 'All polls', add_propositions_poll_path(@poll), class: "btn btn-default "%>
-                      </div>
+
+                  </div>
+
+                  <div class="col-xs-4">
+                    <div class="profile-description">
+                      <p class="text">Lorem  ipsum  dignissimos odio con ipsum  dignissimos odio con ipsum  dignissimos odio con ipsum  dignissimos oodio con ipsum  dignissimos oodio con ipsum  dignissimos odio con ipsum  dignissimos odio consequatur, praesentium?</p>
+                      <div>
+                       <button type="button" class="btn btn-default btn-pair" data-toggle="modal" data-target="#share-res">Share Results</button>
+                       </div>
+                      <%= link_to 'All polls', add_propositions_poll_path(@poll), class: "btn btn-default btn-pair"%>
                     </div>
                   </div>
                 </div>
@@ -82,6 +87,7 @@
                         </div>
                       </div>
                     </div>
+
                   </div>
                   <% end %>
                 </div>
@@ -110,5 +116,6 @@
 
 
 <%= render "polls/share_poll" %>
+<%= render "polls/share_results" %>
 
 
