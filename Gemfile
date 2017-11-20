@@ -6,6 +6,7 @@ gem 'ui_faces'
 gem 'omniauth-facebook'
 
 gem 'byebug'
+gem 'clipboard-rails'
 
 gem 'devise'
 gem 'figaro'

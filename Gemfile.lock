@@ -57,6 +57,7 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.3)
     byebug (9.1.0)
+    clipboard-rails (1.7.1)
     cloudinary (1.1.7)
       aws_cf_signer
       rest-client
@@ -249,6 +250,7 @@ DEPENDENCIES
   autoprefixer-rails
   bootstrap-sass
   byebug
+  clipboard-rails
   cloudinary (= 1.1.7)
   coffee-rails
   devise
