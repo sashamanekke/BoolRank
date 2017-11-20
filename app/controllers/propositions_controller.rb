@@ -1,6 +1,6 @@
 class PropositionsController < ApplicationController
   before_action :set_proposition, only: [:show, :add_propositions, :edit, :update, :destroy]
-  before_action :set_poll, only: [:create, :show]
+  before_action :set_poll, only: [:create, :show, :destroy, :edit, :update]
   def index
   end
 
@@ -26,12 +26,27 @@ class PropositionsController < ApplicationController
   end
 
   def edit
+    respond_to do |format|
+      format.js
+    end
   end
 
   def update
+
+      if @proposition.update(proposition_params)
+      redirect_to add_propositions_poll_path(@poll)
+    else
+      render add_propositions_poll_path(@poll)
+    end
   end
 
   def destroy
+
+    if @proposition.destroy
+      redirect_to add_propositions_poll_path(@poll)
+    else
+      render add_propositions_poll_path(@poll)
+    end
   end
 
   private

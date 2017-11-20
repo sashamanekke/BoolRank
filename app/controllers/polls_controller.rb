@@ -38,7 +38,14 @@ class PollsController < ApplicationController
     @poll = Poll.new(poll_params)
     # add current user when login is set !!!!!!!!!!!!!!!!
     @poll.user = current_user
+
     if @poll.save
+      # create a participant automatically when you create a poll
+      participant = Participant.new()
+      participant.user = current_user
+      participant.poll = @poll
+      participant.save
+      # redirect_to
       redirect_to add_propositions_poll_path(@poll)
     else
       render 'pages/home'
@@ -58,6 +65,7 @@ class PollsController < ApplicationController
   end
 
   def destroy
+    @poll.destroy
   end
 
   def compare

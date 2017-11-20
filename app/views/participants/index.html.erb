@@ -1,2 +1,8 @@
 <h1>Participants#index</h1>
 <p>Find me in app/views/participants/index.html.erb</p>
+
+<% count = 0 %>
+<% @poll.participants.each do |participant| %>
+  <%= participant.user_id %>
+  <% count += 1 %>
+<% end %>

@@ -3,11 +3,15 @@
   text-align: center;
   height: 90vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
-  background-size: cover !important;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $fun-yellow;
+  // background-color: $fun-yellow;
+  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+  background-size: cover !important;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 .banner h1 {
   color: white;

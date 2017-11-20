@@ -7,6 +7,8 @@
 
         <%= render 'form_new_poll' %>
       </div>
+
+
       <div class="add-prop">
         <% @poll.propositions.each do |proposition|%>
         <div class="flex-box">
@@ -19,6 +21,20 @@
               </div> -->
 
             </div>
+          </div>
+          <div class="btn-delete flex-box">
+
+            <%= link_to( poll_proposition_path(@poll, proposition), method: :delete) do %>
+            <i class="fa fa-times" aria-hidden="true"></i>
+              <% end %>
+
+          </div>
+           <div class="btn-edit flex-box">
+
+           <%= link_to edit_poll_proposition_path(@poll, proposition), remote: true, method: :get do %>
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+              <% end %>
+
           </div>
           <div class="photo-box">
 
@@ -41,6 +57,9 @@
 
           <% end %>
         </div>
+
+
+
 
         <div class="add-prop-2">
           <!-- <h1>Add Propositions</h1> -->
