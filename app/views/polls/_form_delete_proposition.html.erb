@@ -1,7 +1,0 @@
-<%= simple_form_for(@poll) do |f| %>
-    <%= f.input :title, placeholder: "Title", value: @poll.title, label: false %>
-    <%= f.hidden_field :description, placeholder: "Give a small description (optional)" %>
-    <%= f.hidden_field :photo, placeholder: "Add a photo (optional)"%>
-    <%= f.hidden_field :status, value: true %>
-    <%= f.button :submit, class: "btn-black"  %>
-<% end %>

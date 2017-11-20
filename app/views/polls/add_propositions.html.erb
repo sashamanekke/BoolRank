@@ -21,9 +21,12 @@
             </div>
           </div>
           <div class="btn-delete">
-            <%= link_to "<i class="fa fa-times" aria-hidden="true"></i>" , add_proposition_path(@poll),
-      method: :delete,
-      data: { confirm: "Are you sure?" } %>
+
+            <%= link_to( poll_proposition_path(@poll, proposition), method: :delete,
+            data: { confirm: "Are you sure?" }) do %>
+            <i class="fa fa-times" aria-hidden="true"></i>
+              <% end %>
+
           </div>
           <div class="photo-box">
 

@@ -33,7 +33,12 @@ class PropositionsController < ApplicationController
   end
 
   def destroy
-    @proposition.destroy
+
+    if @proposition.destroy
+      redirect_to add_propositions_poll_path(@poll)
+    else
+      render add_propositions_poll_path(@poll)
+    end
   end
 
   private
