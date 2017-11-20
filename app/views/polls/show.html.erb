@@ -87,6 +87,14 @@
                 </div>
                 <%= link_to 'continu', compare_poll_path(@poll), class: "btn btn-default "%>
               </div>
+
+              <%= link_to 'continu', compare_poll_path(@poll), class: "btn btn-default "%>
+              <div>
+                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#share-modal">
+                Share Poll!
+                </button>
+              </div>
+
             </div>
           </div>
         </div>
@@ -100,5 +108,7 @@
 
 
 
+
+<%= render "polls/share_poll" %>
 
 
