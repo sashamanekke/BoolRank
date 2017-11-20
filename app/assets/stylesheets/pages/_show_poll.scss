@@ -2,49 +2,9 @@
 
 
 
-.container-fluid {
- margin-right: auto;
- margin-left: auto;
- padding-left: 6px;
- padding-right: 6px;
-}
-
-.col-xs-4 {
-  width: 50%;
-  padding: 0px;
-
-}
-// .col {
-//       position: relative;
-//     min-height: 1px;
-//     padding-left: 6px;
-//     padding-right: 6px;
-// }
-
-.col-md-6 {
-    position: relative;
-    min-height: 1px;
-  padding-left: 6px;
- padding-right: 6px;
-}
-
-.col-xs-12 {
-      position: relative;
-    min-height: 1px;
-    padding-left: 15px;
-    padding-right: 15px;
-}
 
 
-
-.row {
-    margin-left: -6px;
-    margin-right: -6px;
-}
-
-
-
-
+// details class pages
 
 
 
@@ -55,7 +15,7 @@
 }
 
 .modulo-nav {
-  border: 3px solid #19365c;
+  border: 3px solid $dark-gray;
   height: 4rem;
 }
 
@@ -115,18 +75,49 @@
   border: 0px;
 }
 
-.flex-box {
-   display:flex;
-  align-items: center;
-  justify-content: space-between;
+
+
+// construction class
+
+
+.container-fluid {
+ margin-right: auto;
+ margin-left: auto;
+ padding-left: 6px;
+ padding-right: 6px;
+}
+
+.col-xs-4 {
+  width: 50%;
+  padding: 0px;
 
 }
 
 
 
+// .col-md-6 .col-xs-3 .col-xs-5{
+//     position: relative;
+//     min-height: 1px;
+//   padding-left: 6px;
+//  padding-right: 6px;
+// }
 
 
 
+// .col-xs-12 {
+//       position: relative;
+//     min-height: 1px;
+//     padding-left: 15px;
+//     padding-right: 15px;
+// }
+
+.row {
+    margin-left: -6px;
+    margin-right: -6px;
+}
+
+
+// see if it works with all the flex-box
 .flex-box {
  width:100%;
  min-height: auto;
@@ -166,27 +157,27 @@
 
 
 
+// Style class
+
 .borde-r {
-  border-right: 3px solid #19365c;
+  border-right: 3px solid $dark-gray;
 }
 
 .borde-t {
-  border-top: 3px solid #19365c;
+  border-top: 3px solid $dark-gray;
 }
 
 .borde-b {
-  border-bottom: 3px solid #19365c;
+  border-bottom: 3px solid $dark-gray;
 }
 
 .borde-l {
-  border-left: 3px solid #19365c;
+  border-left: 3px solid $dark-gray;
 }
 
 .borde-fino {
   border-width: 1px;
 }
-
-
 
 
 
@@ -214,6 +205,13 @@
     background-color: #fff;
 }
 
+.margin-n {
+margin:0px;
+}
+
+.padding-n {
+  padding:0px;
+}
 
 .background-gif {
   background-image: url("https://media.giphy.com/media/4RduUxmi6IMmI/giphy.gif");

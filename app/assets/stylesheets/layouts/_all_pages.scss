@@ -50,7 +50,15 @@ p {
   font-size: 12px;
   margin: 0px;
   padding:0px;
+  color: $black-kaki;
 
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-family: inherit;
+    font-weight: 400;
+    line-height: 1.1;
+    color: $black-kaki;
 }
 
 
@@ -59,6 +67,7 @@ a
 {
   cursor: auto;
  text-decoration:none;
+ color: $black-kaki;
 }
 a:link
 {
