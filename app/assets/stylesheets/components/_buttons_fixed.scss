@@ -1,4 +1,39 @@
-.btn-pink-propositions {
+.btn__inner {
+  border: 2px solid black;
+  height: 20px;
+width: 20px;
+
+}
+
+.btn-square .btn__inner {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+}
+
+
+.btn-pink-share .btn__inner {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    line-height: 40px;
+}
+
+
+.btn-red-propositions {
   position: fixed;
     right: 2%;
     bottom: 2%;
@@ -11,8 +46,8 @@
 
 .btn-green-participants {
   position: fixed;
-    right: 2%;
-    top: 2%;
+    left: 2%;
+    bottom: 2%;
     color: black;
     background-color: $green-btn;
     z-index: 10000;
@@ -21,15 +56,18 @@
 
 }
 
-.btn-yellow-share {
+.btn-pink-share {
   position: fixed;
-    bottom:2%;
+    bottom:5%;
     left: 2%;
     color: black;
     background-color: $pink-btn;
     z-index: 10000;
 
+
 }
+
+
 
 .btn-blue-logo {
   position: fixed;
@@ -68,29 +106,9 @@
 //     top: 85%;
 // }
 
-.btn-square {
- height: 20px;
-width: 20px;
+// .btn-square {
+//  height: 20px;
+// width: 20px;
 
-}
+// }
 
-.btn__inner {
-  border: 2px solid black;
-  height: 20px;
-width: 20px;
-
-}
-
-
-.btn-square .btn__inner {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    padding: 0;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-}
