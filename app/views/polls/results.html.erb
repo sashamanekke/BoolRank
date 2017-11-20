@@ -111,9 +111,9 @@
       </div>
       <% @poll.participants.each do |participant|%>
       <div class="other-prop">
-        <div class="photo" style="background-image: url('<%= image_path  participant.user.profile.photo %>') "></div>
+        <div class="photo" style="background-image: url('<%= image_path participant.user.facebook_picture_url || "http://placehold.it/30x30" %>') "></div>
         <div class="text">
-          <h1><%= participant.user.profile.name %> <br> <%= participant.user.profile.surname %></h1>
+          <h1><%= participant.user.first_name || participant.user.email %> <br> <%= participant.user.last_name || "" %></h1>
         </div>
       </div>
       <% end %>

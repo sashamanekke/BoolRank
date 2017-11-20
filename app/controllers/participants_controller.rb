@@ -1,11 +1,15 @@
 class ParticipantsController < ApplicationController
   def index
-    @participants = Participant.all
+    @poll = Poll.find(params[:poll_id])
   end
 
   def create
-    @poll = poll.find(params[:poll_id])
+    @poll = Poll.find(params[:poll_id])
     @participant = Participant.new()
+    @participant.poll = @poll
+    @participant.user = current_user
+    @participant.save
+    redirect_to compare_poll_path(@poll)
   end
 
   def destroy
