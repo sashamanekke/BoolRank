@@ -58,6 +58,7 @@ class PollsController < ApplicationController
   end
 
   def destroy
+    @poll.destroy
   end
 
   def compare
