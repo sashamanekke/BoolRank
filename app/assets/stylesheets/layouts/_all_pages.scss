@@ -7,15 +7,16 @@ body {
 
    //background-image: image-url("background.gif");
 
-  background-color: #FECB45;
-  //background-size: cover !important;
-  //background-repeat: no-repeat;
-  //background-attachment: fixed;
+  // background-color: #FECB45;
+  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+  background-size: cover !important;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 
   // add all different backgrounds here in order to play around between all versions
 
   // background-image: image-url("background.png");
-  background-image: image-url("ugly-yellow.png");
+  // background-image: image-url("ugly-yellow.png");
 
   background-size: 30%;
 
@@ -50,7 +51,15 @@ p {
   font-size: 12px;
   margin: 0px;
   padding:0px;
+  color: $black-kaki;
 
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-family: inherit;
+    font-weight: 400;
+    line-height: 1.1;
+    color: $black-kaki;
 }
 
 
@@ -59,6 +68,7 @@ a
 {
   cursor: auto;
  text-decoration:none;
+ color: $black-kaki;
 }
 a:link
 {
