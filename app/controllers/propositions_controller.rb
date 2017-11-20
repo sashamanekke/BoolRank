@@ -26,10 +26,18 @@ class PropositionsController < ApplicationController
   end
 
   def edit
+    respond_to do |format|
+      format.js
+    end
   end
 
   def update
-    @proposition.update(params[:proposition])
+
+      if @proposition.update(proposition_params)
+      redirect_to add_propositions_poll_path(@poll)
+    else
+      render add_propositions_poll_path(@poll)
+    end
   end
 
   def destroy

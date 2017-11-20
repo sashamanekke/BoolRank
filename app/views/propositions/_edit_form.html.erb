@@ -1,0 +1,16 @@
+<%= simple_form_for([poll, proposition], url: poll_proposition_path(poll), method: :patch) do |f| %>
+
+<div class="flex-box">
+  <div class="name-box">
+    <%= f.input :name, label: false%>
+    <%= f.hidden_field :score, value: 0 %>
+</div>
+<div class="photo-box">
+    <%= f.input :photo, as: :attachinary %>
+</div>
+    </div>
+    <%= f.hidden_field :hashtag, value: "#" %>
+    <%= f.hidden_field :description, placeholder: "Give a small description (optional)" %>
+    <%= f.button :submit, class: "btn-burger flex-box"  %>
+
+<% end %>
