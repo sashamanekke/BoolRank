@@ -416,6 +416,15 @@ $ ->
     Copy to clipboard
 </button>
 
+<script>
+$(document).ready(function(){
+
+  var clipboard = new Clipboard('.clipboard-btn');
+  console.log(clipboard);
+
+});
+</script>
+
 
 <!-- _________ FB SHARE from Pablo below ____________ -->
 <a class="fa fa-twitter twitter-share-button margin-overall"
@@ -431,6 +440,24 @@ $ ->
   js.src = 'https://connect.facebook.net/en_PI/sdk.js#xfbml=1&version=v2.11';
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
+
+
+<!-- ___________ text field copy paste (opt 2) __________ -->
+
+<textarea id="bar">Mussum ipsum cacilds...</textarea>
+<button class="btn btn-default" data-clipboard-action='copy' data-clipboard-target="#bar">Copy to Clipboard</button>
+
+
+<% content_for(:third_party_js) do %>
+  <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/v1.5.10/dist/clipboard.min.js"></script>
+<% end %>
+<script>
+    var clipboard = new Clipboard('.btn');
+</script>
+
+ <%= yield :third_party_js %>
+
+
 
 
 

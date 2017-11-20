@@ -11,13 +11,18 @@
           <ul class="list-group">
               <li class="share-style">
                 <div class="fb-share-button" data-href="https://boolrank.herokuapp.com/polls/<%= @poll.id %>/start" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fboolrank.herokuapp.com%2Fpolls%2F<%= @poll.id %> &amp;src=sdkpreparse">Share</a></div>
-
-
+              <li class= "share-style">
+                <input type="text" id="bar" value="https://boolrank.herokuapp.com/polls/<%= @poll.id %>/start"></input>
               </li>
+              <li class="share-style">
+                <button class="clipboard-btn btn-default link-bar" data-clipboard-action="copy" data-clipboard-target="#bar">Copy Link
+                </button>
+              </li>
+             <!--  </li>
               <li class="share-style">
                 <i class="fa fa-twitter" aria-hidden="true"></i><span>Twitter</span>
-              </li>
-              <li class="share-style">
+              </li> -->
+              <!-- <li class="share-style">
                 <i class="fa fa-google" aria-hidden="true"></i><span>Google</span>
               </li>
               <li class="share-style">
@@ -25,15 +30,13 @@
               </li>
               <li class="share-style">
                 <i class="fa fa-link" aria-hidden="true"></i><span>Copy Link</span>
-              </li>
-              <li>
-                <textarea id="bar">Mussum ipsum cacilds...</textarea>
-                <button class='btn btn-default' data-clipboard-action='copy' data-clipboard-target='#script-tag'>Copy to Clipboard</button>
-              </li>
+              </li> -->
           </ul>
     </div>
   </div>
 </div>
+
+
 
 
 
