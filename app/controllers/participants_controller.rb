@@ -1,6 +1,6 @@
 class ParticipantsController < ApplicationController
   def index
-    @participants = Participant.all
+    @poll = Poll.find(params[:poll_id])
   end
 
   def create
