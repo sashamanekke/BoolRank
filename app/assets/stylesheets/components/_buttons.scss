@@ -95,7 +95,7 @@ text-align: center;
 
 
 
-  .btn-default {
+.btn-default {
     color: #19365c;
     background-color: #fff;
     border-color: #19365c;
@@ -113,4 +113,10 @@ text-align: center;
     border-radius: 0px;
     width: 100%;
     margin: 0px;
+}
+
+.btn-delete {
+  width: 20px;
+  height: 20px;
+}
 }
