@@ -4,7 +4,7 @@
   background: white;
   transition: all 0.3s ease;
   height: 10vh;
-  padding: 0px 30px;
+  padding: 0px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -23,6 +23,8 @@
 /* Logo */
 .navbar-wagon-brand img {
   height: 40px;
+  top: 2%;
+  left: 2%
 }
 
 /* User Avatar */
