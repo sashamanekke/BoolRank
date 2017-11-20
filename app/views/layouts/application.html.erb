@@ -10,8 +10,24 @@
   <%= csrf_meta_tags %>
   <%= action_cable_meta_tag %>
   <%= stylesheet_link_tag 'application', media: 'all' %>
+  <meta property="og:url"           content="https://boolrank.herokuapp.com" />
+  <meta property="og:type"          content="website" />
+  <meta property="og:title"         content="Boolrank" />
+  <meta property="og:description"   content="Let Bool man decide for you" />
+  <meta property="og:image"         content="https://boolrank.herokuapp.com/assets/Boolrank-white-8abacd9d3c842aa74f3740a880c668f9852ff6030f5c4346f3d957c2a4311159.png" />
 </head>
 <body>
+  <!-- _________ jj implementation fb share button below ________ -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11&appId=1156307394501135';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- _________  sasha implementation of fb below _________  -->
   <script>
     window.fbAsyncInit = function() {
       FB.init({
@@ -30,10 +46,13 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
  </script>
+
  <%= render 'shared/navbar', use_class: (controller_name == "pages" ? "navbar-landing-page" : "navbar-wagon") %>
  <%= render 'shared/flashes' %>
  <%= yield %>
  <%= javascript_include_tag 'application' %>
  <%= cloudinary_js_config %>
+<!--  <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.12/clipboard.min.js"></script> -->
+
 </body>
 </html>
