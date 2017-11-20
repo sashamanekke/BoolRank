@@ -30,8 +30,9 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
  </script>
- <%= render 'shared/navbar', use_class: (controller_name == "pages" ? "navbar-landing-page" : "navbar-wagon") %>
+ <%#= render 'shared/navbar', use_class: (controller_name == "pages" ? "navbar-landing-page" : "navbar-wagon") %>
  <%= render 'shared/flashes' %>
+  <%= render 'shared/buttons_fixed' %>
  <%= yield %>
  <%= javascript_include_tag 'application' %>
  <%= cloudinary_js_config %>

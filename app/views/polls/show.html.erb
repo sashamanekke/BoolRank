@@ -2,104 +2,91 @@
 <%#= content_for(:navbar_link) do %>
 <!-- <a href="#participants" class="text-center">Participants</a> -->
 <%# end %>
-<!-- <div class="container">
-  <div class="link  hidden-md hidden-lg">
-  <a href="#top" >Top</a>
-  <a href="#participants">Participants</a>
-  <a href="#else">Else</a>
-</div> -->
+
+
 <div class="site-content margin-fluid">
+
   <div class="container-fluid">
-   <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <div class="info-poll background-blanco">
-
-        <div class="modulo-nav parent-center">
-          <div class="child-center padding-module">
-            <div class="pull-left">
-              <%= link_to '< Back', add_propositions_poll_path(@poll)%>
-            </div>
-            <div class="pull-right">
-              <%= link_to 'home / ', root_path%>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="info-poll background-blanco">
+          <div class="modulo-nav parent-center">
+            <div class="child-center padding-module">
+              <div class="pull-left">
+                <%= link_to '< Back', add_propositions_poll_path(@poll)%>
+              </div>
+              <div class="pull-right">
+                <%= link_to 'home / ', root_path%>
+              </div>
             </div>
           </div>
-        </div>
-        <h1 class="entry-title text-center bold" ><%= @poll.title %></h1>
-
-
-        <div class="info-details borde-t">
-          <div class="row">
-            <div class="col-xs-12">
-
-              <div class="profile-details borde-b borde-fino">
-                <div class="row">
-                  <div class="col-xs-4 borde-r borde-fino">
-                    <div class="text-center borde-b ">
-                      <h2 class="bold title margin-tb">
-                        Created by :<%#= @poll.user.email%>
-                      </h2>
-                    </div>
-
-                    <!-- background-gif -->
-                    <div class="background-gif">
-                      <div class="text-center">
-                        <div class="profile-avatar borde-b borde-l">
-                          <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
-                          <%= image_tag avatar_url, class: "avatar-square-lg margin-tb"%>
+          <h1 class="entry-title text-center bold" ><%= @poll.title %></h1>
+          <div class="info-details borde-t">
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="profile-details borde-b borde-fino">
+                  <div class="row">
+                    <div class="col-xs-4 borde-r borde-fino">
+                      <div class="text-center borde-b ">
+                        <h2 class="bold title margin-tb">
+                          Created by :<%#= @poll.user.email%>
+                        </h2>
+                      </div>
+                      <!-- background-gif -->
+                      <div class="background-gif">
+                        <div class="text-center">
+                          <div class="profile-avatar borde-b borde-l">
+                            <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+                            <%= image_tag avatar_url, class: "avatar-square-lg margin-tb"%>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-
-                  <div class="col-xs-4">
-                    <div class="profile-description">
-                      <p class="text">Lorem  ipsum  dignissimos odio con ipsum  dignissimos odio con ipsum  dignissimos odio con ipsum  dignissimos oodio con ipsum  dignissimos oodio con ipsum  dignissimos odio con ipsum  dignissimos odio consequatur, praesentium?</p>
-                      <%= link_to 'All polls', add_propositions_poll_path(@poll), class: "btn btn-default "%>
+                    <div class="col-xs-4">
+                      <div class="profile-description">
+                        <p class="text">Lorem  ipsum  dignissimos odio con ipsum  dignissimos odio con ipsum  dignissimos odio con ipsum  dignissimos oodio con ipsum  dignissimos oodio con ipsum  dignissimos odio con ipsum  dignissimos odio consequatur, praesentium?</p>
+                        <%= link_to 'All polls', add_propositions_poll_path(@poll), class: "btn btn-default "%>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div class="row">
-            <div class="col-xs-12">
-              <div class="description margin-tb">
-                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium nulla vitae commodi maiores voluptatum sed aut magni aliquam molestias ex, eligendi, labore, quasi adipisci magnam eveniet beatae sunt possimus numquam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae dicta impedit nesciunt, dolorum dolorem voluptas facere eaque ipsa iste ducimus, quia accusamus vel sequi laudantium, doloremque nam, aut sit."
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="description margin-tb">
+                  "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium nulla vitae commodi maiores voluptatum sed aut magni aliquam molestias ex, eligendi, labore, quasi adipisci magnam eveniet beatae sunt possimus numquam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae dicta impedit nesciunt, dolorum dolorem voluptas facere eaque ipsa iste ducimus, quia accusamus vel sequi laudantium, doloremque nam, aut sit."
+                </div>
               </div>
             </div>
           </div>
-        </div>
-
-
-        <div class="poll-proposition zoom-gallery borde-t margin-tb">
-          <div class="row">
-            <div class=" col-xs-12 margin-b-small">
-              <div class="show-prop background-gif">
-                <% @poll.propositions.each do |proposition|%>
-                <div class="row">
-                  <div class="col-xs-12 margin-b-small">
-                    <div class="flex-box">
-                      <div class="name-box">
-                        <div class="created-name">
-                          <h3><%= proposition.name %></h3>
+          <div class="poll-proposition zoom-gallery borde-t margin-tb">
+            <div class="row">
+              <div class=" col-xs-12 margin-b-small">
+                <div class="show-prop background-gif">
+                  <% @poll.propositions.each do |proposition|%>
+                  <div class="row">
+                    <div class="col-xs-12 margin-b-small">
+                      <div class="flex-box">
+                        <div class="name-box">
+                          <div class="created-name">
+                            <h3><%= proposition.name %></h3>
+                          </div>
+                        </div>
+                        <div class="photo-box">
+                          <% unless proposition.photo.nil?  %>
+                          <div class="created-photo" style="background-image: url('<%= cl_image_path  proposition.photo.path %>')"></div>
+                          <% else %>
+                          <div class="created-photo" style="background-color: <%=proposition.color%>"></div>
+                          <% end %>
                         </div>
                       </div>
-                      <div class="photo-box">
-                        <% unless proposition.photo.nil?  %>
-                        <div class="created-photo" style="background-image: url('<%= cl_image_path  proposition.photo.path %>')"></div>
-                        <% else %>
-                        <div class="created-photo" style="background-color: <%=proposition.color%>"></div>
-                        <% end %>
-                      </div>
                     </div>
-
                   </div>
+                  <% end %>
                 </div>
-
-                <% end %>
+                <%= link_to 'continu', compare_poll_path(@poll), class: "btn btn-default "%>
               </div>
-              <%= link_to 'continu', compare_poll_path(@poll), class: "btn btn-default "%>
             </div>
           </div>
         </div>
@@ -107,6 +94,11 @@
     </div>
   </div>
 </div>
-</div>
+
+
+
+
+
+
 
 
