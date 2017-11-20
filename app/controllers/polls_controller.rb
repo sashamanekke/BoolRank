@@ -12,7 +12,7 @@ class PollsController < ApplicationController
   end
 
   def show
-    @propositions = @poll.propositions.order(:score)
+    @propositions = @poll.propositions.order(:score).reverse
 
     #Ranking is done here! (in the view) show the ranking
     #Only if there are enough votes AND that the user
