@@ -35,10 +35,11 @@ class PollsController < ApplicationController
   end
 
   def create
+    poll_colors = (1..16).map{ |i| i < 10 ? "0#{i}.jpg" : "#{i}.jpg" }
     @poll = Poll.new(poll_params)
     # add current user when login is set !!!!!!!!!!!!!!!!
     @poll.user = current_user
-
+    @poll.photo = poll_colors.sample
     if @poll.save
       # create a participant automatically when you create a poll
       participant = Participant.new()
