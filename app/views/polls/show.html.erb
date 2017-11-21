@@ -61,6 +61,8 @@
                       </div>
                     </div>
 
+
+
                     <div class="col-xs-4">
                       <div class="profile-description">
 
@@ -69,8 +71,11 @@
 
                         Ì<%= link_to 'All polls', add_propositions_poll_path(@poll), class: "btn btn-default btn-medium"%>
                       </div>
+
                     </div>
                   </div>
+                  </div>
+
                 </div>
               </div>
             </div>
@@ -135,11 +140,11 @@
 
 
 
+<!-- ____________ renders for modals ____________ -->
+<%= render "polls/share_poll" %>
+<%= render "polls/share_results" %>
 
 
 
-
-<%#= render "polls/share_poll" %>
-<%#= render "polls/share_results" %>
 
 
