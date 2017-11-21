@@ -1,7 +1,7 @@
-<div class="site-content">
-  <div class="container-fluid flex-box">
+<div class="site-content ">
+  <div class="container flex-box">
     <div class="row">
-      <div class="col-xs-12 col-md-6 col-md-offset-3 ">
+      <div class="col-xs-12 ">
         <div class="first-result background-blanco">
           <div class="btn-location borde-b flex-box">
             <h3 class="text-center bold text-uppercase">first Propre name <!-- upercase --></h3>
@@ -20,38 +20,41 @@
             <div class="img-first-result">
               <div class="row">
                 <div class="col-xs-12">
-                  <!-- <div class="prop-1" id="top"> -->
-                    <div class="box-img-result background-gif">
-                      <% if @propositions.first.photo.nil? %>
-                      <div class="best-prop" style="background-color:  <%= @poll.propositions.first.color %>">
-                        <h1 class="text-center"><%= @poll.propositions.first.name %></h1>
-                      </div>
-                      <% else %>
-                      <div class="best-prop">
-                        <%= cl_image_tag @propositions.first.photo.path %>
-                      </div>
-                      <% end %>
-                    </div>
 
-
-                    <div class="row">
-                      <div class="col-xs-12">
-                        <div class="text">
-                          <ul>
-                            <li><p>Description:   <%= @propositions.first.description %></p></li>
-                            <li><h3>Score: <%= @propositions.first.score %></h3></li>
-                          </ul>
-                        </div>
-                      </div>
+                  <div class="box-img-result background-gif">
+                    <% if @propositions.first.photo.nil? %>
+                    <div class="best-prop" style="background-color:  <%= @poll.propositions.first.color %>">
+                      <h1 class="text-center"><%= @poll.propositions.first.name %></h1>
                     </div>
-                    <!-- </div> -->
+                    <% else %>
+                    <div class="best-prop">
+                      <%= cl_image_tag @propositions.first.photo.path %>
+                    </div>
+                    <% end %>
                   </div>
+
+
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <div class="text">
+                        <ul>
+                          <li><p>Description:   <%= @propositions.first.description %></p></li>
+                          <li><h3>Score: <%= @propositions.first.score %></h3></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
 
 
 
