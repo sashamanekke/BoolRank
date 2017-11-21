@@ -1,6 +1,6 @@
 class PollsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:start]
-  before_action :set_poll, only: [:show, :add_propositions, :edit, :update, :destroy, :compare, :results, :start, :toggle_open]
+  before_action :set_poll, only: [:show, :add_propositions, :edit, :update, :destroy, :compare, :results, :start, :toggle_closed]
 
 
   def index
@@ -39,8 +39,8 @@ class PollsController < ApplicationController
     @poll = Poll.new(poll_params)
     # add current user when login is set !!!!!!!!!!!!!!!!
     @poll.user = current_user
-    @poll.open = true
-    @poll.public = false
+    @poll.closed = false
+    @poll.public_poll = false
     @poll.photo = poll_colors.sample
     if @poll.save
       # create a participant automatically when you create a poll
@@ -118,12 +118,12 @@ class PollsController < ApplicationController
     @propositions = @poll.propositions.order(:score).reverse
   end
 
-  def toggle_open
+  def toggle_closed
 
-    if params[:open] && @poll.update_attributes(:open => params[:open])
+    if params[:closed] && @poll.update_attributes(:closed => params[:closed])
 
     else
-      @poll.update_attributes(open: false)
+      @poll.update_attributes(closed: false)
     end
 
   end

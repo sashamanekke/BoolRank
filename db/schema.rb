@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(version: 20171121154849) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "open"
-    t.boolean "public"
+    t.boolean "closed"
+    t.boolean "public_poll"
     t.index ["user_id"], name: "index_polls_on_user_id"
   end
 
