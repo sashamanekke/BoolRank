@@ -230,8 +230,12 @@ padding-bottom: 10px;
 
 }
 
-
-/*.col-xs-4 {
-    width: 50%;
-    }*/
+.checkbox-update-poll {
+  display: flex;
+  justify-content: space-around;
+  margin: 15px 0px;
+  .active-checkbox {
+    background-color:green !important;
+  }
+}
 

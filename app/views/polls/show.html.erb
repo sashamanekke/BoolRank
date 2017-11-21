@@ -65,20 +65,24 @@
 
                     <div class="col-xs-4">
                       <div class="profile-description">
-
-
-
-
                         Ì<%= link_to 'All polls', add_propositions_poll_path(@poll), class: "btn btn-default btn-medium"%>
+
+                        <!-- The open close checkbox -->
+                        <div class="checkbox-update-poll">
+                          <input class="hidden" type="checkbox" name="open" id="open" value=<%=@poll.id%> data-remote="true" data-url="/polls/<%= @poll.id %>/toggle_open" data-method="POST" checked="checked">
+                          <label class="checkbox-on btn btn-default btn-medium" for="open">Open
+                          </label>
+                        </div>
+
                       </div>
 
                     </div>
                   </div>
-                  </div>
-
                 </div>
+
               </div>
             </div>
+          </div>
           <!--   <div class="row">
               <div class="col-xs-12">
                 <div class="description margin-tb">
@@ -91,12 +95,12 @@
           <div class="poll-proposition margin-top-results margin-b-small">
             <div class="row">
               <div class=" col-xs-12">
-                 <div class="text-center borde-b ">
-                  <h2 class="bold text-uppercase">
-                    All proposition<%#= @poll.user.email%>
-                  </h2>
-                </div>
-                <div class="show-prop background-gif">
+               <div class="text-center borde-b ">
+                <h2 class="bold text-uppercase">
+                  All proposition<%#= @poll.user.email%>
+                </h2>
+              </div>
+              <div class="show-prop background-gif">
                  <!-- <div class="btn-location borde-b borde-t flex-box">
                   <h3 class="text-center bold text-uppercase">all Propositions upercase </h3>
                 </div> -->
@@ -143,6 +147,7 @@
 <!-- ____________ renders for modals ____________ -->
 <%= render "polls/share_poll" %>
 <%= render "polls/share_results" %>
+
 
 
 
