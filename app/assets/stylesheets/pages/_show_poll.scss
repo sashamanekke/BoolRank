@@ -7,12 +7,16 @@
 // details class pages
 
 
-
+.info-poll {
+  margin-top: 4.5%;
+  max-width: 300px;
+}
 
 
 .modulo-nav {
-  border: 3px solid $dark-gray;
+  // border: 3px solid $dark-gray;
   height: 4rem;
+  border: 2px solid black;
 }
 
 
@@ -23,16 +27,21 @@
 
 
 .entry-title {
-  margin: 5rem 0 5rem;
+  // margin: 5rem 0 5rem;
   font-size: 2em;
+      margin: 5rem 0 5rem;
+    font-size: 2em;
+    overflow: hidden;
+    overflow-x: scroll;
 }
 
 .info-details .title {
-  font-size: 1.8em;
+  font-size: 100%;
 }
 
 .info-details {
-  margin-bottom: 10rem;
+  // margin-bottom: 10rem;
+
 }
  .profile-details {
   margin: 0px;
@@ -79,8 +88,9 @@
 .container-fluid {
  margin-right: auto;
  margin-left: auto;
- padding-left: 6px;
- padding-right: 6px;
+ padding-left: 0px;
+ padding-right: 0px;
+ padding-top: 14px;
 }
 
 .col-xs-4 {
@@ -107,10 +117,10 @@
 //     padding-right: 15px;
 // }
 
-.row {
-    margin-left: -6px;
-    margin-right: -6px;
-}
+// .row {
+//     margin-left: -6px;
+//     margin-right: -6px;
+// }
 
 
 // see if it works with all the flex-box
@@ -156,19 +166,19 @@
 // Style class
 
 .borde-r {
-  border-right: 3px solid $dark-gray;
+  border-right: 2px solid black;
 }
 
 .borde-t {
-  border-top: 3px solid $dark-gray;
+  border-top: 2px solid black;
 }
 
 .borde-b {
-  border-bottom: 3px solid $dark-gray;
+  border-bottom: 2px solid black;
 }
 
 .borde-l {
-  border-left: 3px solid $dark-gray;
+  border-left: 2px solid black;
 }
 
 .borde-fino {
@@ -209,6 +219,9 @@ margin:0px;
   padding:0px;
 }
 
+.padding-b {
+padding-bottom: 10px;
+}
 .background-gif {
   background-image: url("https://media.giphy.com/media/4RduUxmi6IMmI/giphy.gif");
   width: 100%;

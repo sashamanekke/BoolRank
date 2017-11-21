@@ -2,14 +2,29 @@
 <%#= content_for(:navbar_link) do %>
 <!-- <a href="#participants" class="text-center">Participants</a> -->
 <%# end %>
+<div class="btn-green-participants">
+  <span class="btn-square">
+    <span class="btn__inner"><i class="fa fa-users" aria-hidden="true"></i></span>
+  </span>
+</div>
 
+<div class="btn-red-propositions">
+  <span class="btn-square">
+    <span class="btn__inner"><i class="fa fa-linode" aria-hidden="true"></i></span>
+  </span>
+</div>
 
-<div class="site-content margin-fluid">
+<div class="btn-pink-share">
+  <span class="btn-square">
+    <span class="btn__inner"><i class="fa fa-share" aria-hidden="true"></i></span>
+  </span>
+</div>
 
-  <div class="container-fluid">
+<div class="site-content ">
+  <div class="container flex-box">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <div class="info-poll background-blanco">
+        <div class="info-poll ">
           <div class="modulo-nav parent-center">
             <div class="child-center padding-module">
               <div class="pull-left">
@@ -20,16 +35,19 @@
               </div>
             </div>
           </div>
-          <h1 class="entry-title text-center bold" ><%= @poll.title %></h1>
+
+          <h1 class="entry-title text-center bold text-uppercase" ><%= @poll.title %></h1>
+          <button type="button" class="btn btn-default btn-medium" data-toggle="modal" data-target="#share-res">Share Results</button>
           <div class="info-details borde-t">
             <div class="row">
               <div class="col-xs-12">
                 <div class="profile-details borde-b borde-fino">
+
                   <div class="row">
                     <div class="col-xs-4 borde-r borde-fino">
                       <div class="text-center borde-b ">
-                        <h2 class="bold title margin-tb">
-                          Created by :<%#= @poll.user.email%>
+                        <h2 class="bold title margin-tb text-uppercase">
+                          USER NAME<%#= @poll.user.email%>
                         </h2>
                       </div>
                       <!-- background-gif -->
@@ -43,13 +61,17 @@
                       </div>
                     </div>
 
-                  <div class="col-xs-4">
-                    <div class="profile-description">
-                      <p class="text">Lorem  ipsum  dignissimos odio con ipsum  dignissimos odio con ipsum  dignissimos odio con ipsum  dignissimos oodio con ipsum  dignissimos oodio con ipsum  dignissimos odio con ipsum  dignissimos odio consequatur, praesentium?</p>
-                      <div>
-                       <button type="button" class="btn btn-default btn-less-marg" data-toggle="modal" data-target="#share-res">Share Results</button>
-                       </div>
-                      <%= link_to 'All polls', add_propositions_poll_path(@poll), class: " btn btn-default"%>
+
+
+                    <div class="col-xs-4">
+                      <div class="profile-description">
+
+
+
+
+                        Ì<%= link_to 'All polls', add_propositions_poll_path(@poll), class: "btn btn-default btn-medium"%>
+                      </div>
+
                     </div>
                   </div>
                   </div>
@@ -57,59 +79,72 @@
                 </div>
               </div>
             </div>
-            <div class="row">
+          <!--   <div class="row">
               <div class="col-xs-12">
                 <div class="description margin-tb">
                   "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium nulla vitae commodi maiores voluptatum sed aut magni aliquam molestias ex, eligendi, labore, quasi adipisci magnam eveniet beatae sunt possimus numquam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae dicta impedit nesciunt, dolorum dolorem voluptas facere eaque ipsa iste ducimus, quia accusamus vel sequi laudantium, doloremque nam, aut sit."
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
-          <div class="poll-proposition zoom-gallery borde-t margin-tb">
+
+          <div class="poll-proposition margin-b-small">
             <div class="row">
-              <div class=" col-xs-12 margin-b-small">
+              <div class=" col-xs-12">
+                 <div class="text-center borde-b ">
+                  <h2 class="bold text-uppercase">
+                    All proposition<%#= @poll.user.email%>
+                  </h2>
+                </div>
                 <div class="show-prop background-gif">
-                  <% @poll.propositions.each do |proposition|%>
-                  <div class="row">
-                    <div class="col-xs-12 margin-b-small">
-                      <div class="flex-box">
-                        <div class="name-box">
-                          <div class="created-name">
-                            <h3><%= proposition.name %></h3>
-                          </div>
-                        </div>
-                        <div class="photo-box">
-                          <% unless proposition.photo.nil?  %>
-                          <div class="created-photo" style="background-image: url('<%= cl_image_path  proposition.photo.path %>')"></div>
-                          <% else %>
-                          <div class="created-photo" style="background-color: <%=proposition.color%>"></div>
-                          <% end %>
+                 <!-- <div class="btn-location borde-b borde-t flex-box">
+                  <h3 class="text-center bold text-uppercase">all Propositions upercase </h3>
+                </div> -->
+
+                <% @poll.propositions.each do |proposition|%>
+                <div class="row">
+                  <div class="col-xs-12 margin-b-small">
+                    <div class="flex-box">
+                      <div class="name-box">
+                        <div class="created-name">
+                          <h3><%= proposition.name %></h3>
                         </div>
                       </div>
+                      <div class="photo-box">
+                        <% unless proposition.photo.nil?  %>
+                        <div class="created-photo" style="background-image: url('<%= cl_image_path  proposition.photo.path %>')">
+
+                        </div>
+                        <% else %>
+                        <div class="created-photo" style="background-color: <%=proposition.color%>">
+                        </div>
+                        <% end %>
+                      </div>
                     </div>
-
                   </div>
-                  <% end %>
                 </div>
-              <%= link_to 'continu', compare_poll_path(@poll), class: "btn btn-default "%>
-              <div>
-                <button type="button" class="btn btn-default btn-less-marg" data-toggle="modal" data-target="#share-modal">
-                Share Poll
-                </button>
+                <% end %>
               </div>
-              </div>
-
             </div>
           </div>
         </div>
+        <button type="button" class="btn btn-default btn-medium" data-toggle="modal" data-target="#share-modal">
+          Share Poll!
+        </button>
+        <%= link_to 'continu', compare_poll_path(@poll), class: "btn btn-default btn-medium "%>
       </div>
     </div>
   </div>
 </div>
+</div>
+
 
 
 <!-- ____________ renders for modals ____________ -->
 <%= render "polls/share_poll" %>
 <%= render "polls/share_results" %>
+
+
+
 
 

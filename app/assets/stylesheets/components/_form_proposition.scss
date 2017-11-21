@@ -107,6 +107,10 @@ input[type="file"].attachinary-input {
 }
 
 .created-name {
+      max-width: 150px;
+    overflow: hidden;
+
+    overflow-x: scroll;
   display:flex;
   align-items: center;
   justify-content: center;

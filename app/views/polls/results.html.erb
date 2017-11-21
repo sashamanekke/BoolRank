@@ -1,8 +1,7 @@
-<div class="site-content margin-fluid">
-  <div class="containe-fluid">
-
+<div class="site-content ">
+  <div class="container flex-box">
     <div class="row">
-      <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class="col-xs-12 ">
         <div class="first-result background-blanco">
           <div class="btn-location borde-b flex-box">
             <h3 class="text-center bold text-uppercase">first Propre name <!-- upercase --></h3>
@@ -14,25 +13,27 @@
                   <span class="text-uppercase">Closed</span>
                 </div>
               </div>
-
               <div class="col-xs-5 background-blanco ">
-               <p>Lorem ipsum  nsptatibus!</p>
-             </div>
-           </div>
-           <div class="img-first-result">
-            <div class="row">
-              <div class="col-xs-12">
-                <!-- <div class="prop-1" id="top"> -->
+                <p>Lorem ipsum  nsptatibus!</p>
+              </div>
+            </div>
+            <div class="img-first-result">
+              <div class="row">
+                <div class="col-xs-12">
+
                   <div class="box-img-result background-gif">
                     <% if @propositions.first.photo.nil? %>
-
-                    <div class="best-prop" style="background-color:  <%= @poll.propositions.first.color %>"><h1 class="text-center"><%= @poll.propositions.first.name %></h1></div>
+                    <div class="best-prop" style="background-color:  <%= @poll.propositions.first.color %>">
+                      <h1 class="text-center"><%= @poll.propositions.first.name %></h1>
+                    </div>
                     <% else %>
                     <div class="best-prop">
                       <%= cl_image_tag @propositions.first.photo.path %>
                     </div>
                     <% end %>
                   </div>
+
+
                   <div class="row">
                     <div class="col-xs-12">
                       <div class="text">
@@ -43,7 +44,7 @@
                       </div>
                     </div>
                   </div>
-                  <!-- </div> -->
+
                 </div>
               </div>
             </div>
@@ -55,71 +56,9 @@
 </div>
 
 
-<div class="container">
-  <div class="link  hidden-md hidden-lg">
-    <a href="#top">Top</a>
-    <a href="#participants">Participants</a>
-    <a href="#else">Else</a>
-  </div>
 
-<!--   <div class="grid ">
-    <div class="main">
-      <div class="prop-1" id="top">
-        <%# if @propositions.first.photo.nil? %>
-          <div class="best-prop" style="background-color:  <%#= @poll.propositions.first.color %>"><h1 class="text-center"><%#= @poll.propositions.first.name %></h1></div>
-          <%# else %>
-          <div class="best-prop">
-            <%#= cl_image_tag @propositions.first.photo.path %>
-          </div>
-        <%# end %>
-        <div class="text">
-          <ul>
-            <li><p>Description:   <%#= @propositions.first.description %></p></li>
-            <li><h3>Score: <%#= @propositions.first.score %></h3></li>
-          </ul>
-        </div>
-      </div>
-    </div>
- -->
 
-    <div class="stat">
-      <div class="prop-2" id="else">
-        <% @propositions[1..-1].each_with_index do |proposition, index|%>
-        <div class="other-prop">
-          <% if proposition.photo.nil? %>
-          <div class="photo" style="background-color:  <%= proposition.color %>"><p class="text-center"><%= proposition.name %></p></div>
-          <% else %>
-          <div class="photo">
-            <%= cl_image_tag proposition.photo.path %>
-          </div>
-          <% end %>
-          <div class="text">
-            <ul>
-              <li><p>Description: <%= proposition.description %></p></li>
-              <li><h3>Score: <%= proposition.score %></h3></li>
-            </ul>
-          </div>
-        </div>
-        <% end %>
-      </div>
-    </div>
 
-    <div class="participants" id="participants">
-      <h1 class="text-center"><%= link_to 'Participants', poll_participants_path(@poll), class: "btn btn-medium" %></h1>
-      <div class="participants-nbr">
-        <h1><%= @poll.participants.count %></h1>
-      </div>
-      <% @poll.participants.each do |participant|%>
-      <div class="other-prop">
-        <div class="photo" style="background-image: url('<%= image_path participant.user.facebook_picture_url || "http://placehold.it/30x30" %>') "></div>
-        <div class="text">
-          <h1><%= participant.user.first_name || participant.user.email %> <br> <%= participant.user.last_name || "" %></h1>
-        </div>
-      </div>
-      <% end %>
-    </div>
-  </div>
-</div>
 
 
 
