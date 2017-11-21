@@ -1,129 +1,64 @@
-<div class="site-content ">
-  <div class="container">
-
-    <!-- PROP 1 -->
-    <div class="row first-result background-blanco margin-top-results">
-      <div class="col-xs-12">
-
-        <div class="btn-location borde-b flex-box">
-          <h3 class="text-center bold text-uppercase">
-            <%= @poll.propositions.first.name %></h3>
-          </div>
-
-          <div class="row burger-menu-result">
-            <div class="col-xs-5">
-              <div class="btn-burger">
-                <span class="text-uppercase">Closed</span>
-              </div>
-            </div>
-            <div class="col-xs-7 background-blanco ">
-              <p>Lorem ipsum  nsptatibus!</p>
-            </div>
-          </div>
-
-
-          <div class="row img-first-result">
-            <div class="col-xs-12">
-              <div class="box-img-result background-gif flex-box">
-                <% if @propositions.first.photo.nil? %>
-                <div class="best-prop" style="background-color:  <%= @poll.propositions.first.color %>">
-                </div>
-                <% else %>
-                <div class="best-prop">
-                  <%= cl_image_tag @propositions.first.photo.path %>
-                </div>
-                <% end %>
-              </div>
-            </div>
-          </div>
-
-          <div class="row score">
-            <div class="col-xs-12">
-              <div class="text">
-                <h3>Score: <%= @propositions.first.score %></h3>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- PROP 2 -->
-
-      <% @propositions[1..-1].each_with_index do |proposition, index|%>
-      <!--  <div class="other-results background-blanco"> -->
-        <div class="row other-results margin-top background-blanco ">
-          <div class="col-xs-12 ">
-
-            <div class="title-prop">
-              <div class="row">
-                <div class="col-xs-12">
-                  <div class="btn-location borde-b flex-box">
-                    <h3 class="text-center bold text-uppercase title-size-results"><%= proposition.name %></h3>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="row burger-menu-result">
-              <div class="col-xs-5">
-                <div class="btn-burger">
-                  <span class="text-uppercase">Closed</span>
-                </div>
-              </div>
-              <div class="col-xs-7background-blanco ">
-                <p>Lorem ipsum  nsptatibus!</p>
-              </div>
-            </div>
+<div class="results-container">
 
 
 
-            <div class="row img-first-result">
-              <div class="col-xs-12">
-                <div class="box-img-result background-blanco flex-box">
-                  <% if proposition.photo.nil? %>
-                  <div class="best-prop" style="background-color:  <%= proposition.color %>">
-                  </div>
-                  <% else %>
-                  <div class="best-prop">
-                   <%= cl_image_tag proposition.photo.path %>
-                 </div>
-                 <% end %>
-               </div>
-             </div>
-           </div>
-
-
-
-           <div class="row score-box">
-            <div class="col-xs-12">
-              <div class="text">
-                <h3>Score: <%= proposition.score %></h3></li>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-      <!--  </div> -->
-      <% end %>
-
-    </div>
+ <div class="prop-first-item">
+  <div class="btn-location prop-title">
+    <h3 class="bold text-uppercase">
+      <%= @propositions.first.name %>
+    </h3>
   </div>
-
-
-
-<!--
-<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-  <div class="card-category">Popular</div>
-  <div class="card-description">
-    <h2>Le Wagon Shanghai</h2>
-    <p>Very cool city, the best</p>
+  <div class="prop-score text-center">
+    score: <%= @propositions.first.score %>
   </div>
-  <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-  <a class="card-link" href="#" ></a>
+  <% if @propositions.first.photo.nil? %>
+  <div class="prop-image-first" style="background-color:  <%= @propositions.first.color %>">
+  </div>
+  <% else %>
+  <div class="prop-image-first background-gif text-center">
+   <%= cl_image_tag @propositions.first.photo.path %>
+ </div>
+ <% end %>
 </div>
--->
+
+
+
+    <div class="other-prop-container">
+      <% @propositions[1..-1].each do |proposition| %>
+      <div class="prop-item">
+        <div class="btn-location prop-title">
+          <h3 class="bold text-uppercase">
+            <%= proposition.name %>
+          </h3>
+        </div>
+        <div class="prop-score text-center">
+          score: <%= proposition.score %>
+        </div>
+        <% if proposition.photo.nil? %>
+        <div class="prop-image-color" style="background-color:  <%= proposition.color %>">
+        </div>
+        <% else %>
+        <div class="prop-image background-gif text-center">
+         <%= cl_image_tag proposition.photo.path %>
+       </div>
+       <% end %>
+     </div>
+     <% end %>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
