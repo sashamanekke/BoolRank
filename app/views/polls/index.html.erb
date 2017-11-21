@@ -1,17 +1,34 @@
-<h1>Polls#index</h1>
-<p>Find me in app/views/polls/index.html.erb</p>
+<div class="container">
+  <h1 class="text-center">All Polls</h1>
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <% @polls.each do |poll| %>
+      <div class="poll-main bg borde-around-poll">
 
-
-
-
-
-
-
-<!-- ____________ for each indexed poll __________ -->
-  <div>
-   <button type="button" class="btn btn-default btn-less-marg" data-toggle="modal" data-target="#share-res">Share Results</button>
+        <% if poll.photo.nil? %>
+        <%= image_tag "Bear.jpg", :class => "poll-image"%>
+        <% else %>
+        <%= image_tag poll.photo, :class => "poll-image"%>
+        <% end %>
+        <div class="poll-body">
+        <h3><%= poll.title %></h3>
+          <!-- <p>Created by:<%= poll.user.email %></p> -->
+          <p><%= poll.description %></p>
+        </div>
+        <ul class="list-inline product-controls">
+         <%= link_to "View Poll", poll_path(poll), :class => "btn btn-default" %>
+        </ul>
+      </div>
+  <% end %>
+  <%#= raise %>
+    </div>
   </div>
+</div>
 
 
 
-<%= render "polls/share_results" %>
+
+
+
+
+

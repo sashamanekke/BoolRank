@@ -35,10 +35,11 @@ class PollsController < ApplicationController
   end
 
   def create
+    poll_colors = (1..16).map{ |i| i < 10 ? "0#{i}.jpg" : "#{i}.jpg" }
     @poll = Poll.new(poll_params)
     # add current user when login is set !!!!!!!!!!!!!!!!
     @poll.user = current_user
-
+    @poll.photo = poll_colors.sample
     if @poll.save
       # create a participant automatically when you create a poll
       participant = Participant.new()
@@ -69,22 +70,43 @@ class PollsController < ApplicationController
   end
 
   def compare
-    #At one point show a button "see result"
-    all_combinations = generate_combinations(@poll.propositions)
+    #generate the basic combinations => [1,2] [3,4] [5,6] ..."
+    first_combinations = generate_first_combinations(@poll.propositions)
+    #generate all the combinations already voted by the current user
     existing_combinations = generate_existing_combinations(@poll.votes.where(user: current_user))
-    @comparison = (all_combinations - existing_combinations).sample
+    #compute the remaining combinations
+    remaining_combinations = (first_combinations - existing_combinations)
+    @remainings = remaining_combinations
+      #generate all the combinations possible
+      all_combinations = generate_combinations(@poll.propositions)
+    if remaining_combinations == []
+      remaining_combinations = (all_combinations - existing_combinations)
+    end
+    @comparison = remaining_combinations.sample
 
-    ### Just to test and see
-    @test_array = all_combinations.map{ |el|
-      [el.first.id, el.last.id]
-    }
-    @test_array_2 = existing_combinations.map{ |el|
-      [el.first.id, el.last.id]
-    }
-    test_array_3 = @poll.votes.where(user: current_user).map{ |el|
-      [el.accepted_proposition.id, el.rejected_proposition.id]
-    }
-    ###
+    @total_score = 0
+    @prop_lenth = @poll.propositions.length
+    @poll.propositions.each do |prop|
+      @total_score += prop.score
+    end
+
+    # ### Just to test and see ###
+    # @test_array_all = all_combinations.map{ |el|
+    #   [el.first.id, el.last.id]
+    # }
+    # @test_array = first_combinations.map{ |el|
+    #   [el.first.id, el.last.id]
+    # }
+    # @test_array_2 = existing_combinations.map{ |el|
+    #   [el.first.id, el.last.id]
+    # }
+    # # @test_array_3 = @poll.votes.where(user: current_user).map{ |el|
+    # #   [el.accepted_proposition.id, el.rejected_proposition.id]
+    # # }
+    # @test_array_4 = @remainings.map{ |el|
+    #   [el.first.id, el.last.id]
+    # }
+    # ### end ###
   end
 
   def start
@@ -104,6 +126,7 @@ class PollsController < ApplicationController
   end
 
   def generate_combinations(props)
+    props = props.sort { |a, b|  a.id <=> b.id }
     all_combinations = []
     props.each_with_index do |p1, index|
       props[(index + 1)..-1].each do |p2|
@@ -114,6 +137,7 @@ class PollsController < ApplicationController
   end
 
   def generate_existing_combinations(votes)
+
     existing_combinations = []
     votes.each do |vote|
       combination = [vote.accepted_proposition, vote.rejected_proposition]
@@ -121,6 +145,19 @@ class PollsController < ApplicationController
       existing_combinations << combination
     end
     existing_combinations
+  end
+
+  def generate_first_combinations(props)
+    props = props.sort { |a, b|  a.id <=> b.id }
+    first_combinations = []
+    props.each_slice(2) do |slice|
+      if props.length.odd? && slice.first == props.last
+        slice << props.first
+      end
+      slice.sort! { |a, b|  a.id <=> b.id }
+      first_combinations << slice
+    end
+    first_combinations.sort!
   end
 
 end
