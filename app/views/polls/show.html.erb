@@ -70,13 +70,7 @@
                         <!-- The open close checkbox -->
                         <div class="checkbox-update-poll">
                           <input class="hidden" type="checkbox" name="open" id="open" value=<%=@poll.id%> data-remote="true" data-url="/polls/<%= @poll.id %>/toggle_open" data-method="POST" checked="checked">
-                          <label class="checkbox-on btn btn-default btn-medium" for="open">
-                          <% if @poll.open %>
-                            <%= "Open" %>
-                          <% else %>
-                            <%= "Closed" %>
-                          <% end %>
-                          <i class="fa fa-check"></i>
+                          <label class="checkbox-on btn btn-default btn-medium" for="open">Open
                           </label>
                         </div>
 
@@ -153,6 +147,7 @@
 <!-- ____________ renders for modals ____________ -->
 <%= render "polls/share_poll" %>
 <%= render "polls/share_results" %>
+
 
 
 
