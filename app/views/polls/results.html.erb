@@ -37,73 +37,11 @@
         </div>
         <% if proposition.photo.nil? %>
         <div class="prop-image-color" style="background-color:  <%= proposition.color %>">
-
-<div class="site-content ">
-  <div class="container flex-box">
-    <div class="test-height">
-    <div class="row">
-      <div class="col-xs-12 ">
-        <div class="first-result background-blanco">
-          <div class="btn-location borde-b flex-box">
-            <h3 class="text-center bold text-uppercase">first Propre name <!-- upercase --></h3>
-          </div>
-          <div class="burger-menu-result">
-            <div class="row">
-              <div class="col-xs-3">
-                <div class="btn-burger">
-                  <span class="text-uppercase">Closed</span>
-                </div>
-              </div>
-              <div class="col-xs-5 background-blanco ">
-                <p>Lorem ipsum nsptatibus!</p>
-              </div>
-            </div>
-            <div class="img-first-result">
-              <div class="row">
-                <div class="col-xs-12">
-
-                  <div class="box-img-result background-gif">
-                    <% if @propositions.first.photo.nil? %>
-                    <div class="best-prop" style="background-color:  <%= @poll.propositions.first.color %>">
-                      <h1 class="text-center"><%= @poll.propositions.first.name %></h1>
-                    </div>
-                    <% else %>
-                    <div class="best-prop">
-                      <%= cl_image_tag @propositions.first.photo.path %>
-                    </div>
-                    <% end %>
-                  </div>
-
-
-                  <div class="row">
-                    <div class="col-xs-12">
-                      <div class="text">
-                        <ul>
-                          <li><p>Description:   <%= @propositions.first.description %></p></li>
-                          <li><h3>Score: <%= @propositions.first.score %></h3></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          </div>
-
         </div>
-        <% else %>
-        <div class="prop-image background-gif text-center">
-         <%= cl_image_tag proposition.photo.path %>
-       </div>
-       <% end %>
-     </div>
-     <% end %>
+      </div>
     </div>
 
 </div>
-
-
 
 
 
