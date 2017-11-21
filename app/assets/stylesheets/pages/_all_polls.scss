@@ -1,0 +1,124 @@
+// .poll-container {
+//   border: 1px solid #dce0e0;
+//   padding: 0 20px;
+//   margin: 0;
+// }
+
+.poll-main {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  transition: all 0.15s ease;
+  margin: 5px;
+  min-width: 300px;
+  // position: relative;
+}
+
+
+/* Body design */
+.poll-body {
+  flex: 1 1 auto;
+}
+.poll-body h3 {
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 10px;
+  margin-top: 0;
+  padding-bottom: 15px;
+
+}
+.poll-body p {
+  font-weight: lighter;
+  color: #999999;
+  margin-bottom: 0;
+}
+
+/* poll image */
+.poll-image {
+  margin-right: 20px;
+  width: 175px;
+}
+
+.poll-image-default {
+  margin-right: 20px;
+  width: 175px;
+  position: relative;
+}
+
+/* Upvote design */
+.poll-upvote {
+  padding-right: 20px;
+  text-align: center;
+  transition: all 0.15s ease;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 20px;
+}
+.poll-count {
+  margin: 2px 0 0;
+}
+.poll-arrow {
+  transition: all 0.15s ease;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid transparent;
+  border-bottom: 9px solid black;
+  border-radius: 2px;
+  margin: auto;
+}
+
+/* Controls design */
+.poll-controls {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 0px;
+}
+.poll-controls a {
+  padding: 0 20px;
+  font-size: 17px;
+  color: #E6E6E6;
+}
+.poll-controls a:hover {
+  color: #D3473C !important
+}
+.poll-controls-hidden a {
+  color: transparent;
+  font-size: 15px;
+  transition: all 0.15s ease;
+  border-color: transparent;
+}
+
+/* Hover effects */
+.poll:hover {
+  background: #f7f7fa;
+  cursor: pointer;
+}
+.poll-upvote:hover, .poll-upvote.poll-upvote-upvoted {
+  color: #5898f1;
+  cursor: pointer;
+}
+.poll-upvote-upvoted .poll-arrow {
+  border-bottom-color: #5898f1;
+}
+.poll:hover .poll-upvote {
+  transform: scale(1.2)
+}
+.poll:hover .poll-controls-hidden a {
+  color: #E6E6E6;
+}
+.poll-upvote:hover .poll-arrow {
+  border-bottom: 9px solid #5898f1;
+}
+
+// Styling  //
+
+.borde-around-poll {
+  border: 1px solid $dark-gray;
+}
+
+.poll-main.bg {
+  background-color: white;
+}
