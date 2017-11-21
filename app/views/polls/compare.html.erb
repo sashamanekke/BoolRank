@@ -27,7 +27,7 @@
         </div>
         <% end %>
       </div>
-      <%#= TEST - to delete later %>
+<!--       <%#= TEST - to delete later %>
       <p>first combinations %>first</p>
       <%= @test_array %>
       <p>remainings</p>
@@ -36,7 +36,8 @@
       <%= @test_array_2 %>
       <p>all combinations</p>
       <%= @test_array_all %>
-      <%#= TEST %>
+      <%= @total_score %>
+      <%#= TEST %> -->
 
 
       <h3 class="center-text">or</h3>
@@ -62,7 +63,7 @@
       </div>
       <% end %>
 
-      <% if @remainings == [] %>
+      <% if @remainings == [] && @total_score >= (@poll.propositions.length)*1.5 || @comparison == nil %>
       <div class="banner">
         <%= link_to "results", results_poll_path(@poll), :class => "btn btn-medium" %>
       </div>

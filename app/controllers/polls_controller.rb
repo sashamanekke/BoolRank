@@ -82,23 +82,30 @@ class PollsController < ApplicationController
       remaining_combinations = (all_combinations - existing_combinations)
     end
     @comparison = remaining_combinations.sample
-    ### Just to test and see ###
-    @test_array = first_combinations.map{ |el|
-      [el.first.id, el.last.id]
-    }
-    @test_array_all = all_combinations.map{ |el|
-      [el.first.id, el.last.id]
-    }
-    @test_array_2 = existing_combinations.map{ |el|
-      [el.first.id, el.last.id]
-    }
-    # @test_array_3 = @poll.votes.where(user: current_user).map{ |el|
-    #   [el.accepted_proposition.id, el.rejected_proposition.id]
+
+    @total_score = 0
+    @prop_lenth = @poll.propositions.length
+    @poll.propositions.each do |prop|
+      @total_score += prop.score
+    end
+
+    # ### Just to test and see ###
+    # @test_array_all = all_combinations.map{ |el|
+    #   [el.first.id, el.last.id]
     # }
-    @test_array_4 = @remainings.map{ |el|
-      [el.first.id, el.last.id]
-    }
-    ### end ###
+    # @test_array = first_combinations.map{ |el|
+    #   [el.first.id, el.last.id]
+    # }
+    # @test_array_2 = existing_combinations.map{ |el|
+    #   [el.first.id, el.last.id]
+    # }
+    # # @test_array_3 = @poll.votes.where(user: current_user).map{ |el|
+    # #   [el.accepted_proposition.id, el.rejected_proposition.id]
+    # # }
+    # @test_array_4 = @remainings.map{ |el|
+    #   [el.first.id, el.last.id]
+    # }
+    # ### end ###
   end
 
   def start
