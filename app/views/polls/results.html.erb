@@ -37,9 +37,14 @@
         </div>
         <% if proposition.photo.nil? %>
         <div class="prop-image-color" style="background-color:  <%= proposition.color %>">
-
         </div>
+          <% else %>
+        <div class=" prop-image background-gif text-center">
+        <%= cl_image_tag proposition.photo.path %>
+        </div>
+        <% end %>
       </div>
+      <% end %>
     </div>
 
 </div>
