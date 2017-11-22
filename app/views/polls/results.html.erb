@@ -1,5 +1,5 @@
 
-<div class="results-container flex-box">
+<div class="results-container flex-box ">
   <div class="navbar-box">
     <div class="pull-left">
       <%= link_to '< Back', add_propositions_poll_path(@poll)%>
@@ -56,9 +56,9 @@
     <div class="prop-image-first" style="background-color:  <%= @propositions.first.color %>">
     </div>
     <% else %>
-    <div class="prop-image-first background-gif text-center">
+    <div class="prop-image-first text-center" style="background-color: #060303;">
      <%= cl_image_tag @propositions.first.photo.path %>
-   </div>
+    </div>
    <% end %>
  </div>
 

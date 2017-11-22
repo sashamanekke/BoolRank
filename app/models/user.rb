@@ -8,6 +8,11 @@ class User < ApplicationRecord
   has_many :votes, dependent: :destroy
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  after_create :create_profile
+       def create_profile
+         Profile.create(user_id: self.id)
+       end
+
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)

@@ -21,18 +21,16 @@
 </div>
 
 <div class="site-content ">
-  <div class="container flex-box">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <div class="info-poll ">
+  <div class="container">
+
+        <div class="info-poll background-blanco ">
+
           <div class="modulo-nav parent-center">
-            <div class="child-center padding-module">
-              <div class="pull-left">
+            <div class="child-center padding-module text-center">
+
                 <%= link_to '< Back', add_propositions_poll_path(@poll)%>
-              </div>
-              <div class="pull-right">
-                <%= link_to 'home / ', root_path%>
-              </div>
+
+
             </div>
           </div>
 
@@ -44,27 +42,28 @@
                 <div class="profile-details borde-b borde-fino">
 
                   <div class="row">
-                    <div class="col-xs-4 borde-r borde-fino">
-                      <div class="text-center borde-b ">
+                    <div class="col-xs-4  borde-fino">
+                      <div class="text-center  ">
                         <h2 class="bold title margin-tb text-uppercase">
                           USER NAME<%#= @poll.user.email%>
                         </h2>
                       </div>
                       <!-- background-gif -->
-                      <div class="background-gif">
+
                         <div class="text-center">
-                          <div class="profile-avatar borde-b borde-l">
+                          <div class="profile-avatar">
                             <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
                             <%= image_tag avatar_url, class: "avatar-square-lg margin-tb"%>
                           </div>
                         </div>
-                      </div>
+
                     </div>
 
 
 
                     <div class="col-xs-4">
                       <div class="profile-description">
+
                         Ì<%= link_to 'All polls', polls_path, class: "btn btn-default btn-medium"%>
 
                         <% if @poll.user == current_user %>
@@ -116,6 +115,7 @@
                             </div>
                           </div>
                         <% end %>
+
                       </div>
                     </div>
                   </div>
@@ -137,51 +137,48 @@
           </div>
 
 
-          <div class="poll-proposition margin-top-results margin-b-small">
-            <div class="row">
-              <div class=" col-xs-12">
-               <div class="text-center borde-b ">
-                <h2 class="bold text-uppercase">
-                  All proposition<%#= @poll.user.email%>
-                </h2>
-              </div>
-              <div class="show-prop background-gif">
-                 <!-- <div class="btn-location borde-b borde-t flex-box">
-                  <h3 class="text-center bold text-uppercase">all Propositions upercase </h3>
-                </div> -->
 
-                <% @poll.propositions.each do |proposition|%>
-                <div class="row">
-                  <div class="col-xs-12 margin-b-small">
-                    <div class="flex-box">
-                      <div class="name-box">
-                        <div class="created-name">
-                          <h3><%= proposition.name %></h3>
-                        </div>
-                      </div>
-                      <div class="photo-box">
-                        <% unless proposition.photo.nil?  %>
-                        <div class="created-photo" style="background-image: url('<%= cl_image_path  proposition.photo.path %>')">
 
-                        </div>
-                        <% else %>
-                        <div class="created-photo" style="background-color: <%=proposition.color%>">
-                        </div>
-                        <% end %>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <% end %>
-              </div>
-            </div>
-          </div>
+ <div class="prop-container background-gif margin-b-results margin-top" id="propositions">
+   <div class="btn-location-blue prop-title">
+    <h3 class="bold text-uppercase text-center">
+     All propositions
+   </h3>
+ </div>
+ <% @poll.propositions[1..-1].each do |proposition| %>
+ <div class="row">
+  <div class="col-xs-12">
+    <div class="prop-box">
+      <div class="photo-box">
+        <% unless proposition.photo.nil?  %>
+        <div class="created-photo" style="background-image: url('<%= cl_image_path  proposition.photo.path %>')">
+        </div>
+        <% else %>
+        <div class="created-photo" style="background-color: <%=proposition.color%>">
+        </div>
+
+        <% end %>
+      </div>
+      <div class="name-box">
+        <div class="created-name">
+          <h3><%= proposition.name %></h3>
         </div>
       </div>
     </div>
   </div>
 </div>
+<% end %>
 </div>
+
+        <button type="button" class="btn btn-default btn-medium" data-toggle="modal" data-target="#share-modal">
+          Share Poll!
+        </button>
+        <%= link_to 'continu', compare_poll_path(@poll), class: "btn btn-default btn-medium "%>
+
+      </div>
+
+</div>
+
 
 
 
