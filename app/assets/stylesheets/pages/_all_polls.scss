@@ -17,7 +17,9 @@
 /* Body design */
 .poll-description {
   // display: flex;
-  flex: 1 1 auto;
+  max-width: 30%;
+  padding-top: 15px;
+
 }
 
 .poll-description {
@@ -34,13 +36,30 @@
   margin-bottom: 0;
 }
 
-/* poll image */
-.poll-image {
-  margin-right: 20px;
-  width: 175px;
+.poll-title {
+  position: absolute;
+  font-weight: bold;
+  font-size: 24px;
+  color: white;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+
+
 }
 
-.poll-image-default {
+/* poll media */
+.poll-media {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  width: 175px;
+  height: 100px;
+  background-size: cover !important;
+  background-position: center;
+}
+
+.poll-media-default {
   margin-right: 20px;
   width: 175px;
 }
@@ -123,5 +142,4 @@
   background-color: white;
 }
 
-// media queries //
 

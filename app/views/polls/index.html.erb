@@ -3,20 +3,21 @@
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
       <% @polls.each do |poll| %>
-        <%= link_to poll_path(poll) do %>
-          <div class="poll-main bg borde-around-poll">
-            <% if poll.photo.nil? %>
-            <%= image_tag "Bear.jpg", :class => "poll-image"%>
-            <% else %>
-            <%= image_tag poll.photo, :class => "poll-image"%>
-            <% end %>
-            <div class="poll-description">
-              <h3><%= poll.title %></h3>
-              <!-- <p>Created by:<%= poll.user.email %></p> -->
-              <p><%= poll.description %></p>
-            </div>
-          </div>
-        <% end %>
+      <%= link_to poll_path(poll) do %>
+      <div class="poll-main bg borde-around-poll">
+        <% if poll.photo.nil? %>
+        <div class="poll-media" style="background-image: url('<%= image_path "Bear.jpg" %>') ">
+          <% else %>
+        <div class="poll-media" style="background-image: url('<%= image_path poll.photo %>') ">
+          <% end %>
+          <div class="poll-title"><%= poll.title %></div>
+        </div>
+        <div class="poll-description">
+          <!-- <p>Created by:<%= poll.user.email %></p> -->
+          <p><%= poll.description %></p>
+        </div>
+      </div>
+      <% end %>
       <% end %>
     </div>
   </div>
