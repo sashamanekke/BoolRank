@@ -67,10 +67,15 @@
 
         <div class="add-prop-2">
           <!-- <h1>Add Propositions</h1> -->
-          <%= render "form_proposition" %>
-          <div class="btn-burger flex-box">
-            <%= link_to "Continue", poll_path %>
-          </div>
+          <% if @poll.propositions.length < 7 %>
+            <%= render "form_proposition" %>
+            <div class="btn-burger flex-box">
+              <%= link_to "Continue", poll_path %>
+            </div>
+          <% else %>
+            <h2>The free version only allows 7 propositions</h2>
+            <p>Go premium for unlimited</p>
+          <% end %>
         </div>
 
 
