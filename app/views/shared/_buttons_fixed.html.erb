@@ -1,12 +1,15 @@
 
 
 <div class="btn-blue-logo">
+  <%= link_to root_path, class: "btn-blue-logo" do %>
   <span class="btn-square">
-    <span class="btn__inner">  <%= link_to root_path, class: "btn-blue-logo" do %>
-      <%= image_tag "Boolrank-blue.png" %>
+    <span class="btn__inner">
+
+      <%= image_tag "boolrank-logo.png" %>
       <!-- <%= image_tag "Boolrank.png" %> -->
-      <% end %></span>
+      </span>
     </span>
+    <% end %>
   </div>
 
 
@@ -17,16 +20,37 @@
         <div class="navbar-wagon-item hidden-md hidden-lg">
          <%#= yield(:navbar_link) %>
          <div class="dropdown">
+
+
+<% if user_signed_in? %>
           <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li><a href="#">Some mobile link</a></li>
-            <li><a href="#">Other one</a></li>
-            <li><a href="#">Other one</a></li>
+            <li><%= link_to "#" do %>
+            <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+            <% end %></li>
+            <li> <%= link_to "#" do %>
+            <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
+            <% end %></li>
+            <li> <%= link_to destroy_user_session_path, method: :delete do %>
+            <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+            <% end %></li>
           </ul>
+
+          <% else %>
+          <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li>    <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <% end %></li></ul>
+
+
         </div>
       </div>
     </span>
   </span>
 </div>
+
+
+
 
 
