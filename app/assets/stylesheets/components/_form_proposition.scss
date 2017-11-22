@@ -82,6 +82,30 @@ input[type="file"].attachinary-input {
    // border-top: 2px solid black;
 }
 
+.photo-box-profile {
+    display:flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-right: 0px;
+  height: 50px;
+  width: 50px !important;
+  background-image: center;
+  background-size: cover !important;
+  margin: 0px;
+  opacity: 1;
+  flex: 0 0 30%;
+  text-align: center;
+  background-color: black;
+  h3 {
+    color: white !important;
+  }
+
+
+
+}
+
+
 .proposition_photo.control-label.attachinary {
   display: none;
 
