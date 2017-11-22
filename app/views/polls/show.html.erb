@@ -67,37 +67,59 @@
                       <div class="profile-description">
                         Ì<%= link_to 'All polls', polls_path, class: "btn btn-default btn-medium"%>
 
-                        <!-- The open close checkbox -->
-                        <div class="checkbox-update-poll">
-                          <input class="hidden" type="checkbox" name="closed" id="closed" value=<%=@poll.id%> data-remote="true" data-url="/polls/<%= @poll.id %>/toggle_closed" data-method="PATCH" checked="checked">
-                          <label id="toggle-button" class="<%= "active-checkbox" unless @poll.closed %> checkbox-on btn btn-default btn-medium" for="closed">
-                          <% if @poll.closed %>
-                          <%= "Closed" %>
-                          <% else %>
-                          <%= "Open" %>
-                          <i class='fa fa-check'></i>
-                          <% end %>
-                          </label>
-                        </div>
-                        <!-- The open close checkbox -->
-                        <div class="checkbox-update-poll">
-                          <input class="hidden" type="checkbox" name="public_poll" id="public_poll" value=<%=@poll.id%> data-remote="true" data-url="/polls/<%= @poll.id %>/toggle_public_poll" data-method="PATCH" checked="checked">
-                          <label id="toggle-button-public" class="<%= "active-checkbox" if @poll.public_poll %> checkbox-on btn btn-default btn-medium" for="public_poll">
-                          <% if @poll.public_poll %>
-                          <%= "Public" %>
-                          <i class='fa fa-check'></i>
-                          <% else %>
-                          <%= "Private" %>
-                          <% end %>
-                          </label>
-                        </div>
-
+                        <% if @poll.user == current_user %>
+                          <!-- The open close checkbox -->
+                          <div class="checkbox-update-poll">
+                            <input class="hidden" type="checkbox" name="closed" id="closed" value=<%=@poll.id%> data-remote="true" data-url="/polls/<%= @poll.id %>/toggle_closed" data-method="PATCH" checked="checked">
+                            <label id="toggle-button" class="<%= "active-checkbox" unless @poll.closed %> checkbox-on btn btn-default btn-medium" for="closed">
+                            <% if @poll.closed %>
+                            <%= "Closed" %>
+                            <% else %>
+                            <%= "Open" %>
+                            <i class='fa fa-check'></i>
+                            <% end %>
+                            </label>
+                          </div>
+                          <!-- The open close checkbox -->
+                          <div class="checkbox-update-poll">
+                            <input class="hidden" type="checkbox" name="public_poll" id="public_poll" value=<%=@poll.id%> data-remote="true" data-url="/polls/<%= @poll.id %>/toggle_public_poll" data-method="PATCH" checked="checked">
+                            <label id="toggle-button-public" class="<%= "active-checkbox" if @poll.public_poll %> checkbox-on btn btn-default btn-medium" for="public_poll">
+                            <% if @poll.public_poll %>
+                            <%= "Public" %>
+                            <i class='fa fa-check'></i>
+                            <% else %>
+                            <%= "Private" %>
+                            <% end %>
+                            </label>
+                          </div>
+                        <% else %>
+                          <div class="checkbox-update-poll no-cursor">
+                            <div class="<%= "active-checkbox" unless @poll.closed %> no-cursor btn btn-default btn-medium">
+                              <% if @poll.closed %>
+                              <%= "Closed" %>
+                              <% else %>
+                              <%= "Open" %>
+                              <i class='fa fa-check'></i>
+                              <% end %>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="checkbox-update-poll no-cursor">
+                            <div class="<%= "active-checkbox" if @poll.public_poll %> no-cursor btn btn-default btn-medium">
+                              <% if @poll.public_poll %>
+                              <%= "Public" %>
+                              <i class='fa fa-check'></i>
+                              <% else %>
+                              <%= "Private" %>
+                              <% end %>
+                              </label>
+                            </div>
+                          </div>
+                        <% end %>
                       </div>
-
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
           <button type="button" class="btn btn-default btn-medium" data-toggle="modal" data-target="#share-modal">
