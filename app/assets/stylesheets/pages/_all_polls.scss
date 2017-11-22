@@ -11,7 +11,7 @@
   transition: all 0.15s ease;
   margin: 5px;
   min-width: 300px;
-  // position: relative;
+  position: relative;
 }
 
 
@@ -19,7 +19,7 @@
 .poll-body {
   flex: 1 1 auto;
 }
-.poll-body h3 {
+.poll-description {
   font-weight: bold;
   font-size: 24px;
   margin-bottom: 10px;
@@ -27,7 +27,7 @@
   padding-bottom: 15px;
 
 }
-.poll-body p {
+.poll-description p {
   font-weight: lighter;
   color: #999999;
   margin-bottom: 0;
