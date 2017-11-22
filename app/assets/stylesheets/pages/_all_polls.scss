@@ -11,14 +11,15 @@
   transition: all 0.15s ease;
   margin: 5px;
   min-width: 300px;
-  position: relative;
 }
 
 
 /* Body design */
-.poll-body {
+.poll-description {
+  // display: flex;
   flex: 1 1 auto;
 }
+
 .poll-description {
   font-weight: bold;
   font-size: 24px;
@@ -42,7 +43,6 @@
 .poll-image-default {
   margin-right: 20px;
   width: 175px;
-  position: relative;
 }
 
 /* Upvote design */
@@ -122,3 +122,6 @@
 .poll-main.bg {
   background-color: white;
 }
+
+// media queries //
+

@@ -508,6 +508,16 @@ $(document).ready(function(){
     }
   </script> -->
 
+  <script>
+document.getElementById('fb-share-button').onclick = function() {
+  FB.ui({
+    method: 'share',
+    display: 'popup',
+    href: 'https://developers.facebook.com/docs/',
+  }, function(response){});
+}
+</script>
+
 <!-- ----------------- SECONDARY FB SHARE LIKE TEST ---------------- -->
 
   <%#link_to 'Share on Facebook', "https://www.facebook.com/dialog/share?
@@ -655,7 +665,9 @@ $(document).ready(function(){
         <%= image_tag "Bear.jpg", :class => "poll-image" %>
         <%= image_tag poll.photo, :class => "poll-image" %>
 
-
-
+<!-- button "View Poll" -->
+        <!-- <div class="poll-controls hidden-sm hidden-xs">
+         <%=#link_to "View Poll", poll_path(poll), :class => "btn btn-default" %>
+        </div> -->
 
 
