@@ -1,3 +1,15 @@
+.navbar-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width:100%;
+  border: 2px solid black;
+
+}
+
+
+
 
 .results-container {
   display: flex;
@@ -13,7 +25,7 @@
 //  width: 100%;
 // }
 
-.prop-first-item {
+.prop-container {
   width: 100%;
   border: 2px solid black;
   margin-bottom: 20px;
@@ -41,6 +53,21 @@
 
 }
 .prop-score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+background-color: black;
+  h2 {
+    color: white !important;
+font-size: 20px !important;
+margin: 0px !important;
+padding: 0px !important;
+  }
+  i {
+    color: white !important;
+    font-size: 20px !important;
+
+  }
 
 }
 
@@ -70,6 +97,15 @@ width: 100%;
       min-height: 51%;
 
 }
+
+.prop-box {
+      display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
 
 // .first-result {
 //   border: 3px solid $dark-gray;
@@ -229,7 +265,7 @@ width: 100%;
 }
 
 .margin-b-results {
-  margin-bottom: 30px;
+  margin-bottom: 150px;
 }
 
 .other-results {
