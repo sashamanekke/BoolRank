@@ -1,5 +1,5 @@
 
-<div class="results-container">
+<div class="results-container flex-box">
   <div class="navbar-box">
     <div class="pull-left">
       <%= link_to '< Back', add_propositions_poll_path(@poll)%>
@@ -94,9 +94,7 @@
  <% @propositions[1..-1].each do |proposition| %>
  <div class="row">
   <div class="col-xs-12">
-
     <div class="prop-box">
-
       <div class="photo-box">
         <% unless proposition.photo.nil?  %>
         <div class="created-part-photo" style="background-image: url('<%= image_path  "Bear.jpg" %>')"></div>
@@ -104,9 +102,6 @@
         <div class="created-part-photo" style="background-color: <%=proposition.color%>"></div>
         <% end %>
       </div>
-
-
-
       <div class="name-box">
         <div class="created-part-name">
           <h3><%= proposition.name %></h3>
@@ -115,8 +110,11 @@
     </div>
   </div>
 </div>
-
 <% end %>
+
+<button type="button" class="btn btn-default btn-medium" data-toggle="modal" data-target="#share-modal">
+  Share Poll!
+</button>
 </div>
 
 
