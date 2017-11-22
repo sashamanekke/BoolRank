@@ -1,7 +1,12 @@
 <div class="site-content">
 <div class="banner">
   <div class="banner-content text-center">
-
+  <% if @poll.closed %>
+    <h1>This poll is closed</h1>
+    <hr>
+    <%= link_to 'Back to poll', poll_path(@poll), :class => "btn btn-medium" %>
+    <%= link_to 'See Results', results_poll_path(@poll), :class => "btn btn-medium" %>
+  <% else %>
     <% unless current_user.nil? %>
       <% user_present = false %>
       <% @poll.participants.each do |participant| %>
@@ -24,15 +29,17 @@
 </div>
 
 <%= link_to 'All Participants', poll_participants_path(@poll), :class => "btn btn-medium" %>
-
-<!-- TEST - TO DELETE -->
-<% count = 0 %>
-
-<% @poll.participants.each do |participant| %>
-
-  <%= participant.user_id %>
-  <% count += 1 %>
 <% end %>
 
-<%= count %>
+
+<!-- TEST - TO DELETE -->
+<%# count = 0 %>
+
+<%# @poll.participants.each do |participant| %>
+
+  <%#= participant.user_id %>
+  <%# count += 1 %>
+<%# end %>
+
+<%#= count %>
 </div>
