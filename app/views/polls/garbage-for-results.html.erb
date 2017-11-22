@@ -179,7 +179,31 @@
 
         <% end %>
 
+ <!-- ss  SMALL CARDS PROPOSITIONS-->
 
+<div class="other-prop-container">
+  <% @propositions[1..-1].each do |proposition| %>
+  <div class="prop-item">
+    <div class="btn-location-minus prop-title">
+      <h3 class="bold text-uppercase">
+        <%= proposition.name %>
+      </h3>
+    </div>
+    <div class="prop-score text-center">
+      score: <%= proposition.score %>
+    </div>
+    <% if proposition.photo.nil? %>
+    <div class="prop-image-color" style="background-color:  <%= proposition.color %>">
+
+    </div>
+    <% else %>
+    <div class="prop-image background-gif text-center">
+     <%= cl_image_tag proposition.photo.path %>
+   </div>
+   <% end %>
+ </div>
+ <% end %>
+</div>
 
 
 
