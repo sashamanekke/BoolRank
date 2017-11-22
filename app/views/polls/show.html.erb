@@ -100,6 +100,10 @@
 
               </div>
             </div>
+          <button type="button" class="btn btn-default btn-medium" data-toggle="modal" data-target="#share-modal">
+            Share Poll!
+          </button>
+          <%= link_to 'Vote', start_poll_path(@poll), class: "btn btn-default btn-medium "%>
           </div>
           <!--   <div class="row">
               <div class="col-xs-12">
@@ -109,6 +113,7 @@
               </div>
             </div> -->
           </div>
+
 
           <div class="poll-proposition margin-top-results margin-b-small">
             <div class="row">
@@ -150,10 +155,6 @@
             </div>
           </div>
         </div>
-        <button type="button" class="btn btn-default btn-medium" data-toggle="modal" data-target="#share-modal">
-          Share Poll!
-        </button>
-        <%= link_to 'continu', compare_poll_path(@poll), class: "btn btn-default btn-medium "%>
       </div>
     </div>
   </div>
