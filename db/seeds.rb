@@ -35,6 +35,8 @@ puts 'Creating 5 fake polls...'
     description: "This poll is about ... (add what you want)",
     # photo: "https://picsum.photos/1920/1080/?random",
     status: true,
+    closed: false,
+    public_poll: true,
     )
   poll.save!
   #shower.picture_urls = [url]

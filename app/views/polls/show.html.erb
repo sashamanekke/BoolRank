@@ -69,8 +69,26 @@
 
                         <!-- The open close checkbox -->
                         <div class="checkbox-update-poll">
-                          <input class="hidden" type="checkbox" name="closed" id="closed" value=<%=@poll.id%> data-remote="true" data-url="/polls/<%= @poll.id %>/toggle_closed" data-method="POST" checked="checked">
-                          <label class="checkbox-on btn btn-default btn-medium" for="closed">Closed
+                          <input class="hidden" type="checkbox" name="closed" id="closed" value=<%=@poll.id%> data-remote="true" data-url="/polls/<%= @poll.id %>/toggle_closed" data-method="PATCH" checked="checked">
+                          <label id="toggle-button" class="<%= "active-checkbox" unless @poll.closed %> checkbox-on btn btn-default btn-medium" for="closed">
+                          <% if @poll.closed %>
+                          <%= "Closed" %>
+                          <% else %>
+                          <%= "Open" %>
+                          <i class='fa fa-check'></i>
+                          <% end %>
+                          </label>
+                        </div>
+                        <!-- The open close checkbox -->
+                        <div class="checkbox-update-poll">
+                          <input class="hidden" type="checkbox" name="public_poll" id="public_poll" value=<%=@poll.id%> data-remote="true" data-url="/polls/<%= @poll.id %>/toggle_public_poll" data-method="PATCH" checked="checked">
+                          <label id="toggle-button-public" class="<%= "active-checkbox" if @poll.public_poll %> checkbox-on btn btn-default btn-medium" for="public_poll">
+                          <% if @poll.public_poll %>
+                          <%= "Public" %>
+                          <i class='fa fa-check'></i>
+                          <% else %>
+                          <%= "Private" %>
+                          <% end %>
                           </label>
                         </div>
 
@@ -82,6 +100,10 @@
 
               </div>
             </div>
+          <button type="button" class="btn btn-default btn-medium" data-toggle="modal" data-target="#share-modal">
+            Share Poll!
+          </button>
+          <%= link_to 'Vote', start_poll_path(@poll), class: "btn btn-default btn-medium "%>
           </div>
           <!--   <div class="row">
               <div class="col-xs-12">
@@ -91,6 +113,7 @@
               </div>
             </div> -->
           </div>
+
 
           <div class="poll-proposition margin-top-results margin-b-small">
             <div class="row">
@@ -132,10 +155,6 @@
             </div>
           </div>
         </div>
-        <button type="button" class="btn btn-default btn-medium" data-toggle="modal" data-target="#share-modal">
-          Share Poll!
-        </button>
-        <%= link_to 'continu', compare_poll_path(@poll), class: "btn btn-default btn-medium "%>
       </div>
     </div>
   </div>
@@ -148,8 +167,24 @@
 <%= render "polls/share_poll" %>
 <%= render "polls/share_results" %>
 
+<!-- ____________ js for the checkboxes ____________ -->
 
-
+<script>
+  const button = document.getElementById("toggle-button");
+  button.addEventListener("click", (event) => {
+    button.classList.toggle("active-checkbox");
+    console.log(button.innerHTML);
+    let value = (button.innerHTML.trim() == "Closed"  ? "Open <i class='fa fa-check'></i>" : "Closed")
+    button.innerHTML = value
+  });
+  const button_public = document.getElementById("toggle-button-public");
+  button_public.addEventListener("click", (event) => {
+    button_public.classList.toggle("active-checkbox");
+    console.log(button_public.innerHTML);
+    let value = (button_public.innerHTML.trim() == "Private"  ? "Public <i class='fa fa-check'></i>" : "Private")
+    button_public.innerHTML = value
+  });
+</script>
 
 
 
