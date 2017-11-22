@@ -14,8 +14,8 @@
           <% if @comparison.first.photo.nil? %>
           <div class="no-prop" style="background-color:  <%= @comparison.first.color %>"></div>
           <% else %>
-          <div class="prop-card">
-            <%= cl_image_tag @comparison.first.photo.path, class: "prop-img" %>
+          <div class="prop-card" style="height: 100%; width: 100%">
+            <%= cl_image_tag(@comparison.first.photo.path, :crop => :fill, :width => 800, :height => 800, class: "prop-img")%>
           </div>
           <% end %>
           <div class="result-bar"></div>
@@ -49,7 +49,7 @@
           <div class="no-prop" style="background-color:  <%= @comparison.last.color %>""></div>
           <% else %>
           <div class="prop-card">
-            <%= cl_image_tag @comparison.last.photo.path, class: "prop-img" %>
+            <%= cl_image_tag(@comparison.last.photo.path, :crop => :fill, :width => 800, :height => 800, class: "prop-img")%>
           </div>
           <% end %>
           <div class="result-bar"></div>

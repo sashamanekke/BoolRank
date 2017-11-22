@@ -26,10 +26,10 @@
         <div class="info-poll background-blanco ">
 
           <div class="modulo-nav parent-center">
+
             <div class="child-center padding-module text-center">
 
-                <%= link_to '< Back', add_propositions_poll_path(@poll)%>
-
+                <%= link_to '< Back', url_for(:back) %>
 
             </div>
           </div>
@@ -51,8 +51,10 @@
                       <!-- background-gif -->
 
                         <div class="text-center">
-                          <div class="profile-avatar">
-                            <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+
+                          <div class="profile-avatar borde-b borde-l">
+                            <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/50x50" %>
+
                             <%= image_tag avatar_url, class: "avatar-square-lg margin-tb"%>
                           </div>
                         </div>
@@ -64,7 +66,8 @@
                     <div class="col-xs-4">
                       <div class="profile-description">
 
-                        Ì<%= link_to 'All polls', polls_path, class: "btn btn-default btn-medium"%>
+                        <%= link_to 'All polls', polls_path, class: "btn btn-default btn-medium"%>
+
 
                         <% if @poll.user == current_user %>
                           <!-- The open close checkbox -->
