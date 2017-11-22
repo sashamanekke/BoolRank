@@ -83,13 +83,13 @@ puts 'Creating 5 fake polls...'
   #   vote.save!
   # end
 
-  #   puts "Creating 10 fake participants for poll #{x}"
-  # 10.times do |y|
-  #   participant = Participant.new()
-  #   participant.poll = poll
-  #   participant.user = User.all.sample
-  #   participant.save!
-  # end
+    puts "Creating 10 fake participants for poll #{x}"
+  10.times do |y|
+    participant = Participant.new()
+    participant.poll = poll
+    participant.user = User.all.sample
+    participant.save!
+  end
 end
 puts 'Finished!'
 

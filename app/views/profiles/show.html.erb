@@ -1,2 +1,110 @@
-<h1>Profiles#show</h1>
-<p>Find me in app/views/profiles/show.html.erb</p>
+<!-- <h1>Profiles#show</h1>
+  <p>Find me in app/views/profiles/show.html.erb</p> -->
+
+  <div class="profile-container">
+    <div class="profile text-center">
+      <div class="main">
+        <div class="main-content">
+          <!-- <img src="<%#= @user.avatar %>" alt=""> -->
+
+          <%= render partial: "shared/profile_cards" %>
+          <%= link_to 'Edit Profile', edit_profiles_path(@profile), class: "btn btn-medium" %>
+
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+
+  <div class="prop-container background-gif margin-top" id="participants">
+    <div class="btn-location-green prop-title">
+     <h3 class="bold text-uppercase text-center">
+       All your polls
+     </h3>
+   </div>
+
+
+   <% if @profile.user.polls.empty? %>
+   <h3>No Polls</3>
+    <% else %>
+    <% @profile.user.polls.each_with_index do |poll, index| %>
+
+    <div class="row">
+      <div class="col-xs-12">
+
+        <div class="prop-box">
+        <%= link_to poll_path(poll) do %>
+          <div class="photo-box-profile">
+            <h3>poll:<br> <%= index + 1 %></h3>
+          </div>
+          <% end %>
+
+          <div class="name-box">
+            <div class="created-part-name">
+              <h3>poll title: <%= poll.title %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <% end %>
+      <% end %>
+
+    </div>
+
+
+
+
+
+
+    <button type="button" class="btn btn-default btn-medium margin-b-results" data-toggle="modal" data-target="#share-modal" id="share">
+      Share Poll!
+    </button>
+
+
+
+
+  </div>
+
+
+
+
+<!--   create_table "profiles", force: :cascade do |t|
+    t.string "name"
+    t.string "surname"
+    t.string "photo"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+-->
+
+
+   <!--    create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "surname"
+    t.boolean "host"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.string "avatar"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    end -->
+

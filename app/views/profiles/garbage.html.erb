@@ -1,0 +1,64 @@
+
+
+    <div class="stat">
+
+      <div class="stat-content">
+
+        <div class="title"><h3>Your Showers</h3></div>
+        <%= link_to "Create Shower", new_shower_path, :class => "link_shower" %>
+        <!-- <a href="#" class="btn btn-primary ">Create Shower</a> -->
+        <% if @profile.showers.empty? %>
+        <p>you don't have showers yet</p>
+
+        <% else %>
+        <% @profile.showers.each do |shower| %>
+        <%= link_to shower_path(shower) do %>
+        <div class="box-style">
+          <div class="ul-box-style-2" style="background-image: linear-gradient(-225deg, rgba(0,21,168,0.3) 0%, rgba(50,106,251,0.4) 50%), url('<%= cl_image_path shower.pictures[0].path , height: 800, width: 800, crop: :fill %>')">
+            <h3 class="shower-title"><%= shower.title %></h3>
+
+          </div>
+          <div class="shower-infos">
+            <ul>
+              <li>shower id :<%= shower.id %></li>
+              <li>Address: <%= shower.address %></li>
+              <li>Price:<%= shower.price %></li>
+            </ul>
+          </div>
+        </div>
+
+        <% end %>
+        <% end %>
+        <% end %>
+
+      </div>
+
+    </div>
+    <div class="stat">
+      <div class="stat-content">
+        <!-- <a href="#" class="btn btn-primary ">Find Shower</a> -->
+
+
+
+        <%= link_to "Find Shower", showers_path, :class => "btn btn-medium " %>
+        <%= link_to "Reservations", shower_reservations_path(current_profile), :class => "btn btn-medium" %>
+
+      </div>
+    </div>
+    <div class="description">
+      <div class="description-content">
+
+        <div class="infos_profile">
+          <div class='drop'></div>
+         <div class="title"><h3>profile infos</h3></div>
+          <ul>
+           <!--  <li><strong>Address :</strong> <%= @profile.address %></li> -->
+            <li><strong>Email :</strong> <%= @profile.user.email %></li>
+            <li><strong>Description :</strong> Kathleen Ann Shower (born March 8, 1953 as Kathleen Ann Schrauer) is an American model and actress. Known as Kathy Shower she is Playboy's Playmate of the Month for May 1985 and Playmate of the Year for 1986. At the time of her first appearance, she was the oldest woman ever to appear as a Playboy Playmate, at age 33 as well as a single mother of two.</li>
+            <li>ratings</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
