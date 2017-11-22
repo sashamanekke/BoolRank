@@ -1,6 +1,6 @@
 class PollsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:start]
-  before_action :set_poll, only: [:show, :add_propositions, :edit, :update, :destroy, :compare, :results, :start, :toggle_closed]
+  before_action :set_poll, only: [:show, :add_propositions, :edit, :update, :destroy, :compare, :results, :start, :toggle_closed, :toggle_public_poll]
 
 
   def index
@@ -119,13 +119,23 @@ class PollsController < ApplicationController
   end
 
   def toggle_closed
-
-    if params[:closed] && @poll.update_attributes(:closed => params[:closed])
-
+    if @poll.closed == false
+      p "TRUE"
+      @poll.update_attributes(closed: true)
     else
       @poll.update_attributes(closed: false)
+      p "FALSE"
     end
+  end
 
+  def toggle_public_poll
+    if @poll.public_poll == false
+      p "TRUE"
+      @poll.update_attributes(public_poll: true)
+    else
+      @poll.update_attributes(public_poll: false)
+      p "FALSE"
+    end
   end
 
   private
