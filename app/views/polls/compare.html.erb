@@ -85,12 +85,14 @@
       if (button.dataset.vote == 2) {
         results = results.reverse()
       }
-      button.querySelector(".result-bar").style.width = (results[0]*100).toString() + "%";
+      button.querySelector(".result-bar").style.height = (results[0]*100).toString() + "%";
       button.querySelector("h3").innerText = Math.round((results[0]*100).toString()) + "%" ;
+      button.querySelector("h3").classList.add("big-percentage");
       const otherButton = document.getElementById('vote-' + (button.dataset.vote == 1 ? "2" : "1") );
       console.log(otherButton)
-      otherButton.querySelector('.result-bar').style.width = (results[1]*100).toString() + "%";
+      otherButton.querySelector('.result-bar').style.height = (results[1]*100).toString() + "%";
       otherButton.querySelector("h3").innerText = Math.round((results[1]*100)).toString() + "%" ;
+      otherButton.querySelector("h3").classList.add("big-percentage");
     });
   });
   function compute_result(score_1, score_2, vote) {

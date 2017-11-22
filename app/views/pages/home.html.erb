@@ -4,7 +4,7 @@
       <%= image_tag "Boolrank-white.png", class: "logo-front-page" %>
     </div>
     <h1>Create a NoodlePoll</h1>
-    <p>Let the BoolMan Choose for you</p>
+    <p>Let the noodles choose for you</p>
     <%= simple_form_for(@poll, url: polls_path, method: 'post') do |f| %>
       <%= f.input :title, placeholder: "What is your dilemma?", label: false %>
       <!-- QUESTION?? WHERE CAN I EDIT THE PLACEHOLDER OF THE BUTTON?????-->

@@ -91,6 +91,7 @@ class PollsController < ApplicationController
     @poll.propositions.each do |prop|
       @total_score += prop.score
     end
+    sleep 0.3
 
     # ### Just to test and see ###
     # @test_array_all = all_combinations.map{ |el|
