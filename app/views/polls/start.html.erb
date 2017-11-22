@@ -14,15 +14,18 @@
         <% user_present = true %>
         <h3>You are a participant of this poll</h3>
         <hr>
-
         <% end %>
       <% end %>
       <% if user_present %>
         <%= link_to 'Start Poll!', compare_poll_path(@poll), :class => "btn btn-medium" %>
       <% else %>
+        <h3>Join the poll to become a participant</h3>
+        <hr>
         <%= link_to 'Join Poll!', poll_participants_path(@poll), :class => "btn btn-medium", method: "post" %>
       <% end %>
     <% else %>
+        <h3>Join the poll to become a participant</h3>
+        <hr>
         <%= link_to 'Join Poll!', poll_participants_path(@poll), :class => "btn btn-medium", method: "post" %>
     <% end %>
   </div>
