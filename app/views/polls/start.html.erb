@@ -12,8 +12,8 @@
       <% @poll.participants.each do |participant| %>
         <% if participant.user == current_user %>
         <% user_present = true %>
-        <%= "YOU ARE A PARTICIPANT ALREADY" %>
-        <br>
+        <h3>You are a participant of this poll</h3>
+        <hr>
 
         <% end %>
       <% end %>
