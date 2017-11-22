@@ -20,7 +20,8 @@ Rails.application.routes.draw do
       get "start", to: 'polls#start'
       get "results", to: 'polls#results'
       get "add_propositions", to: 'polls#add_propositions'
-      post "toggle_closed"
+      patch "toggle_closed"
+      patch "toggle_public_poll"
     end
     resources :participants, only: [:index, :create, :destroy]
   end

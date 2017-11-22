@@ -1,38 +1,48 @@
 <div class="site-content">
 <div class="banner">
   <div class="banner-content text-center">
-
+  <% if @poll.closed %>
+    <h1>This poll is closed</h1>
+    <hr>
+    <%= link_to 'Back to poll', poll_path(@poll), :class => "btn btn-medium" %>
+    <%= link_to 'See Results', results_poll_path(@poll), :class => "btn btn-medium" %>
+  <% else %>
     <% unless current_user.nil? %>
       <% user_present = false %>
       <% @poll.participants.each do |participant| %>
         <% if participant.user == current_user %>
         <% user_present = true %>
-        <%= "YOU ARE A PARTICIPANT ALREADY" %>
-        <br>
-
+        <h3>You are a participant of this poll</h3>
+        <hr>
         <% end %>
       <% end %>
       <% if user_present %>
         <%= link_to 'Start Poll!', compare_poll_path(@poll), :class => "btn btn-medium" %>
       <% else %>
+        <h3>Join the poll to become a participant</h3>
+        <hr>
         <%= link_to 'Join Poll!', poll_participants_path(@poll), :class => "btn btn-medium", method: "post" %>
       <% end %>
     <% else %>
+        <h3>Join the poll to become a participant</h3>
+        <hr>
         <%= link_to 'Join Poll!', poll_participants_path(@poll), :class => "btn btn-medium", method: "post" %>
     <% end %>
   </div>
 </div>
 
 <%= link_to 'All Participants', poll_participants_path(@poll), :class => "btn btn-medium" %>
-
-<!-- TEST - TO DELETE -->
-<% count = 0 %>
-
-<% @poll.participants.each do |participant| %>
-
-  <%= participant.user_id %>
-  <% count += 1 %>
 <% end %>
 
-<%= count %>
+
+<!-- TEST - TO DELETE -->
+<%# count = 0 %>
+
+<%# @poll.participants.each do |participant| %>
+
+  <%#= participant.user_id %>
+  <%# count += 1 %>
+<%# end %>
+
+<%#= count %>
 </div>
