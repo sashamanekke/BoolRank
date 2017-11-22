@@ -13,6 +13,19 @@
         </div>
 
 
+        <div class="add-prop-2">
+          <!-- <h1>Add Propositions</h1> -->
+          <% if @poll.propositions.length < 7 %> <!-- MAX 7 PROPOSITIONS-->
+            <%= render "form_proposition" %>
+          <% else %>
+            <h2>The free version only allows 7 propositions</h2>
+            <p>Go premium for unlimited</p>
+          <% end %>
+          <div class="btn-burger flex-box">
+            <%= link_to "Continue", poll_path %>
+          </div>
+        </div>
+
         <div class="add-prop">
           <% @poll.propositions.each do |proposition|%>
           <div class="flex-box">
@@ -64,14 +77,6 @@
 
 
 
-
-        <div class="add-prop-2">
-          <!-- <h1>Add Propositions</h1> -->
-          <%= render "form_proposition" %>
-          <div class="btn-burger flex-box">
-            <%= link_to "Continue", poll_path %>
-          </div>
-        </div>
 
 
       </div>
