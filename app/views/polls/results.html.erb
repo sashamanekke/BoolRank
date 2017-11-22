@@ -9,24 +9,35 @@
     </div>
   </div>
 
-  <div class="btn-green-participants">
-    <span class="btn-square">
-      <span class="btn__inner"><i class="fa fa-users" aria-hidden="true"></i></span>
-    </span>
-  </div>
 
-  <div class="btn-red-propositions">
-    <span class="btn-square">
-      <span class="btn__inner"><i class="fa fa-linode" aria-hidden="true"></i></span>
-    </span>
-  </div>
+  <%= link_to root_path do %>
 
-  <div class="btn-pink-share">
-    <span class="btn-square">
-      <span class="btn__inner"><i class="fa fa-share" aria-hidden="true"></i></span>
-    </span>
-  </div>
+  <% end %>
 
+  <a href="#participants">
+    <div class="btn-green-participants">
+      <span class="btn-square">
+        <span class="btn__inner"><i class="fa fa-users" aria-hidden="true"></i></span>
+      </span>
+    </div>
+  </a>
+
+  <a href="#propositions">
+    <div class="btn-red-propositions">
+      <span class="btn-square">
+        <span class="btn__inner"><i class="fa fa-linode" aria-hidden="true"></i></span>
+      </span>
+    </div>
+  </a>
+
+
+  <a href="#share">
+    <div class="btn-pink-share">
+      <span class="btn-square">
+        <span class="btn__inner"><i class="fa fa-share" aria-hidden="true"></i></span>
+      </span>
+    </div>
+  </a>
 
 
 
@@ -52,7 +63,7 @@
  </div>
 
 
- <div class="prop-container background-gif margin-b-results">
+ <div class="prop-container background-gif margin-b-results" id="propositions">
    <div class="btn-location-blue prop-title">
     <h3 class="bold text-uppercase text-center">
      All propositions
@@ -84,7 +95,7 @@
 
 
 
-<div class="prop-container background-gif margin-b-results">
+<div class="prop-container background-gif margin-b-results" id="participants">
   <div class="btn-location-green prop-title">
    <h3 class="bold text-uppercase text-center">
      Participants
@@ -111,15 +122,13 @@
   </div>
 </div>
 <% end %>
-
-<button type="button" class="btn btn-default btn-medium" data-toggle="modal" data-target="#share-modal">
-  Share Poll!
-</button>
 </div>
 
 
 
-
+<button type="button" class="btn btn-default btn-medium margin-b-results" data-toggle="modal" data-target="#share-modal" id="share">
+  Share Poll!
+</button>
 
 
 
