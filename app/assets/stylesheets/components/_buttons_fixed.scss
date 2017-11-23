@@ -38,7 +38,7 @@ width: 20px;
     right: 2%;
     bottom: 2%;
     color: black;
-    background-color: $red-btn;
+    background-color: $red;
     z-index: 10000;
 
 
@@ -49,7 +49,7 @@ width: 20px;
     left: 2%;
     bottom: 2%;
     color: black;
-    background-color: $green-btn;
+    background-color: $purple;
     z-index: 10000;
 
 
@@ -61,7 +61,7 @@ width: 20px;
     bottom:10%;
     left: 2%;
     color: black;
-    background-color: $pink-btn;
+    background-color: $pink;
     z-index: 10000;
 
 
@@ -77,7 +77,7 @@ width: 20px;
     left: 2%;
     color: black;
     z-index: 10000;
-    background-color: #00ffff;
+    background-color: $green;
     img {
       width: 35px;
        height: 35px;
@@ -90,7 +90,7 @@ width: 20px;
     top:2%;
     right: 2%;
     color: black;
-    background-color: $yellow-btn;
+    background-color: $yellow;
     z-index: 10000;
 
 }

@@ -1,5 +1,5 @@
 .prop-container {
-  width: 100%;
+  max-width: 100%;
   // margin: 0 auto;
 }
 
@@ -13,6 +13,9 @@
 
 .prop-img {
   border-radius: 10px;
+  // height: 100%;
+  // width: 100%;
+
 }
 
 .prop-card {
@@ -26,10 +29,12 @@
   display: flex;
   text-align: center;
   justify-content: space-around;
+  // max-width: 500px;
   // padding: 15px;
   // margin: 30px;
   // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 }
+
 
 .prop-card-category {
   position: absolute;
@@ -48,27 +53,37 @@
   color: black;
   font-weight: bolder;
   position: relative;
-  height: 30vh;
+  height: 45vh;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  border-radius: 15px;
-  border: 4px solid black;
+  border-radius: 12px;
+  border: 2px solid black;
   // margin: 30px;
+  h3 {
+    color:white;
+  }
+  .big-percentage {
+    margin-right:50%;
+    font-size:1.6em;
+  }
 }
 .proposition:hover {
-  border: 4px solid white;
+  border: 2px solid white;
   color: white;
 }
 
 .result-bar{
-  height: 100%;
-  width: 0%;
+  margin-left: 50%;
+  height: 0%;
+  width: 5px;
   left: 0;
   top: 0;
-  background-color: rgba(0,0,0,0.5);
+  background-color: white;
   position: absolute;
-  border-radius: 10px;
+  border-radius: 0px 0px 10px 10px;
+  -webkit-transition: height 0.4s;
+  transition: height 0.4s;
 }
 
 // ______________ random colors for no uploaded photos ______________

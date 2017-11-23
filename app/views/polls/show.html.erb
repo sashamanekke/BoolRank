@@ -20,6 +20,7 @@
   </span>
 </div>
 
+
 <div class="poll-container">
 
   <div class="poll-wrapper">
@@ -129,6 +130,7 @@
 </div>
 <% @poll.propositions[1..-1].each do |proposition| %>
 <div class="row">
+
   <div class="col-xs-12">
     <div class="prop-box">
       <div class="photo-box">
@@ -166,6 +168,11 @@
 <!-- ____________ renders for modals ____________ -->
 <%= render "polls/share_poll" %>
 <%= render "polls/share_results" %>
+
+<!-- ____________ content for fb meta tags ____________ -->
+<% content_for :meta_title, "#{@poll.title} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @poll.description %>
+<% content_for :meta_image, image_path(@poll.photo) %>
 
 <!-- ____________ js for the checkboxes ____________ -->
 

@@ -9,21 +9,41 @@
   justify-content: center;
   // background-color: $fun-yellow;
   // background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
-  background: linear-gradient(141deg, #e5fffc 0%, #c4e5ff 41%, #d3ddff 75%);
+  // background: linear-gradient(141deg, #e5fffc 0%, #c4e5ff 41%, #d3ddff 75%);
   background-size: cover !important;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 .banner h1 {
-  color: white;
+  color: Black;
   font-size: 50px;
   font-weight: bold;
-  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  // text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
 }
 .banner p {
   font-size: 25px;
   font-weight: lighter;
-  color: rgb(255, 255, 255);
+  color: black;
   opacity: 0.6;
   margin-bottom: 30px;
+}
+
+.banner-content {
+  justify-content: center;
+  align-items: center;
+}
+
+#image-and-magic-ball {
+  position:relative;
+}
+// #image-and-magic-ball:hover {
+//   cursor: pointer;
+// }
+
+#magic_8_ball {
+  font-size:8px;
+  color:black;
+  position: absolute;
+  top: 55%;
+  left: 48%;
 }

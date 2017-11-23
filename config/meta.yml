@@ -1,0 +1,5 @@
+meta_product_name: "NoodlePoll"
+meta_title: "NoodlePolling helps make decision making easy"
+meta_description: "Create polls and share polls to decide on something"
+meta_image: "Boolrank-yellow.png"                       # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
