@@ -18,8 +18,8 @@
           <% if @poll.propositions.length < 7 %> <!-- MAX 7 PROPOSITIONS-->
             <%= render "form_proposition" %>
           <% else %>
-            <h2>The free version only allows 7 propositions</h2>
-            <p>Go premium for unlimited</p>
+            <h2>MAX 7 PROPOSITIONS FOR THE FREE VERSION</h2>
+            <p>Go premium for unlimited (coming soon) </p>
           <% end %>
           <div class="btn-burger flex-box">
             <%= link_to "Continue", poll_path %>
