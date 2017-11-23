@@ -3,13 +3,15 @@
   margin-left: 8px !important;
   margin-top: 13px !important;
   margin-right: 8px !important;
-  border: 1px solid black;
+  // border: 1px solid black;
 }
 
-// .poll-wrapper {
-//   display: flex;
-//   flex-direction: column;
-// }
+.poll-wrapper {
+  border: 2px solid black;
+  background-color: white;
+  // display: flex;
+  // flex-direction: column;
+}
 .poll-profile {
    display: flex;
   justify-content: space-around;
@@ -40,11 +42,16 @@
 .top-back {
 
   text-align: center;
+  margin-bottom: 6%;
+  margin-top: 6%;
 }
 
 .poll-header {
   display: flex;
   flex-direction: column;
+  h1 {
+    margin: 10%;
+  }
 }
 
 .poll-header div {
@@ -307,7 +314,8 @@ padding-bottom: 10px;
   justify-content: space-around;
   margin: 15px 0px;
   .active-checkbox {
-    background-color:green !important;
+    background-color:$green !important;
+    color: black !important;
   }
   .no-cursor {
     cursor: default;

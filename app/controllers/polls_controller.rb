@@ -13,7 +13,11 @@ class PollsController < ApplicationController
 
   def show
     @propositions = @poll.propositions.order(:score).reverse
-
+    @total_score = 0
+    @prop_lenth = @poll.propositions.length
+    @poll.propositions.each do |prop|
+      @total_score += prop.score
+    end
     #Ranking is done here! (in the view) show the ranking
     #Only if there are enough votes AND that the user
     #has voted enough
