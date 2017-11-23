@@ -713,3 +713,12 @@ document.getElementById('fb-share-button').onclick = function() {
 <% content_for :meta_title, "#{@offer.name} is on #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @offer.description %>
 <% content_for :meta_image, cloudinary_url(@offer.photo.path) %>
+
+<!-- ___________ attempted gradient on cl image on compare pg___________ -->
+
+<div class="prop-card" style="height: 100%; width: 100%">
+            <%= cl_image_tag @comparison.first.photo.path, :crop => :fill, :width => 800, :height => 800, :transformation => [
+              {:effect => "gradient_fade"}
+             ], class: "prop-img"%>
+          </div>
+
