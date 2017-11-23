@@ -48,7 +48,7 @@
           <% if @comparison.last.photo.nil? %>
           <div class="no-prop" style="background-color:  <%= @comparison.last.color %>""></div>
           <% else %>
-          <div class="prop-card">
+          <div class="prop-card" style="height: 100%; width: 100%">
             <%= cl_image_tag(@comparison.last.photo.path, :crop => :fill, :width => 800, :height => 800, class: "prop-img")%>
           </div>
           <% end %>
