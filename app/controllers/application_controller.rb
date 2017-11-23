@@ -20,5 +20,9 @@ class ApplicationController < ActionController::Base
       # :user is the scope we are authenticating
       store_location_for(:user, request.fullpath)
     end
-end
+
+    def default_url_options
+      { host: ENV["HOST"] || "localhost:3000" }
+    end
+  end
 

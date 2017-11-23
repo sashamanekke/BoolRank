@@ -700,3 +700,16 @@ document.getElementById('fb-share-button').onclick = function() {
     </div>
   </div>
 </div>
+
+<!-- ____________ Original FB share-open-graph meta_tags ______________ -->
+
+<meta property="og:url"           content="https://www.noodlepoll.io" />
+  <meta property="og:type"          content="website" />
+  <meta property="og:title"         content="NoodlePoll" />
+  <meta property="og:description"   content="Easy decision making, oodles of fun" />
+  <meta property="og:image"         content="https://www.noodlepoll.io/assets/Boolrank-white-8abacd9d3c842aa74f3740a880c668f9852ff6030f5c4346f3d957c2a4311159.png" />
+
+  <!-- default content for for each view - i.e. app/views/offers/show.html.erb -->
+<% content_for :meta_title, "#{@offer.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @offer.description %>
+<% content_for :meta_image, cloudinary_url(@offer.photo.path) %>
