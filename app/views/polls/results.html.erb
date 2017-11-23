@@ -1,5 +1,7 @@
+<%= content_for(:proposition, "fixed-position") %>
 
-<div class="results-container flex-box ">
+
+<div class="results-container flex-box">
   <div class="navbar-box">
     <div class="pull-left">
       <%= link_to '< Back', add_propositions_poll_path(@poll)%>
@@ -62,13 +64,12 @@
    <% end %>
  </div>
 
-
- <div class="prop-container background-gif margin-b-results" id="propositions">
-   <div class="btn-location-blue prop-title">
-    <h3 class="bold text-uppercase text-center">
-     All propositions
-   </h3>
- </div>
+  <div class="prop-container background-gif" id="propositions">
+    <div class="btn-location-blue prop-title">
+      <h3 class="bold text-uppercase text-center">
+        All propositions
+      </h3>
+    </div>
  <% @propositions[1..-1].each do |proposition| %>
  <div class="row">
   <div class="col-xs-12">
@@ -92,8 +93,6 @@
 </div>
 <% end %>
 </div>
-
-
 
 <div class="prop-container background-gif margin-b-results" id="participants">
   <div class="btn-location-green prop-title">
@@ -136,8 +135,25 @@
 </div>
 
 
+
+<!-- <script>
+  window.addEventListener("scroll", function() {
+    if (this.scrollY >= 549) {
+      var el = document.getElementById("propositions")
+      el.style.position = "fixed";
+      el.style.top = 0;
+      console.log("sticking div")
+    } else {
+      console.log("scroll more")
+    }
+  });
+</script>
+ -->
+
+
 <!-- ____________ renders for modals ____________ -->
 <%= render "polls/share_poll" %>
+
 
 <!-- <div class="other-prop-container">
   <%# @poll.participants.each do |participant|%>
