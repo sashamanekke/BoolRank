@@ -125,12 +125,12 @@
 </div>
 </div>
 </div>
- <button type="button" class="btn btn-default btn-medium" data-toggle="modal" data-target="#share-res">Share Results</button>
 
 <% if @total_score >= (@poll.propositions.length)*0.5%>
   <div class="poll-share-button-bottom">
     <%= link_to 'Results', results_poll_path(@poll), class: "btn btn-default btn-medium "%>
   </div>
+ <button type="button" class="btn btn-default btn-medium" data-toggle="modal" data-target="#share-res">Share Results</button>
 <% end %>
 <!-- <div class="poll-footer">
   <div></div>
