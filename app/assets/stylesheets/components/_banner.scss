@@ -33,3 +33,17 @@
   align-items: center;
 }
 
+#image-and-magic-ball {
+  position:relative;
+}
+// #image-and-magic-ball:hover {
+//   cursor: pointer;
+// }
+
+#magic_8_ball {
+  font-size:8px;
+  color:black;
+  position: absolute;
+  top: 55%;
+  left: 48%;
+}
