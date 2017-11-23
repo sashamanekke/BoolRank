@@ -1,7 +1,12 @@
 class ProfilesController < ApplicationController
-    before_action :set_profile
+    # before_action :set_profile
 
     def show
+      if current_user.profile.nil?
+        profile = Profile.new()
+        profile.user = current_user
+        profile.save
+      end
     # @user = User.find(params[:id])
 
     # @user = @user.reservations
@@ -19,7 +24,7 @@ class ProfilesController < ApplicationController
 
    def update
     # @user = User.find(params[:id])
-    @profile.update(profile_params)
+    current_user.profile.update(profile_params)
 
     redirect_to profiles_path(@profile)
 
@@ -27,7 +32,7 @@ class ProfilesController < ApplicationController
 
  def new
     # @user = User.find(params[:id])
-    @profile.update(profile_params)
+    current_user.profile.update(profile_params)
 
     redirect_to profiles_path(@profile)
   end

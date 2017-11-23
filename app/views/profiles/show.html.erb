@@ -7,7 +7,7 @@
           <!-- <img src="<%#= @user.avatar %>" alt=""> -->
 
           <%= render partial: "shared/profile_cards" %>
-          <%= link_to 'Edit Profile', edit_profiles_path(@profile), class: "btn btn-medium" %>
+          <%= link_to 'Edit Profile', edit_profiles_path(current_user.profile), class: "btn btn-medium" %>
 
 
         </div>
@@ -27,10 +27,10 @@
    </div>
 
 
-   <% if @profile.user.polls.empty? %>
+   <% if current_user.profile.user.polls.empty? %>
    <h3>No Polls</3>
     <% else %>
-    <% @profile.user.polls.each_with_index do |poll, index| %>
+    <% current_user.profile.user.polls.each_with_index do |poll, index| %>
 
     <div class="row">
       <div class="col-xs-12">
