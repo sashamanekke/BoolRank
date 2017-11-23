@@ -165,3 +165,112 @@
 
 
 
+
+
+
+// From _form_propositions.scss //
+
+.index-prop-box {
+      display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.index-name-box {
+  width: 100%;
+  height: auto;
+   border-top: 0.8px solid black;
+
+}
+.index-photo-box{
+  height: auto;
+   // border-top: 2px solid black;
+}
+
+.index-photo-box-profile {
+    display:flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-right: 0px;
+  height: 50px;
+  width: 50px !important;
+  background-image: center;
+  background-size: cover !important;
+  margin: 0px;
+  opacity: 1;
+  flex: 0 0 30%;
+  text-align: center;
+  background-color: black;
+  h3 {
+    color: white !important;
+  }
+
+}
+
+.index-created-photo{
+
+  display:flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-right: 0px;
+  height: 100px;
+  width: 100px !important;
+  background-image: center;
+  background-size: cover !important;
+  margin: 0px;
+  opacity: 1;
+  flex: 0 0 30%;
+  text-align: center;
+
+
+
+
+}
+
+.index-created-name {
+min-height: 100px;
+    overflow: hidden;
+
+    overflow-x: scroll;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+background-color: white;
+ // border: 0.5px solid $dark-gray;
+ text-align: center;
+ // border-bottom: 1px solid black;
+
+}
+// TO PLAY WITH THE ATTACHINARY BOXES
+.index-photo-box .form-group {
+  margin: 0;
+  // position: relative;
+}
+
+// .photo-box label {
+//   position:absolute;
+// }
+
+// .attachinary-container {
+//   z-index: 10;
+//   position: absolute;
+//   display:none;
+// }
+
+.index-photo-box .control-label{
+  margin:0;
+}
+.index-photo-box ul {
+  margin:0;
+}
+
+.index-photo-box a {
+  display:none;
+}
+
+
+
+
