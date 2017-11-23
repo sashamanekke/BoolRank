@@ -41,7 +41,7 @@
 
 
 
-  <div class="prop-container  margin-b-results">
+  <div class="prop-container background-gif margin-b-results ">
     <div class="btn-location prop-title">
       <h3 class="bold text-uppercase text-center">
         <%#= @propositions.first.name %>
@@ -67,7 +67,7 @@
    <% end %>
  </div>
 
-  <div class="prop-container " id="propositions">
+  <div class="prop-container background-gif" id="propositions">
     <div class="btn-location-blue prop-title">
       <h3 class="bold text-uppercase text-center">
         All propositions
@@ -100,7 +100,7 @@
 </div>
 
 
-<div class="prop-container  margin-b-results" id="participants">
+<div class="prop-container background-gif margin-b-results" id="participants">
   <div class="btn-location-green prop-title">
    <h3 class="bold text-uppercase text-center">
      Participants
@@ -109,20 +109,25 @@
  <button type="button" class="btn btn-default btn-medium" data-toggle="modal" data-target="#share-modal" id="share">
 </button>
 
- <% @propositions[1..-1].each do |proposition| %>
+ <% @poll.participants.each do |participant| %>
  <div class="row">
   <div class="col-xs-12">
     <div class="prop-box">
       <div class="photo-box">
-        <% unless proposition.photo.nil?  %>
-        <div class="created-part-photo" style="background-image: url('<%= image_path  "Bear.jpg" %>')"></div>
+        <% if participant.user.profile.photo.nil? %>
+          <% avatar_url = participant.user.facebook_picture_url || "http://www.abc.net.au/news/image/8314104-1x1-940x940.jpg" %>
         <% else %>
+            <% avatar_url = participant.user.photo || "http://www.abc.net.au/news/image/8314104-1x1-940x940.jpg" %>
         <div class="created-part-photo" style="background-color: <%=proposition.color%>"></div>
         <% end %>
       </div>
       <div class="name-box">
         <div class="created-part-name">
-          <h3><%= proposition.name %></h3>
+          <% unless participant.user.first_name.nil? %>
+            <h3><%= participant.user.first_name %></h3>
+          <% else %>
+            <h3><%= "Anonymous" %></h3>
+          <% end %>
         </div>
       </div>
     </div>
