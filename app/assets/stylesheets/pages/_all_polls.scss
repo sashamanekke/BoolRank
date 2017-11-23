@@ -39,7 +39,7 @@
 .poll-title {
   position: absolute;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 18px;
   color: white;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
 
@@ -58,6 +58,25 @@
   background-size: cover !important;
   background-position: center;
 }
+
+// .photo-box-profile {
+//   display:flex;
+//   align-items: center;
+//   justify-content: center;
+
+//   margin-right: 0px;
+//   height: 50px;
+//   width: 50px !important;
+//   background-image: center;
+//   background-size: cover !important;
+//   margin: 0px;
+//   opacity: 1;
+//   flex: 0 0 30%;
+//   text-align: center;
+//   background-color: black;
+//   h3 {
+//     color: white !important;
+//   }
 
 .poll-media-default {
   margin-right: 20px;
@@ -135,11 +154,14 @@
 // Styling  //
 
 .borde-around-poll {
-  border: 10px solid $dark-gray;
+  border: 2px solid $dark-gray;
 }
 
 .poll-main.bg {
   background-color: white;
 }
+
+
+
 
 
