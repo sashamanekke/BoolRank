@@ -23,7 +23,8 @@
     // border-top: 1px solid $dark-gray;
     // border-bottom: 1px solid $dark-gray;
     border-radius: 0;
-    border-bottom: 1px solid black;
+    // border-bottom: 1px solid black;
+    border: 2px solid black;
     margin-left: auto;
     margin-right: auto;
     padding: 6px 12px;
@@ -47,13 +48,13 @@
 
 width: 274px;
   // background: rgba(255, 233, 168, 0.5);
- background-image: url(https://media.giphy.com/media/4RduUxmi6IMmI/giphy.gif);
+ // background-image: url(https://media.giphy.com/media/4RduUxmi6IMmI/giphy.gif);
     padding: 0;
     margin-top: 5%;
 
     -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-    border: 0.8px solid black;
+    border: 2px solid black;
 
 
   h2 {font-size: 20px;
@@ -104,7 +105,7 @@ color: $black-kaki;
     font-weight: bold;
     font-size: 15px;
 
-color: $black-kaki;
+color: black;
    margin-bottom: 10px;
     margin-top: 5px;
   }
@@ -116,9 +117,9 @@ color: $black-kaki;
     -ms-flex-pack: center;
     justify-content: center;
 
-    border-top: 2px solid black;
-    border-bottom: 2px solid black;
-    margin-top: 42px;
+    // border-top: 2px solid black;
+    // border-bottom: 2px solid black;
+    // margin-top: 42px;
 }
 
 

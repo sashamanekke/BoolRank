@@ -15,19 +15,20 @@
 
 <script>
   var magic_8_ball = []
-  <% @magic_8_ball.each do |answer| %>
-    magic_8_ball.push("<%= answer %>")
+  <% unless @magic_8_ball.nil? %>
+    <% @magic_8_ball.each do |answer| %>
+      magic_8_ball.push("<%= answer %>")
+    <% end %>
+    var logo = document.querySelector(".logo-front-page")
+    logo.addEventListener('click', (e) => {
+      document.getElementById("magic_8_ball").innerText = sample(magic_8_ball)
+    });
+
+    var magic_text = document.getElementById("magic_8_ball");
+    magic_text.addEventListener('click', (e) => {
+      magic_text.innerText = sample(magic_8_ball)
+    });
   <% end %>
-  var logo = document.querySelector(".logo-front-page")
-  logo.addEventListener('click', (e) => {
-    document.getElementById("magic_8_ball").innerText = sample(magic_8_ball)
-  });
-
-  var magic_text = document.getElementById("magic_8_ball");
-  magic_text.addEventListener('click', (e) => {
-    magic_text.innerText = sample(magic_8_ball)
-  });
-
   function sample(array) {
     return array[Math.floor(Math.random()*array.length)]
   }
