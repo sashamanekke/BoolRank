@@ -1,4 +1,23 @@
 // Specific CSS for your home-page
 .logo-front-page {
   height: 30vh;
+  margin-bottom:5%;
 }
+
+#input-front-page {
+  border: 2px solid black !important;
+
+}
+
+.banner-content {
+  .form-group {
+    margin-bottom: 0px;
+  }
+  .form-control {
+    border: 2px solid black;
+    margin: 0px !important;
+    width: 100%;
+  }
+
+}
+

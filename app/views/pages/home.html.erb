@@ -6,8 +6,7 @@
     <h1>Create a NoodlePoll</h1>
     <p>Let the noodles choose for you</p>
     <%= simple_form_for(@poll, url: polls_path, method: 'post') do |f| %>
-      <%= f.input :title, placeholder: "What is your dilemma?", label: false %>
-      <!-- QUESTION?? WHERE CAN I EDIT THE PLACEHOLDER OF THE BUTTON?????-->
+      <%= f.input :title, placeholder: "What is your dilemma?", label: false, id: "input-front-page" %>
       <%= f.button :submit, class: "btn-medium", id: "home-button" %>
     <% end %>
   </div>
