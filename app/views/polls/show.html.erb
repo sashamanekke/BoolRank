@@ -2,23 +2,31 @@
 <%#= content_for(:navbar_link) do %>
 <!-- <a href="#participants" class="text-center">Participants</a> -->
 <%# end %>
-<div class="btn-green-participants">
-  <span class="btn-square">
-    <span class="btn__inner"><i class="fa fa-users" aria-hidden="true"></i></span>
-  </span>
-</div>
+  <a href="#participants">
+    <div class="btn-green-participants">
+      <span class="btn-square">
+        <span class="btn__inner"><i class="fa fa-users" aria-hidden="true"></i></span>
+      </span>
+    </div>
+  </a>
 
-<div class="btn-red-propositions">
-  <span class="btn-square">
-    <span class="btn__inner"><i class="fa fa-linode" aria-hidden="true"></i></span>
-  </span>
-</div>
+  <a href="#propositions">
+    <div class="btn-red-propositions">
+      <span class="btn-square">
+        <span class="btn__inner"><i class="fa fa-linode" aria-hidden="true"></i></span>
+      </span>
+    </div>
+  </a>
 
-<div class="btn-pink-share">
-  <span class="btn-square">
-    <span class="btn__inner"><i class="fa fa-share" aria-hidden="true"></i></span>
-  </span>
-</div>
+
+  <a href="#share">
+    <div class="btn-pink-share">
+      <span class="btn-square">
+        <span class="btn__inner"><i class="fa fa-share" aria-hidden="true"></i></span>
+      </span>
+    </div>
+  </a>
+
 
 
 <div class="poll-container">
@@ -26,7 +34,7 @@
   <div class="poll-wrapper">
     <div class="poll-header">
       <div class="top-back">
-       <%= link_to '< Back', add_propositions_poll_path(@poll)%>
+       <%= link_to '< Back', :back%>
      </div>
      <div>
       <h1 class="bold text-center text-uppercase"><%= @poll.title %></h1>
