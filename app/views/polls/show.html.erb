@@ -20,130 +20,115 @@
   </span>
 </div>
 
-<div class="site-content ">
-  <div class="container">
+<div class="poll-container">
 
-        <div class="info-poll background-blanco ">
+  <div class="poll-wrapper">
+    <div class="poll-header">
+      <div class="top-back">
+       <%= link_to '< Back', add_propositions_poll_path(@poll)%>
+     </div>
+     <div>
+      <h1 class="bold text-center text-uppercase"><%= @poll.title %></h1>
+    </div>
+      <button type="button" class="btn btn-default btn-medium" data-toggle="modal" data-target="#share-res">Share Results</button>
+  </div>
 
-          <div class="modulo-nav parent-center">
-            <div class="child-center padding-module text-center">
+  <div class="poll-profile borde-t">
+    <div class="poll-profile-left margin-20 ">
 
-                <%= link_to '< Back', add_propositions_poll_path(@poll)%>
+     <div>
+      <h3 class="text-center margin-b-small text-uppercase bold">
+        USER NAME<%#= @poll.user.email%>
+      </h3>
+      <!--  <hr> -->
+    </div>
+
+    <div class="profile-avatar " >
+      <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+      <%= image_tag avatar_url, class: "avatar-square-lg"%>
+    </div>
+
+  </div>
 
 
-            </div>
-          </div>
-
-          <h1 class="entry-title text-center bold text-uppercase" ><%= @poll.title %></h1>
-          <button type="button" class="btn btn-default btn-medium" data-toggle="modal" data-target="#share-res">Share Results</button>
-          <div class="info-details borde-t">
-            <div class="row">
-              <div class="col-xs-12">
-                <div class="profile-details borde-b borde-fino">
-
-                  <div class="row">
-                    <div class="col-xs-4  borde-fino">
-                      <div class="text-center  ">
-                        <h2 class="bold title margin-tb text-uppercase">
-                          USER NAME<%#= @poll.user.email%>
-                        </h2>
-                      </div>
-                      <!-- background-gif -->
-
-                        <div class="text-center">
-                          <div class="profile-avatar">
-                            <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
-                            <%= image_tag avatar_url, class: "avatar-square-lg margin-tb"%>
-                          </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-4">
-                      <div class="profile-description">
-
-                        Ì<%= link_to 'All polls', polls_path, class: "btn btn-default btn-medium"%>
-
-                        <% if @poll.user == current_user %>
-                          <!-- The open close checkbox -->
-                          <div class="checkbox-update-poll">
-                            <input class="hidden" type="checkbox" name="closed" id="closed" value=<%=@poll.id%> data-remote="true" data-url="/polls/<%= @poll.id %>/toggle_closed" data-method="PATCH" checked="checked">
-                            <label id="toggle-button" class="<%= "active-checkbox" unless @poll.closed %> checkbox-on btn btn-default btn-medium" for="closed">
-                            <% if @poll.closed %>
-                            <%= "Closed" %>
-                            <% else %>
-                            <%= "Open" %>
-                            <i class='fa fa-check'></i>
-                            <% end %>
-                            </label>
-                          </div>
-                          <!-- The open close checkbox -->
-                          <div class="checkbox-update-poll">
-                            <input class="hidden" type="checkbox" name="public_poll" id="public_poll" value=<%=@poll.id%> data-remote="true" data-url="/polls/<%= @poll.id %>/toggle_public_poll" data-method="PATCH" checked="checked">
-                            <label id="toggle-button-public" class="<%= "active-checkbox" if @poll.public_poll %> checkbox-on btn btn-default btn-medium" for="public_poll">
-                            <% if @poll.public_poll %>
-                            <%= "Public" %>
-                            <i class='fa fa-check'></i>
-                            <% else %>
-                            <%= "Private" %>
-                            <% end %>
-                            </label>
-                          </div>
-                        <% else %>
-                          <div class="checkbox-update-poll no-cursor">
-                            <div class="<%= "active-checkbox" unless @poll.closed %> no-cursor btn btn-default btn-medium">
-                              <% if @poll.closed %>
-                              <%= "Closed" %>
-                              <% else %>
-                              <%= "Open" %>
-                              <i class='fa fa-check'></i>
-                              <% end %>
-                              </label>
-                            </div>
-                          </div>
-                          <div class="checkbox-update-poll no-cursor">
-                            <div class="<%= "active-checkbox" if @poll.public_poll %> no-cursor btn btn-default btn-medium">
-                              <% if @poll.public_poll %>
-                              <%= "Public" %>
-                              <i class='fa fa-check'></i>
-                              <% else %>
-                              <%= "Private" %>
-                              <% end %>
-                              </label>
-                            </div>
-                          </div>
-                        <% end %>
-
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <button type="button" class="btn btn-default btn-medium" data-toggle="modal" data-target="#share-modal">
-            Share Poll!
-          </button>
-          <%= link_to 'Vote', start_poll_path(@poll), class: "btn btn-default btn-medium "%>
-          </div>
-          <!--   <div class="row">
-              <div class="col-xs-12">
-                <div class="description margin-tb">
-                  "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium nulla vitae commodi maiores voluptatum sed aut magni aliquam molestias ex, eligendi, labore, quasi adipisci magnam eveniet beatae sunt possimus numquam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae dicta impedit nesciunt, dolorum dolorem voluptas facere eaque ipsa iste ducimus, quia accusamus vel sequi laudantium, doloremque nam, aut sit."
-                </div>
-              </div>
-            </div> -->
-          </div>
+  <div class="poll-profile-right margin-20">
+    <div>
+      <%= link_to 'All polls', polls_path, class: "btn btn-default btn-medium"%>
+    </div>
+    <div>
+      <% if @poll.user == current_user %>
+      <!-- The open close checkbox -->
+      <div class="checkbox-update-poll">
+        <input class="hidden" type="checkbox" name="closed" id="closed" value=<%=@poll.id%> data-remote="true" data-url="/polls/<%= @poll.id %>/toggle_closed" data-method="PATCH" checked="checked">
+        <label id="toggle-button" class="<%= "active-checkbox" unless @poll.closed %> checkbox-on btn btn-default btn-medium" for="closed">
+          <% if @poll.closed %>
+          <%= "Closed" %>
+          <% else %>
+          <%= "Open" %>
+          <i class='fa fa-check'></i>
+          <% end %>
+        </label>
+      </div>
+      <!-- The open close checkbox -->
+      <div class="checkbox-update-poll">
+        <input class="hidden" type="checkbox" name="public_poll" id="public_poll" value=<%=@poll.id%> data-remote="true" data-url="/polls/<%= @poll.id %>/toggle_public_poll" data-method="PATCH" checked="checked">
+        <label id="toggle-button-public" class="<%= "active-checkbox" if @poll.public_poll %> checkbox-on btn btn-default btn-medium" for="public_poll">
+          <% if @poll.public_poll %>
+          <%= "Public" %>
+          <i class='fa fa-check'></i>
+          <% else %>
+          <%= "Private" %>
+          <% end %>
+        </label>
+      </div>
+      <% else %>
+      <div class="checkbox-update-poll no-cursor">
+        <div class="<%= "active-checkbox" unless @poll.closed %> no-cursor btn btn-default btn-medium">
+          <% if @poll.closed %>
+          <%= "Closed" %>
+          <% else %>
+          <%= "Open" %>
+          <i class='fa fa-check'></i>
+          <% end %>
+        </label>
+      </div>
+    </div>
+    <div class="checkbox-update-poll no-cursor">
+      <div class="<%= "active-checkbox" if @poll.public_poll %> no-cursor btn btn-default btn-medium">
+        <% if @poll.public_poll %>
+        <%= "Public" %>
+        <i class='fa fa-check'></i>
+        <% else %>
+        <%= "Private" %>
+        <% end %>
+      </label>
+    </div>
+    </div>
+  </div>
+  <% end %>
+  </div>
+  </div>
+  </div>
+<div class="poll-share-button-bottom">
+  <%= link_to 'Vote', start_poll_path(@poll), class: "btn btn-default btn-medium "%>
+</div>
+<div class="poll-footer">
+  <div></div>
+</div>
+</div>
 
 
 
 
- <div class="prop-container background-gif margin-b-results margin-top" id="propositions">
-   <div class="btn-location-blue prop-title">
-    <h3 class="bold text-uppercase text-center">
-     All propositions
-   </h3>
- </div>
- <% @poll.propositions[1..-1].each do |proposition| %>
- <div class="row">
+
+<div class="prop-container background-gif margin-b-results margin-top" id="propositions">
+ <div class="btn-location-blue prop-title">
+  <h3 class="bold text-uppercase text-center">
+   All propositions
+ </h3>
+</div>
+<% @poll.propositions[1..-1].each do |proposition| %>
+<div class="row">
   <div class="col-xs-12">
     <div class="prop-box">
       <div class="photo-box">
@@ -167,14 +152,13 @@
 <% end %>
 </div>
 
-        <button type="button" class="btn btn-default btn-medium" data-toggle="modal" data-target="#share-modal">
-          Share Poll!
-        </button>
-        <%= link_to 'continu', compare_poll_path(@poll), class: "btn btn-default btn-medium "%>
-
-      </div>
+<button type="button" class="btn btn-default btn-medium" data-toggle="modal" data-target="#share-modal">
+  Share Poll!
+</button>
+<%= link_to 'continu', compare_poll_path(@poll), class: "btn btn-default btn-medium "%>
 
 </div>
+
 
 
 

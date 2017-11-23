@@ -1,4 +1,140 @@
 
+.poll-container {
+  margin-left: 8px !important;
+  margin-top: 13px !important;
+  margin-right: 8px !important;
+  border: 1px solid black;
+}
+
+// .poll-wrapper {
+//   display: flex;
+//   flex-direction: column;
+// }
+.poll-profile {
+   display: flex;
+  justify-content: space-around;
+}
+
+.poll-profile-left {
+   // display: flex;
+
+  //  flex-direction: column;
+  // justify-content: space-around;
+
+}
+
+.poll-profile-right {
+
+
+   flex-direction: column;
+  justify-content: space-around;
+
+}
+
+.profile-avatar {
+   display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.top-back {
+
+  text-align: center;
+}
+
+.poll-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.poll-header div {
+  height: 50px;
+
+}
+
+// Style class
+
+
+
+.margin-20 {
+  margin: 20px;
+
+}
+
+
+
+.borde-r {
+  border-right: 2px solid black;
+}
+
+.borde-t {
+  border-top: 2px solid black;
+}
+
+.borde-b {
+  border-bottom: 2px solid black;
+}
+
+.borde-l {
+  border-left: 2px solid black;
+}
+
+.borde-fino {
+  border-width: 1px;
+}
+
+
+
+.margin-tb {
+  margin-top: 2.4rem;
+  margin-bottom: 2.4rem;
+}
+
+
+.margin-fluid {
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+.margin-b-small {
+    margin-bottom: 20px;
+}
+
+.margin-t-small {
+    margin-top: 10px;
+}
+
+.padding-top-general {
+  padding-top: 6rem;
+}
+
+.background-blanco {
+    background-color: #fff;
+}
+
+.margin-n {
+margin:0px;
+}
+
+.padding-n {
+  padding:0px;
+}
+
+.padding-b {
+padding-bottom: 10px;
+}
+.background-gif {
+  background-image: url("https://media.giphy.com/media/4RduUxmi6IMmI/giphy.gif");
+  width: 100%;
+  height: auto;
+  background-size: cover !important;
+
+}
+
+
+
+
+
 
 
 
@@ -165,70 +301,6 @@
 
 // Style class
 
-.borde-r {
-  border-right: 2px solid black;
-}
-
-.borde-t {
-  border-top: 2px solid black;
-}
-
-.borde-b {
-  border-bottom: 2px solid black;
-}
-
-.borde-l {
-  border-left: 2px solid black;
-}
-
-.borde-fino {
-  border-width: 1px;
-}
-
-
-
-.margin-tb {
-  margin-top: 2.4rem;
-  margin-bottom: 2.35rem;
-}
-
-
-.margin-fluid {
-  margin-left: 6px;
-  margin-right: 6px;
-}
-
-.margin-b-small {
-    margin-bottom: 12px;
-}
-
-
-.padding-top-general {
-  padding-top: 6rem;
-}
-
-.background-blanco {
-    background-color: #fff;
-}
-
-.margin-n {
-margin:0px;
-}
-
-.padding-n {
-  padding:0px;
-}
-
-.padding-b {
-padding-bottom: 10px;
-}
-.background-gif {
-  background-image: url("https://media.giphy.com/media/4RduUxmi6IMmI/giphy.gif");
-  width: 100%;
-  height: auto;
-  background-size: cover !important;
-
-}
 
 .checkbox-update-poll {
   display: flex;
