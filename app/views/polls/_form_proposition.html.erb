@@ -1,6 +1,6 @@
 <%= simple_form_for([@poll, @proposition], url: poll_propositions_path(@poll), method: 'post') do |f| %><div class="flex-box">
   <div class="name-box">
-    <%= f.input :name, placeholder: "Name of the proposition", label: false%>
+    <%= f.input :name, placeholder: "Name of the proposition", label: false, :maxlength => 12 %>
     <%= f.hidden_field :score, value: 0 %>
 </div>
 <div class="photo-box">
