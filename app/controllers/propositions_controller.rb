@@ -14,10 +14,18 @@ class PropositionsController < ApplicationController
   end
 
   def create
-    colors = ["#FF0000","#FFFF00","#00FF00","#00FFFF"," #0000FF","#FF00FF"]
+    colors = ["#C3A7F3","#FDAAB0","#FEDF32","#44C7AA","#EE5F5B","#469AE0"]
+    # gradient_colors = (1..16).map{ |i| i < 10 ? "0#{i}.jpg" : "#{i}.jpg" }
     @proposition = Proposition.new(proposition_params)
     @proposition.poll = @poll
-    @proposition.color = colors.sample
+
+    used_colors = generate_used_colors(@poll)
+    remaining_colors = colors - used_colors
+    if remaining_colors == []
+      @proposition.color = colors.sample
+    else
+      @proposition.color = remaining_colors.sample
+    end
     if @proposition.save!
       redirect_to add_propositions_poll_path(@poll)
     else
@@ -62,4 +70,13 @@ class PropositionsController < ApplicationController
   def poll_params
     params.require(:poll).permit(:title, :description, :photo, :status)
   end
+
+  def generate_used_colors(poll)
+    used_colors = []
+    poll.propositions.each do |prop|
+      used_colors << prop.color
+    end
+    used_colors
+  end
+
 end
