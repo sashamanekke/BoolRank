@@ -2,6 +2,7 @@
 <div class="banner">
   <div class="banner-content text-center">
   <% if @poll.closed %>
+    <h3>This Poll has ended!</h3>
     <div class="sexy-line"></div>
     <%= link_to 'Back to poll', poll_path(@poll), :class => "btn btn-medium" %>
     <%= link_to 'See Results', results_poll_path(@poll), :class => "btn btn-medium" %>
