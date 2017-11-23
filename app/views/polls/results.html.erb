@@ -53,8 +53,11 @@
       <i class="fa fa-star" aria-hidden="true"></i><h2>score: <%= @propositions.first.score %></h2>
     </div>
     <% if @propositions.first.photo.nil? %>
-    <div class="prop-image-first" style="background-color:  <%= @propositions.first.color %>">
+    <div class="prop-image-first  flex-box" style="background-color:  <%= @propositions.first.color %>">
+      <div class="text-center " style="color: white; font-size: 20px;">
+
        <%= @propositions.first.name %>
+      </div>
 
     </div>
     <% else %>
