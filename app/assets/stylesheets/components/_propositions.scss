@@ -13,6 +13,9 @@
 
 .prop-img {
   border-radius: 10px;
+  // background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65)));
+  // position: relative;
+  // z-index: -1;
   // height: 100%;
   // width: 100%;
 
@@ -29,6 +32,8 @@
   display: flex;
   text-align: center;
   justify-content: space-around;
+
+  // max-width: 500px;
   // max-width: 500px;
   // padding: 15px;
   // margin: 30px;
@@ -45,6 +50,12 @@
   text-align: center;
   text-transform: uppercase;
 }
+
+// .prop-gradient {
+//   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65)));
+//   position: absolute;
+// }
+
 
 .proposition {
   // height: 175px;

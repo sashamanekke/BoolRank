@@ -713,3 +713,29 @@ document.getElementById('fb-share-button').onclick = function() {
 <% content_for :meta_title, "#{@offer.name} is on #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @offer.description %>
 <% content_for :meta_image, cloudinary_url(@offer.photo.path) %>
+
+<!-- ___________ attempted gradient on cl image on compare pg___________ -->
+
+<div class="prop-card" style="height: 100%; width: 100%">
+            <%= cl_image_tag @comparison.first.photo.path, :crop => :fill, :width => 800, :height => 800, :transformation => [
+              {:effect => "gradient_fade"}
+             ], class: "prop-img"%>
+          </div>
+
+<!-- ____________ top of buttons_fixed.html.erb _____________ -->
+
+<div class="container">
+  <div class="btn-blue-logo">
+    <%= link_to root_path, class: "btn-blue-logo" do %>
+    <span class="btn-square">
+      <span class="btn__inner">
+
+        <%= image_tag "noodlepoll-small.png" %>
+        <%#= image_tag "boolrank-logo.png" %>
+        <%#= image_tag "Boolrank.png" %>
+      </span>
+    </span>
+    <% end %>
+  </div>
+
+
