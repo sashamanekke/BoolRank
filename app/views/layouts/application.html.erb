@@ -12,11 +12,25 @@
   <%= csrf_meta_tags %>
   <%= action_cable_meta_tag %>
   <%= stylesheet_link_tag 'application', media: 'all' %>
-  <meta property="og:url"           content="https://www.noodlepoll.io" />
-  <meta property="og:type"          content="website" />
-  <meta property="og:title"         content="NoodlePoll" />
-  <meta property="og:description"   content="Easy decision making, oodles of fun" />
-  <meta property="og:image"         content="https://www.noodlepoll.io/assets/Boolrank-white-8abacd9d3c842aa74f3740a880c668f9852ff6030f5c4346f3d957c2a4311159.png" />
+
+  <title><%= meta_title %></title>
+<meta name="description" content="<%= meta_description %>">
+
+<!-- Facebook Open Graph data -->
+<meta property="og:title" content="<%= meta_title %>" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="<%= request.original_url %>" />
+<meta property="og:image" content="<%= meta_image %>" />
+<meta property="og:description" content="<%= meta_description %>" />
+<meta property="og:site_name" content="<%= meta_title %>" />
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="<%= DEFAULT_META["twitter_account"] %>">
+<meta name="twitter:title" content="<%= meta_title %>">
+<meta name="twitter:description" content="<%= meta_description %>">
+<meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
+<meta name="twitter:image:src" content="<%= meta_image %>">
+
 </head>
 <body>
   <!-- _________ jj implementation fb share button below ________ -->
