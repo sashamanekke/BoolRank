@@ -2,7 +2,7 @@
 <figure class="snip1515">
   <div class="profile-image">
    <% if current_user.profile.photo.nil? %>
-          <% avatar_url = current_user.facebook_picture_url || "http://www.abc.net.au/news/image/8314104-1x1-940x940.jpg" %>
+          <% avatar_url = current_user.facebook_picture_url || image_url('person-placeholder.png') %>
           <%= image_tag avatar_url,  width: 300, height: 250, id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <% elsif  current_user.profile.photo?  %>
         <%= cl_image_tag current_user.profile.photo.path , width: 300, height: 250, crop: :thumb, gravity: :face %>
@@ -14,7 +14,7 @@
   <figcaption>
 
     <h3 class="text-uppercase"><%= current_user.profile.name %><%= current_user.profile.surname %> </h3>
-    <h4>American model and actress</h4>
+    <h4>Description</h4>
     <p>Which is worse, that everyone has his price, or that the price is always so low.</p>
     <div class="icons"><a href="#"><i class="fa fa-instagram"></i></a>
     <a href="#"><i class="fa fa-facebook"></i></a>
@@ -23,3 +23,5 @@
     </div>
   </figcaption>
 </figure>
+
+

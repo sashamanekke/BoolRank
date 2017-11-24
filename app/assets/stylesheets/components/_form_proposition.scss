@@ -83,6 +83,7 @@ input[type="file"].attachinary-input {
  }
 
  .photo-box-profile {
+  border-bottom: 2px solid white;
   display:flex;
   align-items: center;
   justify-content: center;
@@ -156,6 +157,7 @@ input[type="file"].attachinary-input {
 }
 
 .created-name {
+  border-bottom: 2px solid black;
   min-height: 50px;
   overflow: hidden;
 
@@ -205,6 +207,7 @@ input[type="file"].attachinary-input {
 
 
 .created-part-name {
+      border-bottom: 2px solid black;
   min-height: 50px;
 
   overflow: hidden;
