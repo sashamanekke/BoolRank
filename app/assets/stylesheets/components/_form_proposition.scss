@@ -63,9 +63,9 @@ input[type="file"].attachinary-input {
     cursor: pointer;
   }
   &:active {
-  background: $brand-primary;
-  color: white;
-  opacity: 1;
+    background: $brand-primary;
+    color: white;
+    opacity: 1;
   }
   // border: 2px solid black;
   color: black;
@@ -76,14 +76,15 @@ input[type="file"].attachinary-input {
   height: auto;
    // border-top: 0.8px solid black;
 
-}
-.photo-box{
+ }
+ .photo-box{
   height: auto;
    // border-top: 2px solid black;
-}
+ }
 
-.photo-box-profile {
-    display:flex;
+ .photo-box-profile {
+  border-bottom: 2px solid white;
+  display:flex;
   align-items: center;
   justify-content: center;
 
@@ -94,10 +95,12 @@ input[type="file"].attachinary-input {
   background-size: cover !important;
   margin: 0px;
   opacity: 1;
-  flex: 0 0 30%;
+
+  // flex: 0 0 30%;
   text-align: center;
   background-color: black;
   h3 {
+    text-align: center;
     color: white !important;
   }
 
@@ -110,21 +113,42 @@ input[type="file"].attachinary-input {
   display: none;
 
 }
-
-.created-photo{
+.created-photo-right{
+  border-left: 2px solid black;
+    border-bottom: 2px solid black;
 
   display:flex;
   align-items: center;
   justify-content: center;
 
   margin-right: 0px;
-  height: 100px;
-  width: 100px !important;
+  height: 50px;
+  width: 50px!important;
   background-image: center;
   background-size: cover !important;
   margin: 0px;
   opacity: 1;
-  flex: 0 0 30%;
+  // flex: 0 0 30%;
+  text-align: center;
+}
+
+
+.created-photo{
+
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-right: 0px;
+  height: 50px;
+  width: 50px!important;
+  background-image: center;
+  background-size: cover !important;
+  margin: 0px;
+  opacity: 1;
+  // flex: 0 0 30%;
   text-align: center;
 
 
@@ -133,14 +157,15 @@ input[type="file"].attachinary-input {
 }
 
 .created-name {
-min-height: 100px;
-    overflow: hidden;
+  border-bottom: 2px solid black;
+  min-height: 50px;
+  overflow: hidden;
 
-    overflow-x: scroll;
+  overflow-x: scroll;
   display:flex;
   align-items: center;
   justify-content: center;
-background-color: white;
+  background-color: white;
  // border: 0.5px solid $dark-gray;
  text-align: center;
  // border-bottom: 1px solid black;
@@ -164,6 +189,9 @@ background-color: white;
 
 .photo-box .control-label{
   margin:0;
+  margin-right: 15px;
+  border: 1px solid;
+
 }
 .photo-box ul {
   margin:0;
@@ -179,15 +207,16 @@ background-color: white;
 
 
 .created-part-name {
-min-height: 50px;
+      border-bottom: 2px solid black;
+  min-height: 50px;
 
-    overflow: hidden;
+  overflow: hidden;
 
-    overflow-x: scroll;
+  overflow-x: scroll;
   display:flex;
   align-items: center;
   justify-content: center;
-background-color: white;
+  background-color: white;
  // border: 0.5px solid $dark-gray;
  text-align: center;
  // border-bottom: 1px solid black;

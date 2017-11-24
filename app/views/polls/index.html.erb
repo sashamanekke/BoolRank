@@ -1,33 +1,46 @@
-<div class="container">
-  <h1 class="text-center">All Polls</h1>
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
-      <% @polls.each do |poll| %>
-      <%= link_to poll_path(poll) do %>
-      <div class="index-prop-box">
-        <div class="index-photo-box">
-          <% if poll.photo.nil? %>
-          <div class="index-created-photo" style="background-image: url('<%= image_path "Bear.jpg" %>') ">
-            <% else %>
-            <div class="index-created-photo" style="background-image: url('<%= image_path poll.photo %>') ">
-              <% end %>
-              <div class="poll-title"><%= poll.title %></div>
-            </div>
-          </div>
-          <div class="index-name-box">
-            <div class="index-created-name">
-              <!-- <p>Created by:<%= poll.user.email %></p> -->
-              <p><%= poll.description %></p>
-            </div>
-          </div>
-        </div>
-        <% end %>
-        <% end %>
-      </div>
+    <div class="navbar-box">
+    <div class="borte-t">
+      <%= link_to '< Back', :back%>
     </div>
   </div>
 
+  <div class="site-content flex-box">
+    <div class="container-profil flex-box-column" style="margin-top: 0px ; border: 2px solid black;">
 
+
+      <div class="btn-location-green prop-title">
+     <h3 class="bold text-uppercase text-center">
+       All polls
+     </h3>
+   </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
+          <% @polls.each do |poll| %>
+          <%= link_to poll_path(poll) do %>
+          <div class="index-prop-box">
+            <div class="index-photo-box">
+              <% if poll.photo.nil? %>
+              <div class="index-created-photo" style="background-image: url('<%= image_path "Bear.jpg" %>') ">
+                <% else %>
+                <div class="index-created-photo" style="background-image: url('<%= image_path poll.photo %>') ">
+                  <% end %>
+                  <div class="poll-title"></div>
+                </div>
+              </div>
+              <div class="index-name-box">
+                <div class="index-created-name">
+                  <!-- <p>Created by:<%= poll.user.email %></p> -->
+                  <p><%= poll.title %></p>
+                </div>
+              </div>
+            </div>
+            <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
 

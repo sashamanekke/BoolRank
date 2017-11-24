@@ -1,4 +1,5 @@
-<div class="site-content">
+<div class="site-content flex-box">
+
 
 
   <div class="container flex-box">
@@ -7,23 +8,24 @@
 
         <div class="form-new-poll">
          <div class="update-poll">
-          <h1 >New Poll</h1>
+          <h1 >New Poll</h1><hr>
+
 
           <%= render 'form_new_poll' %>
         </div>
 
 
         <div class="add-prop-2">
-          <!-- <h1>Add Propositions</h1> -->
+          <h2>Add Propositions</h2><hr>
           <% if @poll.propositions.length < 7 %> <!-- MAX 7 PROPOSITIONS-->
             <%= render "form_proposition" %>
           <% else %>
             <h2>MAX 7 PROPOSITIONS FOR THE FREE VERSION</h2>
             <p>Go premium for unlimited (coming soon) </p>
           <% end %>
-          <div class="btn-burger flex-box">
-            <%= link_to "Continue", poll_path %>
-          </div>
+        <!--   <div class="btn-burger flex-box">
+            <%#= link_to "Continue", poll_path %>
+          </div> -->
         </div>
 
         <div class="add-prop">
@@ -56,9 +58,9 @@
          <div class="photo-box">
 
           <% unless proposition.photo.nil?  %>
-          <div class="created-photo" style="background-image: url('<%= cl_image_path  proposition.photo.path %>')"></div>
+          <div class="created-photo-right" style="background-image: url('<%= cl_image_path  proposition.photo.path %>')"></div>
           <% else %>
-          <div class="created-photo" style="background-color: <%=proposition.color%>"></div>
+          <div class="created-photo-right" style="background-color: <%=proposition.color%>"></div>
 
           <% end %>
         </div>
@@ -75,6 +77,9 @@
           <% end %>
         </div>
       </div>
+     <div class="btn-burger flex-box text-uppercase text-center" style="width: 150px;">
+            <%= link_to "Continue", poll_path %><i class="fa fa-arrow-right" aria-hidden="true" style="margin-left: 10px;">  </i>
+          </div>
     </div>
   </div>
 </div>
