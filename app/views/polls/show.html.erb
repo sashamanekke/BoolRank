@@ -37,11 +37,11 @@
      <%= link_to '< Back', :back%>
    </div>
 
-<button type="button" class="btn-burger flex-box text-uppercase" data-toggle="modal" data-target="#share-modal">
+<button type="button" class="btn-burger flex-box text-uppercase text-center" data-toggle="modal" data-target="#share-modal">
             share<i class="fa fa-share" aria-hidden="true" style= "margin-left: 10px"></i>
            </button>
    <div class="poll-wrapper" >
-    <div class="poll-header" style="height: 10vh">
+    <div class="poll-header" style="height: 15vh">
       <h1 class="bold text-center text-uppercase" style="margin-top: 4vh"><%= @poll.title %></h1>
     </div>
 <hr>
@@ -158,7 +158,7 @@
 <div class="prop-container background-gif  margin-top margin-b" id="propositions">
  <div class="btn-location-blue prop-title">
   <h3 class="bold text-uppercase text-center">
-   All propositions
+   All Options
  </h3>
 </div>
 <% @poll.propositions.each do |proposition| %>
