@@ -1,9 +1,15 @@
 <%= simple_form_for([@poll, @proposition], url: poll_propositions_path(@poll), method: 'post') do |f| %><div class="flex-box">
+
+
   <div class="name-box">
+<p>Proposition Name:</p>
     <%= f.input :name, placeholder: "Option", label: false, :maxlength => 12, autofocus: true %>
     <%= f.hidden_field :score, value: 0 %>
+
 </div>
+
 <div class="photo-box">
+  <p>Add pictures!</p>
     <%= f.input :photo, as: :attachinary %>
 </div>
     </div>

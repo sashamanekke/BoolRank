@@ -16,16 +16,16 @@
 
 
         <div class="add-prop-2">
-          <!-- <h1>Add Propositions</h1> -->
+          <h2>Add Propositions</h2><hr>
           <% if @poll.propositions.length < 7 %> <!-- MAX 7 PROPOSITIONS-->
             <%= render "form_proposition" %>
           <% else %>
             <h2>MAX 7 PROPOSITIONS FOR THE FREE VERSION</h2>
             <p>Go premium for unlimited (coming soon) </p>
           <% end %>
-          <div class="btn-burger flex-box">
-            <%= link_to "Continue", poll_path %>
-          </div>
+        <!--   <div class="btn-burger flex-box">
+            <%#= link_to "Continue", poll_path %>
+          </div> -->
         </div>
 
         <div class="add-prop">
@@ -78,6 +78,9 @@
         </div>
       </div>
     </div>
+     <div class="btn-burger flex-box">
+            <%= link_to "Continue", poll_path %><i class="fa fa-arrow-right" aria-hidden="true"></i>
+          </div>
   </div>
 </div>
 </div>
