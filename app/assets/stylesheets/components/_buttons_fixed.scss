@@ -35,8 +35,8 @@ width: 20px;
 
 .btn-red-propositions {
   position: fixed;
-    right: 2%;
-    bottom: 2%;
+    right: 14px;
+    bottom: 13px;
     color: black;
     background-color: $red;
     z-index: 10000;
@@ -46,8 +46,8 @@ width: 20px;
 
 .btn-green-participants {
   position: fixed;
-    left: 2%;
-    bottom: 2%;
+    left: 14px;
+    bottom: 13px;
     color: black;
     background-color: $purple;
     z-index: 10000;
@@ -58,8 +58,8 @@ width: 20px;
 
 .btn-pink-share {
   position: fixed;
-    bottom:10%;
-    left: 2%;
+    bottom:13px;
+    left: 14px;
     color: black;
     background-color: $pink;
     z-index: 10000;
@@ -71,8 +71,8 @@ width: 20px;
 
 .btn-blue-logo {
   position: fixed;
-    top:2%;
-    left: 2%;
+    top:13px;
+    left: 14px;
     color: black;
     z-index: 10000;
     background-color: $green;
@@ -85,8 +85,8 @@ width: 20px;
 
 .btn-dropdown {
   position: fixed;
-    top:2%;
-    right: 2%;
+    top: 13px;
+    right: 14px;
     color: black;
     background-color: $yellow;
     z-index: 10000;

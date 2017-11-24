@@ -66,13 +66,13 @@
  </script>
 
  <%#= render 'shared/navbar', use_class: (controller_name == "pages" ? "navbar-landing-page" : "navbar-wagon") %>
-
+<div class="container-tout">
  <%= render 'shared/flashes' %>
  <%= render 'shared/buttons_fixed' %>
  <%= yield %>
  <%= javascript_include_tag 'application' %>
  <%= cloudinary_js_config %>
-
+</div>
 </body>
 </html>
 
