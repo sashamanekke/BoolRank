@@ -3,7 +3,7 @@
 
   <div class="name-box">
 <p>Proposition Name:</p>
-    <%= f.input :name, placeholder: "Option", label: false, :maxlength => 12, autofocus: true %>
+    <%= f.input :name, placeholder: "Option", label: false, :maxlength => 20, autofocus: true %>
     <%= f.hidden_field :score, value: 0 %>
 
 </div>
@@ -15,7 +15,7 @@
     </div>
     <%= f.hidden_field :hashtag, value: "#" %>
     <%= f.hidden_field :description, placeholder: "Give a small description (optional)" %>
-    <%= f.button :submit, class: "btn-burger flex-box"  %>
+    <%= f.button :submit, class: " flex-box"  %>
 
 <% end %>
 

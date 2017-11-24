@@ -37,6 +37,10 @@
 }
 
 .poll-title {
+
+    overflow: hidden;
+
+    overflow-x: scroll;
   position: absolute;
   font-weight: bold;
   font-size: 18px;
@@ -174,12 +178,14 @@
       display: flex;
   justify-content: center;
   align-items: center;
+  border-bottom: 2px solid black;
 
 }
 
 .index-name-box {
   width: 100%;
   height: auto;
+
    // border-top: 0.8px solid black;
 
 }
@@ -232,9 +238,13 @@
 
 .index-created-name {
 min-height: 100px;
-    overflow: hidden;
 
+p {
+    overflow: hidden;
+max-width: 190px;
     overflow-x: scroll;
+}
+
   display:flex;
   align-items: center;
   justify-content: center;

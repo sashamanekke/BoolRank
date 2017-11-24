@@ -74,6 +74,7 @@
 }
 
 .btn-black {
+
   color: #fff;
   background-color: black;
   border-color: black;
@@ -105,10 +106,11 @@
 }
 
 .btn-burger {
+   cursor: pointer;
 margin: auto;
 margin-top:30px;
-margin-bottom: 20px;
-      width: 150px;
+margin-bottom: 30px;
+          padding: 0px 20px;
     height: 5rem;
   background-color: $dark-gray;
   color: #fff;

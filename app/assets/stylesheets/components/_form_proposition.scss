@@ -94,10 +94,12 @@ input[type="file"].attachinary-input {
   background-size: cover !important;
   margin: 0px;
   opacity: 1;
-  flex: 0 0 30%;
+
+  // flex: 0 0 30%;
   text-align: center;
   background-color: black;
   h3 {
+    text-align: center;
     color: white !important;
   }
 
@@ -110,9 +112,30 @@ input[type="file"].attachinary-input {
   display: none;
 
 }
+.created-photo-right{
+  border-left: 2px solid black;
+    border-bottom: 2px solid black;
+
+  display:flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-right: 0px;
+  height: 50px;
+  width: 50px!important;
+  background-image: center;
+  background-size: cover !important;
+  margin: 0px;
+  opacity: 1;
+  // flex: 0 0 30%;
+  text-align: center;
+}
+
 
 .created-photo{
 
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
   display:flex;
   align-items: center;
   justify-content: center;

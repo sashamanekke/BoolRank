@@ -1,4 +1,14 @@
 
+<div class="navbar-box">
+    <div class="borte-t">
+      <%= link_to '< Back', :back%>
+    </div>
+  </div>
+
+  <div class="site-content flex-box">
+    <div class="container-profil flex-box-column">
+
+
 
   <div class="profile-container">
     <div class="profile text-center">
@@ -31,46 +41,54 @@
    <h3>No Polls</3>
     <% else %>
     <% current_user.profile.user.polls.each_with_index do |poll, index| %>
-
+<%= link_to poll_path(poll) do %>
     <div class="row">
       <div class="col-xs-12">
 
         <div class="prop-box">
-        <%= link_to poll_path(poll) do %>
+
           <div class="photo-box-profile">
             <h3>poll:<br> <%= index + 1 %></h3>
           </div>
-          <% end %>
 
+  <div class="created-score" >
+              <i class="fa fa-users" aria-hidden="true"></i><br>
+              <%= poll.participants.count %>
+            </div>
           <div class="name-box">
             <div class="created-part-name">
-              <h3>poll title: <%= poll.title %>
-              </div>
+              <h3 style="max-width: 180px;">poll title: <%= poll.title %></h3>
+
+            </div>
+
             </div>
           </div>
         </div>
       </div>
-
+ <% end %>
       <% end %>
       <% end %>
 
     </div>
 
 
-
-
-
-
-    <button type="button" class="btn btn-default btn-medium margin-b-results" data-toggle="modal" data-target="#share-modal" id="share">
-      Share Poll!
+ <button type="button" class="btn-burger text-uppercase" style="margin-bottom: 64px;     margin-top: 40px;" data-toggle="modal" data-target="#share-modal" id="share">
+      <%= link_to 'Join a public poll !', polls_path %>
     </button>
+
+
+
+   <!--  <button type="button" class="btn btn-default btn-medium margin-b-results" data-toggle="modal" data-target="#share-modal" id="share">
+      Share Poll!
+    </button> -->
 
 
 
 
   </div>
 
-
+ </div>
+  </div>
 
 
 <!--   create_table "profiles", force: :cascade do |t|

@@ -58,9 +58,9 @@
          <div class="photo-box">
 
           <% unless proposition.photo.nil?  %>
-          <div class="created-photo" style="background-image: url('<%= cl_image_path  proposition.photo.path %>')"></div>
+          <div class="created-photo-right" style="background-image: url('<%= cl_image_path  proposition.photo.path %>')"></div>
           <% else %>
-          <div class="created-photo" style="background-color: <%=proposition.color%>"></div>
+          <div class="created-photo-right" style="background-color: <%=proposition.color%>"></div>
 
           <% end %>
         </div>
@@ -77,10 +77,10 @@
           <% end %>
         </div>
       </div>
-    </div>
-     <div class="btn-burger flex-box">
-            <%= link_to "Continue", poll_path %><i class="fa fa-arrow-right" aria-hidden="true"></i>
+     <div class="btn-burger flex-box text-uppercase text-center" style="width: 150px;">
+            <%= link_to "Continue", poll_path %><i class="fa fa-arrow-right" aria-hidden="true" style="margin-left: 10px;">  </i>
           </div>
+    </div>
   </div>
 </div>
 </div>

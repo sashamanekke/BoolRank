@@ -1,7 +1,9 @@
 <%= content_for(:proposition, "fixed-position") %>
 
 
-<div class="results-container flex-box">
+
+
+
   <div class="navbar-box">
     <div class="borte-t">
       <%= link_to '< Back', :back%>
@@ -30,122 +32,123 @@
   </a>
 
 
-  <a href="#share">
-    <div class="btn-pink-share">
+<!--   <a href="#share">
+    <div class="btn-pink-share" data-toggle="modal" data-target="#share-modal" id="share">
       <span class="btn-square">
         <span class="btn__inner"><i class="fa fa-share" aria-hidden="true"></i></span>
       </span>
     </div>
-  </a>
+  </a> -->
+  <div class="site-content flex-box">
+    <div class="container-result flex-box-column">
 
 
 
+      <div class="prop-container background-gif margin-30 ">
+        <div class="btn-location prop-title">
+          <h3 class="bold text-uppercase text-center">
+            <%#= @propositions.first.name %>
+            best option
+          </h3>
+        </div>
 
-  <div class="prop-container background-gif margin-b-results ">
-    <div class="btn-location prop-title">
-      <h3 class="bold text-uppercase text-center">
-        <%#= @propositions.first.name %>
-       best option
-      </h3>
-    </div>
+        <div class="prop-score text-center ">
+          <i class="fa fa-star" aria-hidden="true"></i><h2>score: <%= @propositions.first.score %></h2>
+        </div>
+        <% if @propositions.first.photo.nil? %>
+        <div class="prop-image-first  flex-box" style="background-color:  <%= @propositions.first.color %>">
+          <div class="text-center " style="color: white; font-size: 20px;">
 
-    <div class="prop-score text-center ">
-      <i class="fa fa-star" aria-hidden="true"></i><h2>score: <%= @propositions.first.score %></h2>
-    </div>
-    <% if @propositions.first.photo.nil? %>
-    <div class="prop-image-first  flex-box" style="background-color:  <%= @propositions.first.color %>">
-      <div class="text-center " style="color: white; font-size: 20px;">
+           <%= @propositions.first.name %>
+         </div>
 
-       <%= @propositions.first.name %>
+       </div>
+       <% else %>
+       <div class="prop-image-first text-center" style="background-color: #060303;">
+         <%= cl_image_tag @propositions.first.photo.path %>
+       </div>
+       <% end %>
+     </div>
+
+     <button type="button" class="btn-burger text-uppercase" style="margin-bottom: 64px;     margin-top: 40px;" data-toggle="modal" data-target="#share-modal" id="share">
+      Share results!
+    </button>
+
+    <div class="prop-container background-gif margin-b" style="margin-top: 57px;" id="propositions">
+      <div class="btn-location-blue prop-title">
+        <h3 class="bold text-uppercase text-center">
+          All propositions
+        </h3>
       </div>
+      <button type="button" class="btn btn-default btn-medium" data-toggle="modal" data-target="#share-modal" id="share">
+      </button>
+      <% @propositions[1..-1].each do |proposition| %>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="prop-box">
+            <div class="photo-box">
+              <% unless proposition.photo.nil?  %>
+              <div class="created-photo" style="background-image: url('<%= cl_image_path  proposition.photo.path %>')">
+              </div>
+              <% else %>
+              <div class="created-photo" style="background-color: <%=proposition.color%>">
+              </div>
+              <% end %>
+            </div>
+            <div class="created-score">
+              <i class="fa fa-star" aria-hidden="true"></i><br>
+              <%= proposition.score %>
+            </div>
+            <div class="name-box">
+              <div class="created-name">
+                <h3><%= proposition.name %></h3>
+              </div>
 
-    </div>
-    <% else %>
-    <div class="prop-image-first text-center" style="background-color: #060303;">
-     <%= cl_image_tag @propositions.first.photo.path %>
-    </div>
-   <% end %>
- </div>
+            </div>
 
-  <div class="prop-container background-gif" id="propositions">
-    <div class="btn-location-blue prop-title">
-      <h3 class="bold text-uppercase text-center">
-        All propositions
-      </h3>
+          </div>
+        </div>
+      </div>
+      <% end %>
     </div>
-    <button type="button" class="btn btn-default btn-medium" data-toggle="modal" data-target="#share-modal" id="share">
+
+
+    <div class="prop-container background-gif margin-bottom" id="participants">
+      <div class="btn-location-green prop-title">
+       <h3 class="bold text-uppercase text-center">
+         Participants
+       </h3>
+     </div>
+     <button type="button" class="btn btn-default btn-medium" id="participant" style="font-size: 15px;"> <i class="fa fa-users" aria-hidden="true" style="color: white; margin-right: 10px"></i><%= @poll.participants.count %>
 </button>
- <% @propositions[1..-1].each do |proposition| %>
- <div class="row">
-  <div class="col-xs-12">
-    <div class="prop-box">
-      <div class="photo-box">
-        <% unless proposition.photo.nil?  %>
-        <div class="created-photo" style="background-image: url('<%= cl_image_path  proposition.photo.path %>')">
-        </div>
-        <% else %>
-        <div class="created-photo" style="background-color: <%=proposition.color%>">
-        </div>
-        <% end %>
-      </div>
-      <div class="name-box">
-        <div class="created-name">
-          <h3><%= proposition.name %></h3>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<% end %>
-</div>
-
-
-<div class="prop-container background-gif margin-b-results" id="participants">
-  <div class="btn-location-green prop-title">
-   <h3 class="bold text-uppercase text-center">
-     Participants
-   </h3>
- </div>
- <button type="button" class="btn btn-default btn-medium" data-toggle="modal" data-target="#share-modal" id="share">
-</button>
-
- <% @poll.participants.each do |participant| %>
- <div class="row">
-  <div class="col-xs-12">
-    <div class="prop-box">
-      <div class="photo-box">
-        <% if participant.user.profile.photo.nil? %>
-          <% avatar_url = participant.user.facebook_picture_url || "http://www.abc.net.au/news/image/8314104-1x1-940x940.jpg" %>
-        <% else %>
+     <% @poll.participants.each do |participant| %>
+     <div class="row">
+      <div class="col-xs-12">
+        <div class="prop-box">
+          <div class="photo-box">
+            <% if participant.user.profile.photo.nil? %>
+            <% avatar_url = participant.user.facebook_picture_url || "http://www.abc.net.au/news/image/8314104-1x1-940x940.jpg" %>
+            <% else %>
             <% avatar_url = participant.user.photo || "http://www.abc.net.au/news/image/8314104-1x1-940x940.jpg" %>
-        <div class="created-part-photo" style="background-color: <%=proposition.color%>"></div>
-        <% end %>
-      </div>
-      <div class="name-box">
-        <div class="created-part-name">
-          <% unless participant.user.first_name.nil? %>
-            <h3><%= participant.user.first_name %></h3>
-          <% else %>
-            <h3><%= "Anonymous" %></h3>
-          <% end %>
+            <div class="created-part-photo" style="background-color: <%=proposition.color%>"></div>
+            <% end %>
+          </div>
+          <div class="name-box">
+            <div class="created-part-name">
+              <% unless participant.user.first_name.nil? %>
+              <h3><%= participant.user.first_name %></h3>
+              <% else %>
+              <h3><%= "Anonymous" %></h3>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <% end %>
   </div>
-</div>
-<% end %>
-</div>
 
 
-
-<button type="button" class="btn btn-default btn-medium margin-b-results" data-toggle="modal" data-target="#share-modal" id="share">
-  Share Poll!
-</button>
-
-
-
-
-</div>
 
 
 
@@ -161,7 +164,7 @@
     }
   });
 </script>
- -->
+-->
 
 
 <!-- ____________ renders for modals ____________ -->
