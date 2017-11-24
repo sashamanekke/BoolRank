@@ -77,12 +77,12 @@
     <div class="prop-container background-gif margin-b" style="margin-top: 57px;" id="propositions">
       <div class="btn-location-blue prop-title">
         <h3 class="bold text-uppercase text-center">
-          All propositions
+          Ranking
         </h3>
       </div>
       <button type="button" class="btn btn-default btn-medium" data-toggle="modal" data-target="#share-modal" id="share">
       </button>
-      <% @propositions[1..-1].each do |proposition| %>
+      <% @propositions[0..-1].each do |proposition| %>
       <div class="row">
         <div class="col-xs-12">
           <div class="prop-box">
