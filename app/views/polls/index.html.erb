@@ -17,25 +17,27 @@
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
           <% @polls.each do |poll| %>
-          <%= link_to poll_path(poll) do %>
-          <div class="index-prop-box">
-            <div class="index-photo-box">
-              <% if poll.photo.nil? %>
-              <div class="index-created-photo" style="background-image: url('<%= image_path "Bear.jpg" %>') ">
-                <% else %>
-                <div class="index-created-photo" style="background-image: url('<%= image_path poll.photo %>') ">
-                  <% end %>
-                  <div class="poll-title"></div>
+            <% if poll.public_poll %>
+              <%= link_to poll_path(poll) do %>
+              <div class="index-prop-box">
+                <div class="index-photo-box">
+                  <% if poll.photo.nil? %>
+                  <div class="index-created-photo" style="background-image: url('<%= image_path "Bear.jpg" %>') ">
+                    <% else %>
+                    <div class="index-created-photo" style="background-image: url('<%= image_path poll.photo %>') ">
+                      <% end %>
+                      <div class="poll-title"></div>
+                    </div>
+                  </div>
+                  <div class="index-name-box">
+                    <div class="index-created-name">
+                      <!-- <p>Created by:<%= poll.user.email %></p> -->
+                      <p><%= poll.title %></p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="index-name-box">
-                <div class="index-created-name">
-                  <!-- <p>Created by:<%= poll.user.email %></p> -->
-                  <p><%= poll.title %></p>
-                </div>
-              </div>
-            </div>
-            <% end %>
+                <% end %>
+              <% end %>
             <% end %>
           </div>
         </div>
