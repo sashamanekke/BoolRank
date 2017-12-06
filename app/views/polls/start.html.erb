@@ -1,38 +1,37 @@
 <div class="site-content">
-<div class="banner">
-  <div class="banner-content text-center">
-  <% if @poll.closed %>
-    <h3>This Poll has ended!</h3>
-    <div class="sexy-line"></div>
-    <%= link_to 'Back to poll', poll_path(@poll), :class => "btn btn-medium" %>
-    <%= link_to 'See Results', results_poll_path(@poll), :class => "btn btn-medium" %>
-  <% else %>
-    <% unless current_user.nil? %>
-      <% user_present = false %>
-      <% @poll.participants.each do |participant| %>
-        <% if participant.user == current_user %>
-        <% user_present = true %>
-        <h3>You are a participant of this poll</h3>
+  <div class="banner">
+    <div class="banner-content text-center">
+      <% if @poll.closed %>
+        <h3>This Poll has ended!</h3>
         <div class="sexy-line"></div>
+          <%= link_to 'Back to poll', poll_path(@poll), :class => "btn btn-medium" %>
+          <%= link_to 'See Results', results_poll_path(@poll), :class => "btn btn-medium" %>
+      <% else %>
+        <% unless current_user.nil? %>
+          <% user_present = false %>
+          <% @poll.participants.each do |participant| %>
+            <% if participant.user == current_user %>
+              <% user_present = true %>
+              <h3>You are a participant of this poll</h3>
+              <div class="sexy-line"></div>
+            <% end %>
+          <% end %>
+          <% if user_present %>
+            <%= link_to 'Start Poll!', compare_poll_path(@poll), :class => "btn btn-medium" %>
+          <% else %>
+            <h3>Join the poll to become a participant</h3>
+            <div class="sexy-line"></div>
+            <%= link_to 'Join Poll!', poll_participants_path(@poll), :class => "btn btn-medium", method: "post" %>
+          <% end %>
+        <% else %>
+          <h3>Join the poll to become a participant</h3>
+          <div class="sexy-line"></div>
+          <%= link_to 'Join Poll!', poll_participants_path(@poll), :class => "btn btn-medium", method: "post" %>
         <% end %>
       <% end %>
-      <% if user_present %>
-        <%= link_to 'Start Poll!', compare_poll_path(@poll), :class => "btn btn-medium" %>
-      <% else %>
-        <h3>Join the poll to become a participant</h3>
-        <div class="sexy-line"></div>
-        <%= link_to 'Join Poll!', poll_participants_path(@poll), :class => "btn btn-medium", method: "post" %>
-      <% end %>
-    <% else %>
-        <h3>Join the poll to become a participant</h3>
-        <div class="sexy-line"></div>
-        <%= link_to 'Join Poll!', poll_participants_path(@poll), :class => "btn btn-medium", method: "post" %>
-    <% end %>
+    </div>
   </div>
 </div>
-
-<% end %>
-
 
 <!-- TEST - TO DELETE -->
 <%# count = 0 %>
@@ -44,4 +43,4 @@
 <%# end %>
 
 <%#= count %>
-</div>
+
