@@ -1,7 +1,7 @@
 class VotesController < ApplicationController
   def create
     set_poll
-
+    authorize @poll
     accepted_proposition = Proposition.find(params[:accepted])
     rejected_proposition = Proposition.find(params[:rejected])
     @vote = Vote.new()
