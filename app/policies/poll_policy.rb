@@ -4,7 +4,8 @@ class PollPolicy < ApplicationPolicy
       scope.all
     end
   end
-  def index?
+  def show?
+    #if record.public == true || (record.user == user || record.participants.include?(user))
     return true
   end
   def new?
