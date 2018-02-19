@@ -27,6 +27,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
+gem "pundit"
 
 group :development, :test do
   gem 'pry-byebug'
