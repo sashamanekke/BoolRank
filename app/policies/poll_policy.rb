@@ -12,7 +12,12 @@ class PollPolicy < ApplicationPolicy
     return true
   end
   def create?
-    return true
+    # Any logged in user can create a poll ->
+    !user.nil?
+  end
+  def update?
+    # only poll owners can update it
+    record.user == user
   end
   def add_propositions?
     return true
