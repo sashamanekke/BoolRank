@@ -4,21 +4,30 @@ class PollPolicy < ApplicationPolicy
       scope.all
     end
   end
+
   def show?
     #if record.public == true || (record.user == user || record.participants.include?(user))
     return true
   end
+
   def new?
     return true
   end
+
   def create?
     # Any logged in user can create a poll ->
     !user.nil?
   end
+
   def update?
     # only poll owners can update it
     record.user == user
   end
+
+  def destroy?
+    update?
+  end
+
   def add_propositions?
     return true
   end

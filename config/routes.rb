@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :polls, only: [ :index, :show, :update, :create ]
+      resources :polls, only: [ :index, :show, :update, :create, :destroy ]
     end
   end
   root to: 'pages#home'

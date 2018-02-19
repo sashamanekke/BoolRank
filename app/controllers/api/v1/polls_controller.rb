@@ -1,6 +1,6 @@
 class Api::V1::PollsController < Api::V1::BaseController
   acts_as_token_authentication_handler_for User, except: [ :index, :show ]
-  before_action :set_poll, only:[:show, :update]
+  before_action :set_poll, only:[:show, :update, :destroy]
 
   def index
     @polls = policy_scope(Poll)
@@ -22,10 +22,15 @@ class Api::V1::PollsController < Api::V1::BaseController
     @poll.user = current_user
     authorize @poll
     if @poll.save
-      render :show
+      render :show, status: :created
     else
       render_error
     end
+  end
+
+  def destroy
+    @poll.destroy
+    head :no_content
   end
 
   private
