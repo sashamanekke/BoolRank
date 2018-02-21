@@ -17,6 +17,7 @@ class PropositionsController < ApplicationController
     colors = ["#C3A7F3","#FDAAB0","#FEDF32","#44C7AA","#EE5F5B","#469AE0"]
     # gradient_colors = (1..16).map{ |i| i < 10 ? "0#{i}.jpg" : "#{i}.jpg" }
     @proposition = Proposition.new(proposition_params)
+    authorize @proposition
     @proposition.poll = @poll
 
     used_colors = generate_used_colors(@poll)

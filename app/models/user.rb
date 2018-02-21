@@ -8,6 +8,9 @@ class User < ApplicationRecord
   has_many :votes, dependent: :destroy
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  acts_as_token_authenticatable
+
   after_create :create_profile
        def create_profile
          Profile.create(user_id: self.id)
