@@ -168,7 +168,6 @@ class PollsController < ApplicationController
   end
 
   def generate_existing_combinations(votes)
-
     existing_combinations = []
     votes.each do |vote|
       combination = [vote.accepted_proposition, vote.rejected_proposition]

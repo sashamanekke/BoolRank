@@ -33,6 +33,10 @@ class Api::V1::PollsController < Api::V1::BaseController
     head :no_content
   end
 
+  def compare
+    @all_combinations = generate_combinations(@poll.propositions)
+  end
+
   private
 
   def set_poll
@@ -47,4 +51,16 @@ class Api::V1::PollsController < Api::V1::BaseController
     render json: { errors: @poll.errors.full_messages },
       status: :unprocessable_entity
   end
+
+  def generate_combinations(props)
+    props = props.sort { |a, b|  a.id <=> b.id }
+    all_combinations = []
+    props.each_with_index do |p1, index|
+      props[(index + 1)..-1].each do |p2|
+        all_combinations << [p1,p2].sort! { |a, b|  a.id <=> b.id }
+      end
+    end
+    all_combinations
+  end
+
 end
