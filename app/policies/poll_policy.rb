@@ -16,7 +16,7 @@ class PollPolicy < ApplicationPolicy
 
   def create?
     # Any logged in user can create a poll ->
-    !user.nil?
+    return true
   end
 
   def update?
