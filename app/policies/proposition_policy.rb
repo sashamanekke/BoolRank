@@ -10,4 +10,7 @@ class PropositionPolicy < ApplicationPolicy
   def add_propositions?
     return true
   end
+  def destroy?
+    return true
+  end
 end

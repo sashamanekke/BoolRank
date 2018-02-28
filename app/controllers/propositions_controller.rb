@@ -61,6 +61,7 @@ class PropositionsController < ApplicationController
   private
   def set_proposition
     @proposition = Proposition.find(params[:id])
+    authorize @proposition
   end
   def set_poll
     @poll = Poll.find(params[:poll_id])

@@ -33,13 +33,12 @@
     <div class="top-back">
      <%= link_to '< Back', :back%>
     </div>
-    <button type="button" class="btn-burger flex-box text-uppercase text-center" data-toggle="modal" data-target="#share-modal"><h1 style="color: white; font-weight: bold">share</h1> <i class="fa fa-share" aria-hidden="true" style= "margin-left: 10px"></i>
+    <button type="button" class="btn-burger flex-box text-uppercase text-center" data-toggle="modal" data-target="#share-modal">Share<i class="fa fa-share" aria-hidden="true" style= "margin-left: 10px"></i>
     </button>
     <div class="poll-wrapper" >
       <div class="poll-header text-center">
         <h1 class="bold text-center text-uppercase" style="margin-top: 4vh; word-wrap: break-word; "><%= @poll.title %></h1>
       </div>
-      <hr>
       <div class="poll-profile ">
         <div class="poll-profile-left margin-20 ">
           <h3 class="text-center margin-b-small text-uppercase bold">
@@ -113,9 +112,10 @@
 
 
 
-    <div class="btn-burger flex-box text-uppercase">
-      <%= link_to "Start Voting", start_poll_path(@poll) %>
-    </div>
+    <%= link_to start_poll_path(@poll), :action => 'go' do %>
+      <div class="btn-burger flex-box text-uppercase btn-start-voting">Start Voting
+      </div>
+    <% end %>
 
     <div class="prop-container background-gif  margin-top margin-b" id="propositions">
       <div class="btn-location-blue prop-title">

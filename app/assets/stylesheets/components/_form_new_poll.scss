@@ -9,145 +9,124 @@
    // -moz-box-shadow:    inset 0 0 3px $gray;
    // -webkit-box-shadow: inset 0 0 3px $gray;
    // box-shadow:         inset 0 0 3px $gray;
-   display: block;
-   text-align: center;
-   width: 90%;
-   height: 34px;
-    // margin-top: 20px;
-    // padding: 6px 12px;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: black;
-    background-color: #fff;
-    background-image: none;
-    // border-top: 1px solid $dark-gray;
-    // border-bottom: 1px solid $dark-gray;
-    border-radius: 0;
-    // border-bottom: 1px solid black;
-    border: 1px solid black;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 6px 12px;
-
-
-    &:hover{
-      box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-    }
-
-
-
-    font-size: 1.4rem;
-
-
-    outline: none;
-  }
-
-
-
-  .form-new-poll{
-    background-color: white;
-    width: 345px;
-  // background: rgba(255, 233, 168, 0.5);
- // background-image: url(https://media.giphy.com/media/4RduUxmi6IMmI/giphy.gif);
- padding: 0;
- margin-top: 1.5%;
-
- -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
- box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
- border: 2px solid black;
-    margin-bottom: 20px;
-border-bottom: 0px ;
- h2 {font-size: 20px;
-  margin-bottom: 20px;
+  display: block;
   text-align: center;
-  margin-top: 20px;
+  height: 34px;
+  // margin-top: 20px;
+  // padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
   color: black;
-
-}
-h1 {
-  font-weight: bold;
-  text-transform: uppercase;
-  font-weight: 400;
-  line-height: 1.1;
-  color: inherit;
-  text-align: center;
-
-
-  color: black;
-
-  margin-bottom: 50px;
-  margin-top: 50px;
-}
-.btn {
-  font-weight:bold;
-  background-color: black;
-  color: white;
-  text-transform: uppercase;
-
-  display: inline-block;
-  font-weight: 400;
-  text-align: center;
-
-  cursor: pointer;
+  background-color: #fff;
   background-image: none;
-    // border: 1px solid transparent;
+  // border-top: 1px solid $dark-gray;
+  // border-bottom: 1px solid $dark-gray;
+  border-radius: 0;
+  // border-bottom: 1px solid black;
+  border: 2px solid black;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 6px 12px;
+  &:hover{
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  }
+  font-size: 1.4rem;
+  outline: none;
+  border: 0;
+  background-color: lightgrey;
+  border-radius: 100px;
+  padding-left: 5%;
+  margin-right: 5%;
+  width: 90%;
+}
+
+.form-new-poll{
+  background-color: white;
+  width: 345px;
+  // background: rgba(255, 233, 168, 0.5);
+  // background-image: url(https://media.giphy.com/media/4RduUxmi6IMmI/giphy.gif);
+  padding: 0;
+  margin-top: 1.5%;
+  -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  border: 2px solid black;
+  margin-bottom: 20px;
+  border-bottom: 0px ;
+  h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    margin-top: 20px;
+    color: black;
+  }
+  h1 {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-weight: 400;
+    line-height: 1.1;
+    color: inherit;
+    text-align: center;
+    color: black;
+    margin-bottom: 50px;
+    margin-top: 50px;
+  }
+  .btn {
+    font-weight:bold;
+    background-color: black;
+    color: white;
+    text-transform: uppercase;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    cursor: pointer;
+    background-image: none;
     white-space: nowrap;
+    border: 0;
+    border-color: black;
     padding: 6px 12px;
     font-size: 14px;
     line-height: 1.42857143;
     border-radius: 0;
     margin-bottom: 0px !important;
-
-
+    &:hover{
+      background-color: $green;
+    }
   }
-
   p {
     text-align: center;
     // font-weight: bold;
     font-size: 12px;
     line-height: 12px;
-margin-right:15px;
+    margin-right:15px;
     color: black;
-   margin-bottom: 10px;
+    margin-bottom: 10px;
    // margin-top: 15px;
- }
+  }
 }
 
 .update-poll {
- background-color: white;
- -webkit-box-pack: center;
- -ms-flex-pack: center;
- justify-content: center;
-
-    // border-top: 2px solid black;
-    // border-bottom: 2px solid black;
-    // margin-top: 42px;
-  }
-
-
-
-
-
+  background-color: white;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  // border-top: 2px solid black;
+  // border-bottom: 2px solid black;
+  // margin-top: 42px;
+}
 
 // .product-controls a {
 //     padding: 0 20px;
 //     font-size: 17px;
 //     color: $dark-gray;
 // }
-
 // .proposition_photo {
 //   font-size: 15px;
-
 // }
-
 // .photo-btn {
-
 //     padding: 0 1.5em;
 //     height: 45px;
 //     color: $dark-gray;
 //     font-size: 1.4rem;
 //     border: 0.5px solid $dark-gray;
 //     outline: none;
-
 // }
-

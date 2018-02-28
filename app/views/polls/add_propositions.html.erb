@@ -8,7 +8,7 @@
 
         <div class="form-new-poll">
          <div class="update-poll">
-          <h1 >New Poll</h1><hr>
+          <h1 >New Poll</h1>
 
 
           <%= render 'form_new_poll' %>
@@ -16,7 +16,7 @@
 
 
         <div class="add-prop-2">
-          <h2>Add Options</h2><hr>
+          <h2>Add Options</h2>
           <% if @poll.propositions.length < 7 %> <!-- MAX 7 PROPOSITIONS-->
             <%= render "form_proposition" %>
           <% else %>
@@ -43,18 +43,11 @@
           </div>
           <div class="btn-delete flex-box">
 
-            <%= link_to( poll_proposition_path(@poll, proposition), method: :delete) do %>
+            <%= link_to( poll_proposition_path(@poll, proposition), method: :delete) do%>
             <i class="fa fa-times" aria-hidden="true"></i>
             <% end %>
 
           </div>
-          <div class="btn-edit flex-box">
-
-           <%= link_to edit_poll_proposition_path(@poll, proposition), remote: true, method: :get do %>
-           <i class="fa fa-pencil" aria-hidden="true"></i>
-           <% end %>
-
-         </div>
          <div class="photo-box">
 
           <% unless proposition.photo.nil?  %>
@@ -77,9 +70,11 @@
           <% end %>
         </div>
       </div>
-     <div class="btn-burger flex-box text-uppercase text-center" style="width: 150px;">
-            <%= link_to "Continue", poll_path %><i class="fa fa-arrow-right" aria-hidden="true" style="margin-left: 10px;">  </i>
+        <%= link_to poll_path, :action => 'go' do %>
+          <div class="btn-burger flex-box text-uppercase text-center" style="width: 150px;">
+            Continue<i class="fa fa-arrow-right" aria-hidden="true" style="margin-left: 10px;"></i>
           </div>
+        <% end %>
     </div>
   </div>
 </div>
