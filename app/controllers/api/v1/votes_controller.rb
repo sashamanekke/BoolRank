@@ -17,7 +17,6 @@ class Api::V1::VotesController < Api::V1::BaseController
     # add 1 to the score of the accepted proposition
     accepted_proposition.score += 1
     accepted_proposition.save!
-    authorize @vote
     if @vote.save!
       render :show, status: :created
     else
@@ -34,7 +33,6 @@ class Api::V1::VotesController < Api::V1::BaseController
 
   def set_poll
     @poll = Proposition.find(vote_params[:accepted_proposition_id]).poll
-    authorize @poll
   end
   def vote_params
     params.permit(:accepted_proposition_id, :rejected_proposition_id)
