@@ -3,7 +3,7 @@ class Api::V1::PollsController < Api::V1::BaseController
   before_action :set_poll, only:[:show, :update, :destroy]
 
   def index
-    @polls = policy_scope(Poll)
+    @polls = Poll.all
   end
 
   def show
@@ -20,7 +20,6 @@ class Api::V1::PollsController < Api::V1::BaseController
   def create
     @poll = Poll.new(poll_params)
     @poll.user = current_user
-    authorize @poll
     if @poll.save
       render :show, status: :created
     else
@@ -41,7 +40,6 @@ class Api::V1::PollsController < Api::V1::BaseController
 
   def set_poll
     @poll = Poll.find(params[:id])
-    authorize @poll
   end
   def poll_params
     params.require(:poll).permit(:title, :description, :photo, :status)

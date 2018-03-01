@@ -5,7 +5,6 @@ class PollsController < ApplicationController
 
   def index
     @polls = Poll.all
-    @polls = policy_scope(Poll)
   end
 
   def start
@@ -30,7 +29,6 @@ class PollsController < ApplicationController
   def new
     # if params[:title]
     @poll = Poll.new(poll_params)
-    authorize @poll
     # else
       # @poll = Poll.new()
     # end
@@ -38,13 +36,11 @@ class PollsController < ApplicationController
 
   def add_propositions
     @proposition = Proposition.new()
-    authorize @proposition
   end
 
   def create
     poll_colors = (1..16).map{ |i| i < 10 ? "0#{i}.jpg" : "#{i}.jpg" }
     @poll = Poll.new(poll_params)
-    authorize @poll
     # add current user when login is set !!!!!!!!!!!!!!!!
     @poll.user = current_user
     @poll.closed = false
@@ -150,7 +146,6 @@ class PollsController < ApplicationController
   private
   def set_poll
     @poll = Poll.find(params[:id])
-    authorize @poll
   end
   def poll_params
     params.require(:poll).permit(:title, :description, :photo, :status)
