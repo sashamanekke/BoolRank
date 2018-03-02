@@ -1,7 +1,7 @@
 class PollsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:start]
   before_action :set_poll, only: [:show, :add_propositions, :edit, :update, :destroy, :compare, :results, :start, :toggle_closed, :toggle_public_poll]
-
+  acts_as_token_authentication_handler_for User, except: [ :index, :show]
 
   def index
     @polls = Poll.all

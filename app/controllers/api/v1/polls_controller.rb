@@ -1,6 +1,6 @@
 class Api::V1::PollsController < Api::V1::BaseController
   before_action :set_poll, only:[:show, :update, :destroy]
-
+  acts_as_token_authentication_handler_for User, except: [ :index, :show]
   def index
     @polls = Poll.all
   end

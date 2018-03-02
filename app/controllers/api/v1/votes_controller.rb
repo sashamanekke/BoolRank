@@ -1,7 +1,7 @@
 class Api::V1::VotesController < Api::V1::BaseController
   before_action :set_poll, only:[:show, :create, :update, :destroy]
-
- def create
+  acts_as_token_authentication_handler_for User, except: [ :index, :show]
+  def create
     set_poll
     accepted_proposition = Proposition.find(vote_params[:accepted_proposition_id])
     rejected_proposition = Proposition.find(vote_params[:rejected_proposition_id])
