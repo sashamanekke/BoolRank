@@ -77,19 +77,18 @@ class PollsController < ApplicationController
 
   def compare
     #generate the basic combinations => [1,2] [3,4] [5,6] ..."
-    first_combinations = generate_first_combinations(@poll.propositions)
+    first_combinations = Poll.generate_first_combinations(@poll.propositions)
     #generate all the combinations already voted by the current user
-    existing_combinations = generate_existing_combinations(@poll.votes.where(user: current_user))
+    existing_combinations = Poll.generate_existing_combinations(@poll.votes.where(user: current_user))
     #compute the remaining combinations
     remaining_combinations = (first_combinations - existing_combinations)
     @remainings = remaining_combinations
-      #generate all the combinations possible
-      all_combinations = generate_combinations(@poll.propositions)
+    #generate all the combinations possible
+    all_combinations = Poll.generate_combinations(@poll.propositions)
     if remaining_combinations == []
       remaining_combinations = (all_combinations - existing_combinations)
     end
     @comparison = remaining_combinations.sample
-
     @total_score = 0
     @prop_lenth = @poll.propositions.length
     @poll.propositions.each do |prop|
@@ -114,6 +113,10 @@ class PollsController < ApplicationController
     #   [el.first.id, el.last.id]
     # }
     # ### end ###
+  end
+
+  def home_special
+
   end
 
   def start
@@ -149,40 +152,6 @@ class PollsController < ApplicationController
   end
   def poll_params
     params.require(:poll).permit(:title, :description, :photo, :status)
-  end
-
-  def generate_combinations(props)
-    props = props.sort { |a, b|  a.id <=> b.id }
-    all_combinations = []
-    props.each_with_index do |p1, index|
-      props[(index + 1)..-1].each do |p2|
-        all_combinations << [p1,p2].sort! { |a, b|  a.id <=> b.id }
-      end
-    end
-    all_combinations
-  end
-
-  def generate_existing_combinations(votes)
-    existing_combinations = []
-    votes.each do |vote|
-      combination = [vote.accepted_proposition, vote.rejected_proposition]
-      combination.sort! { |a, b|  a.id <=> b.id }
-      existing_combinations << combination
-    end
-    existing_combinations
-  end
-
-  def generate_first_combinations(props)
-    props = props.sort { |a, b|  a.id <=> b.id }
-    first_combinations = []
-    props.each_slice(2) do |slice|
-      if props.length.odd? && slice.first == props.last
-        slice << props.first
-      end
-      slice.sort! { |a, b|  a.id <=> b.id }
-      first_combinations << slice
-    end
-    first_combinations.sort!
   end
 
 end
