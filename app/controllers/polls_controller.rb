@@ -76,53 +76,30 @@ class PollsController < ApplicationController
   end
 
   def compare
-    #generate the basic combinations => [1,2] [3,4] [5,6] ..."
-    first_combinations = Poll.generate_first_combinations(@poll.propositions)
-    #generate all the combinations already voted by the current user
-    existing_combinations = Poll.generate_existing_combinations(@poll.votes.where(user: current_user))
-    #compute the remaining combinations
-    remaining_combinations = (first_combinations - existing_combinations)
-    @remainings = remaining_combinations
-    #generate all the combinations possible
-    all_combinations = Poll.generate_combinations(@poll.propositions)
-    if remaining_combinations == []
-      remaining_combinations = (all_combinations - existing_combinations)
-    end
-    @comparison = remaining_combinations.sample
-    @total_score = 0
-    @prop_lenth = @poll.propositions.length
-    @poll.propositions.each do |prop|
-      @total_score += prop.score
-    end
+    @remainings = Poll.compute_remaining_combinations(@poll, current_user.id)
+    @comparison = @remainings.sample
+    @total_score = Poll.compute_total_score(@poll)
     sleep 0.3
-
-    # ### Just to test and see ###
-    # @test_array_all = all_combinations.map{ |el|
-    #   [el.first.id, el.last.id]
-    # }
-    # @test_array = first_combinations.map{ |el|
-    #   [el.first.id, el.last.id]
-    # }
-    # @test_array_2 = existing_combinations.map{ |el|
-    #   [el.first.id, el.last.id]
-    # }
-    # # @test_array_3 = @poll.votes.where(user: current_user).map{ |el|
-    # #   [el.accepted_proposition.id, el.rejected_proposition.id]
-    # # }
-    # @test_array_4 = @remainings.map{ |el|
-    #   [el.first.id, el.last.id]
-    # }
-    # ### end ###
   end
 
   def home_special
-
+    if params?
+      @poll_public = Poll.find(params[:id])
+    else
+      public_polls = Poll.all.select{|poll| poll.status}
+      @poll_public = public_polls.sample
+    end
+    @remainings = Poll.compute_remaining_combinations(@poll_public, session.id)
+    @comparison = remainings.sample
+    @total_score = Poll.compute_total_score(@poll_public)
+    sleep 0.3
   end
 
   def start
   end
 
   def results
+    #byebug
     @propositions = @poll.propositions.order(:score).reverse
   end
 

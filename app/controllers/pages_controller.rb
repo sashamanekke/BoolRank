@@ -21,5 +21,6 @@ class PagesController < ApplicationController
     ]
 
     @poll = Poll.new()
+    #byebug
   end
 end

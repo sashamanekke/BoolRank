@@ -6,6 +6,30 @@ class Poll < ApplicationRecord
   #validations
   validates :title, presence: true
 
+  def self.compute_total_score(poll)
+    total_score = 0
+    prop_lenth = poll.propositions.length
+    poll.propositions.each do |prop|
+      total_score += prop.score
+    end
+    total_score
+  end
+
+  def self.compute_remaining_combinations(poll, user_id)
+    #generate the basic combinations => [1,2] [3,4] [5,6] ..."
+    first_combinations = Poll.generate_first_combinations(poll.propositions)
+    #generate all the combinations already voted by the current user
+    existing_combinations = Poll.generate_existing_combinations(poll.votes.where(user_id: user_id))
+    #@poll.votes.where(user_id: current_user.id))
+    #compute the remaining combinations
+    remaining_combinations = (first_combinations - existing_combinations)
+    all_combinations = Poll.generate_combinations(poll.propositions)
+    if remaining_combinations == []
+      remaining_combinations = (all_combinations - existing_combinations)
+    end
+    remaining_combinations
+  end
+
   def self.generate_first_combinations(props)
     props = props.sort { |a, b|  a.id <=> b.id }
     first_combinations = []
