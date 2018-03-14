@@ -12,7 +12,7 @@
     <% end %>
   </div>
 </div>
-<%= render :partial => '/polls/home_special' %>
+<%= render '/polls/home_special', public_poll: @poll_public %>
 
 <script>
   var magic_8_ball = []

@@ -1,1 +1,98 @@
-Hello
+
+<%= @poll_public.id %>
+
+<% if @comparison == nil %>
+      <% else %>
+        <p class="center-text">Click on the option your prefer</p>
+<!-- Proposition 1-->
+        <div class="no-link">
+          <%= link_to(poll_votes_path(@poll_public, accepted: @comparison.first.id, rejected: @comparison.last.id), method: :post, remote: true, class: "top") do %>
+            <div class="proposition" data-vote=1 id="vote-1">
+              <% if @comparison.first.photo.nil? %>
+                <div class="no-prop" style="background-color:  <%= @comparison.first.color %>"></div>
+              <% else %>
+                <div class="prop-card" style="height: 100%; width: 100%">
+                  <%= cl_image_tag(@comparison.first.photo.path, :crop => :fill, :width => 800, :height => 800, class: "prop-img")%>
+                </div>
+              <% end %>
+              <div class="result-bar"></div>
+              <div>
+                <div class="prop-card-category">
+                  <h3><%= @comparison.first.name %></h3>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+        <h3 class="center-text">or</h3>
+<!-- Proposition 2-->
+        <div class="no-link">
+          <%= link_to(poll_votes_path(@poll_public, accepted: @comparison.last.id, rejected: @comparison.first.id), method: :post, remote: true) do %>
+            <div class="proposition" data-vote=2 id="vote-2">
+              <% if @comparison.last.photo.nil? %>
+                <div class="no-prop" style="background-color:  <%= @comparison.last.color %>"></div>
+              <% else %>
+                <div class="prop-card" style="height: 100%; width: 100%">
+                  <%= cl_image_tag(@comparison.last.photo.path, :crop => :fill, :width => 800, :height => 800, class: "prop-img")%>
+                </div>
+              <% end %>
+              <div class="result-bar"></div>
+              <div>
+                <div class="prop-card-category">
+                  <h3><%= @comparison.last.name %></h3>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+
+      <% if @remainings == [] && @total_score >= (@poll_public.propositions.length)*1.5 || @comparison == nil %>
+        <div class="banner">
+          <%= link_to "results", results_poll_path(@poll_public), :class => "btn btn-medium" %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+</div>
+
+
+<% if @comparison %>
+<script>
+  document.querySelectorAll(".proposition").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      console.log(button.dataset.vote);
+      let results = compute_result(<%= @comparison.first.score %>,<%= @comparison.last.score %>, button.dataset.vote);
+      console.log(results)
+      if (button.dataset.vote == 2) {
+        results = results.reverse()
+      }
+      button.querySelector(".result-bar").style.height = (results[0]*100).toString() + "%";
+      button.querySelector("h3").innerText = Math.round((results[0]*100).toString()) + "%" ;
+      button.querySelector("h3").classList.add("big-percentage");
+      const otherButton = document.getElementById('vote-' + (button.dataset.vote == 1 ? "2" : "1") );
+      console.log(otherButton)
+      otherButton.querySelector('.result-bar').style.height = (results[1]*100).toString() + "%";
+      otherButton.querySelector("h3").innerText = Math.round((results[1]*100)).toString() + "%" ;
+      otherButton.querySelector("h3").classList.add("big-percentage");
+    });
+  });
+  function compute_result(score_1, score_2, vote) {
+    let percentage1 = 0;
+    let percentage2 = 0;
+    const total = score_1 + score_2 + 1;
+    if (vote == 1) {
+      percentage1 = (score_1 + 1) / total;
+      percentage2 = score_2 / total;
+    } else {
+      percentage1 = score_1 / total;
+      percentage2 = (score_2 + 1)  / total;
+    };
+    return [ percentage1, percentage2 ];
+  };
+  // console.log(compute_result(<%= @comparison.first.score %>,<%= @comparison.last.score %>, 1))
+</script>
+<% end %>

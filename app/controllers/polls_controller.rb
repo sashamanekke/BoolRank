@@ -1,6 +1,6 @@
 class PollsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:start]
-  before_action :set_poll, only: [:show, :add_propositions, :edit, :update, :destroy, :compare, :results, :start, :toggle_closed, :toggle_public_poll]
+  skip_before_action :authenticate_user!, only: [:start, :home_special]
+  before_action :set_poll, only: [:show, :add_propositions, :edit, :update, :destroy, :compare, :results, :start, :toggle_closed, :toggle_public_poll, :home_special]
 
 
   def index
@@ -83,15 +83,9 @@ class PollsController < ApplicationController
   end
 
   def home_special
-    if params?
-      @poll_public = Poll.find(params[:id])
-    else
-      public_polls = Poll.all.select{|poll| poll.status}
-      @poll_public = public_polls.sample
-    end
-    @remainings = Poll.compute_remaining_combinations(@poll_public, session.id)
-    @comparison = remainings.sample
-    @total_score = Poll.compute_total_score(@poll_public)
+    @remainings = Poll.compute_remaining_combinations(@poll, session.id)
+    @comparison = @remainings.sample
+    @total_score = Poll.compute_total_score(@poll)
     sleep 0.3
   end
 
