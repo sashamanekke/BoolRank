@@ -9,9 +9,11 @@ class VotesController < ApplicationController
     @vote.accepted_proposition = accepted_proposition
     @vote.rejected_proposition = rejected_proposition
     if current_user != nil
-      @vote.user_id = current_user.id
+      @vote.user = current_user
+      @vote.session_user_id = current_user.id
     else
-      @vote.user_id = session.id
+      @vote.user = User.find_by_id(1)
+      @vote.session_user_id = session.id
     end
     # add 1 to the score of the accepted proposition
     accepted_proposition.score += 1
