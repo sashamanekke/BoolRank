@@ -33,6 +33,7 @@ class PagesController < ApplicationController
     @remainings = Poll.compute_remaining_combinations(@poll_public, session.id)
     @comparison = @remainings.sample
     @total_score = Poll.compute_total_score(@poll_public)
+    @percentage = Poll.compute_percentage(@poll_public, session.id)
 
     #PollsController.home_special
     #byebug
