@@ -27,6 +27,9 @@ class PagesController < ApplicationController
     public_polls = Poll.all.select{|poll| poll.status}
     @poll_public = public_polls.sample
     #end
+    if @poll_public == nil
+      @poll_public = Poll.find_by_id(1)
+    end
     @remainings = Poll.compute_remaining_combinations(@poll_public, session.id)
     @comparison = @remainings.sample
     @total_score = Poll.compute_total_score(@poll_public)
