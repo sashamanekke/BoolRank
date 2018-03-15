@@ -1,6 +1,6 @@
 class PollsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:start, :home_special]
-  before_action :set_poll, only: [:show, :add_propositions, :edit, :update, :destroy, :compare, :results, :start, :toggle_closed, :toggle_public_poll, :home_special]
+  skip_before_action :authenticate_user!, only: [:start, :home_special, :home_results]
+  before_action :set_poll, only: [:show, :add_propositions, :edit, :update, :destroy, :compare, :results, :start, :toggle_closed, :toggle_public_poll, :home_special, :home_results]
 
 
   def index
@@ -93,8 +93,14 @@ class PollsController < ApplicationController
     end
     @comparison = @remainings.sample
     @total_score = Poll.compute_total_score(@poll_public)
-
+    if @remainings == []
+       redirect_to home_results_poll_path(@poll_public)
+    end
     #sleep 0.3
+  end
+
+  def home_results
+    @propositions = @poll.propositions.order(:score).reverse
   end
 
   def start

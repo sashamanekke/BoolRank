@@ -54,6 +54,7 @@
 <% if @remainings == [] && @total_score >= (@poll_public.propositions.length)*1.5 || @comparison == nil && @poll_public%>
   <div class="banner">
     <%= link_to "results", results_poll_path(@poll_public), :class => "btn btn-medium" %>
+    <%= link_to "try again", root_path, :class => "btn btn-medium" %>
   </div>
 <% end %>
 <p><%= @percentage %>%</p>
