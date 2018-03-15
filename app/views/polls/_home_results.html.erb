@@ -1,0 +1,62 @@
+<h2>Results!</h2>
+<p><%= @poll.title%></p>
+
+<div id="landing-result">
+
+  <div id="landing-flex-results">
+    <div class="winning-option">
+      <div class="winning-text">
+        <%#= @propositions.first.name %>
+        best option: <%= @propositions.first.name %>
+      </div>
+      <% if @propositions.first.photo.nil? %>
+        <div class="option-box" style="background-color:  <%= @propositions.first.color %>">
+          <div>
+            <%= @propositions.first.name %>
+          </div>
+        </div>
+      <% else %>
+        <div>
+          <%= cl_image_tag(@propositions.first.photo.path, :crop => :fill, :width => 800, :height => 800)%>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="landing-result-btn">
+      <%= link_to "try again", root_path, :class => "btn btn-medium" %>
+    </div>
+
+    <div class="ranking-options">
+      <div class="winning-text">
+        <%#= @propositions.first.name %>
+        Ranking
+      </div>
+      <div class="option-element">
+
+        <% @propositions[0..-1].each do |proposition| %>
+          <div class="prop-box">
+            <div class="photo-box">
+              <% unless proposition.photo.nil?  %>
+                <div class="created-photo" style="background-image: url('<%= cl_image_path  proposition.photo.path %>')">
+                </div>
+                <% else %>
+                <div class="created-photo" style="background-color: <%=proposition.color%>">
+                </div>
+              <% end %>
+            </div>
+            <div class="created-score">
+              <i class="fa fa-star" aria-hidden="true"></i><br>
+              <%= proposition.score %>
+            </div>
+            <div class="name-box">
+              <div class="created-name">
+                <h3><%= proposition.name %></h3>
+              </div>
+            </div>
+          </div>
+        <%end%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
