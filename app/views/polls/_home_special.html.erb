@@ -1,0 +1,62 @@
+
+<% if @comparison == nil %>
+<% else %>
+  <h2>Try it now!</h2>
+  <p class="center-text">Click on the option your prefer</p>
+  <div class="landing-comparison-flexbox">
+
+  <!-- Proposition 1-->
+    <div class="no-link">
+      <%= link_to(poll_votes_path(@poll_public, accepted: @comparison.first.id, rejected: @comparison.last.id), method: :post, remote: true, class: "top") do %>
+        <div class="proposition" data-vote=1 id="vote-1">
+          <% if @comparison.first.photo.nil? %>
+            <div class="no-prop" style="background-color:  <%= @comparison.first.color %>"></div>
+          <% else %>
+            <div class="prop-card" style="height: 100%; width: 100%">
+              <%= cl_image_tag(@comparison.first.photo.path, :crop => :fill, :width => 800, :height => 800, class: "prop-img")%>
+            </div>
+          <% end %>
+          <div class="result-bar"></div>
+          <div>
+            <div class="prop-card-category">
+              <h3><%= @comparison.first.name %></h3>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <p class="center-text">or</p>
+  <!-- Proposition 2-->
+    <div class="no-link">
+      <%= link_to(poll_votes_path(@poll_public, accepted: @comparison.last.id, rejected: @comparison.first.id), method: :post, remote: true) do %>
+        <div class="proposition" data-vote=2 id="vote-2">
+          <% if @comparison.last.photo.nil? %>
+            <div class="no-prop" style="background-color:  <%= @comparison.last.color %>"></div>
+          <% else %>
+            <div class="prop-card" style="height: 100%; width: 100%">
+              <%= cl_image_tag(@comparison.last.photo.path, :crop => :fill, :width => 800, :height => 800, class: "prop-img")%>
+            </div>
+          <% end %>
+          <div class="result-bar"></div>
+          <div>
+            <div class="prop-card-category">
+              <h3><%= @comparison.last.name %></h3>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+
+<% if @remainings == [] && @total_score >= (@poll_public.propositions.length)*1.5 || @comparison == nil && @poll_public%>
+  <div class="banner">
+    <%= link_to "results", results_poll_path(@poll_public), :class => "btn btn-medium" %>
+  </div>
+<% end %>
+
+
+
+

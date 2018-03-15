@@ -6,67 +6,55 @@
       <h3 class="poll-prop-title center-text">!VOTE!</h3>
       <% if @comparison == nil %>
       <% else %>
-      <p class="center-text">Click on the option your prefer</p>
-      <!-- Proposition 1-->
-      <div class="no-link">
-        <%= link_to(poll_votes_path(@poll, accepted: @comparison.first.id, rejected: @comparison.last.id), method: :post, class: "top") do %>
-        <div class="proposition" data-vote=1 id="vote-1">
-          <% if @comparison.first.photo.nil? %>
-          <div class="no-prop" style="background-color:  <%= @comparison.first.color %>"></div>
-          <% else %>
-          <div class="prop-card" style="height: 100%; width: 100%">
-            <%= cl_image_tag(@comparison.first.photo.path, :crop => :fill, :width => 800, :height => 800, class: "prop-img")%>
-          </div>
-          <% end %>
-          <div class="result-bar"></div>
-          <div>
-            <div class="prop-card-category">
-              <h3><%= @comparison.first.name %></h3>
+        <p class="center-text">Click on the option your prefer</p>
+<!-- Proposition 1-->
+        <div class="no-link">
+          <%= link_to(poll_votes_path(@poll, accepted: @comparison.first.id, rejected: @comparison.last.id), method: :post, class: "top") do %>
+            <div class="proposition" data-vote=1 id="vote-1">
+              <% if @comparison.first.photo.nil? %>
+                <div class="no-prop" style="background-color:  <%= @comparison.first.color %>"></div>
+              <% else %>
+                <div class="prop-card" style="height: 100%; width: 100%">
+                  <%= cl_image_tag(@comparison.first.photo.path, :crop => :fill, :width => 800, :height => 800, class: "prop-img")%>
+                </div>
+              <% end %>
+              <div class="result-bar"></div>
+              <div>
+                <div class="prop-card-category">
+                  <h3><%= @comparison.first.name %></h3>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <% end %>
-      </div>
-<!--       <%#= TEST - to delete later %>
-      <p>first combinations %>first</p>
-      <%= @test_array %>
-      <p>remainings</p>
-      <%= @test_array_4 %>
-      <p>existing</p>
-      <%= @test_array_2 %>
-      <p>all combinations</p>
-      <%= @test_array_all %>
-      <%= @total_score %>
-      <%#= TEST %> -->
-
-
-      <h3 class="center-text">or</h3>
-      <!-- Proposition 2-->
-      <div class="no-link">
-        <%= link_to poll_votes_path(@poll, accepted: @comparison.last.id, rejected: @comparison.first.id), method: :post do %>
-        <div class="proposition" data-vote=2 id="vote-2">
-          <% if @comparison.last.photo.nil? %>
-          <div class="no-prop" style="background-color:  <%= @comparison.last.color %>""></div>
-          <% else %>
-          <div class="prop-card" style="height: 100%; width: 100%">
-            <%= cl_image_tag(@comparison.last.photo.path, :crop => :fill, :width => 800, :height => 800, class: "prop-img")%>
-          </div>
           <% end %>
-          <div class="result-bar"></div>
-          <div>
-            <div class="prop-card-category">
-              <h3><%= @comparison.last.name %></h3>
-            </div>
-          </div>
         </div>
-        <% end %>
-      </div>
+
+        <h3 class="center-text">or</h3>
+<!-- Proposition 2-->
+        <div class="no-link">
+          <%= link_to poll_votes_path(@poll, accepted: @comparison.last.id, rejected: @comparison.first.id), method: :post do %>
+            <div class="proposition" data-vote=2 id="vote-2">
+              <% if @comparison.last.photo.nil? %>
+                <div class="no-prop" style="background-color:  <%= @comparison.last.color %>"></div>
+              <% else %>
+                <div class="prop-card" style="height: 100%; width: 100%">
+                  <%= cl_image_tag(@comparison.last.photo.path, :crop => :fill, :width => 800, :height => 800, class: "prop-img")%>
+                </div>
+              <% end %>
+              <div class="result-bar"></div>
+              <div>
+                <div class="prop-card-category">
+                  <h3><%= @comparison.last.name %></h3>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
       <% end %>
 
       <% if @remainings == [] && @total_score >= (@poll.propositions.length)*1.5 || @comparison == nil %>
-      <div class="banner">
-        <%= link_to "results", results_poll_path(@poll), :class => "btn btn-medium" %>
-      </div>
+        <div class="banner">
+          <%= link_to "results", results_poll_path(@poll), :class => "btn btn-medium" %>
+        </div>
       <% end %>
 
     </div>

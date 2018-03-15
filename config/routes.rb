@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       get "results", to: 'polls#results'
       get "start", to: 'polls#start'
       get "results", to: 'polls#results'
+      get "home_special", to: 'polls#home_special'
       get "add_propositions", to: 'polls#add_propositions'
       patch "toggle_closed"
       patch "toggle_public_poll"
