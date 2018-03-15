@@ -4,8 +4,7 @@
       <p id="magic_8_ball" ></p>
       <%= image_tag "Boolrank-white.png", class: "logo-front-page" %>
     </div>
-    <h1>Create a NoodlePoll</h1>
-    <p>Let the noodles choose for you</p>
+    <h1>Take a decision - faster - easier</h1>
     <%= simple_form_for(@poll, url: polls_path, method: 'post') do |f| %>
       <%= f.input :title, placeholder: "What is your dilemma?", label: false, id: "input-front-page",:maxlength => 100, autofocus: true %>
       <%= f.button :submit, class: "btn-medium", id: "home-button" %>
@@ -43,5 +42,5 @@
   //     button.addLabel("cant be blank");
   //   }
   // });
-
 </script>
+
