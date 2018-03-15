@@ -79,7 +79,7 @@ class PollsController < ApplicationController
     @remainings = Poll.compute_remaining_combinations(@poll, current_user.id)
     @comparison = @remainings.sample
     @total_score = Poll.compute_total_score(@poll)
-    #sleep 0.3
+    sleep 0.3
   end
 
   def home_special

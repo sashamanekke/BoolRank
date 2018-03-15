@@ -16,6 +16,7 @@ class VotesController < ApplicationController
     # add 1 to the score of the accepted proposition
     accepted_proposition.score += 1
     accepted_proposition.save!
+    #byebug
     if @vote.save!
       respond_to do |format|
         format.html {redirect_to compare_poll_path(@poll)}
