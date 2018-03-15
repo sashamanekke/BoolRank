@@ -6,6 +6,13 @@ class Poll < ApplicationRecord
   #validations
   validates :title, presence: true
 
+  def self.compute_percentage(poll, session_user_id)
+    remaining = Poll.generate_existing_combinations(poll.votes.where(session_user_id: session_user_id))
+    total = Poll.generate_combinations(poll.propositions)
+    percentage = (remaining.length.to_f)/(total.length.to_f)
+    return (percentage*100).to_i
+  end
+
   def self.compute_total_score(poll)
     total_score = 0
     prop_lenth = poll.propositions.length

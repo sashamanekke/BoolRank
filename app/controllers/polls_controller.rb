@@ -86,11 +86,14 @@ class PollsController < ApplicationController
     @poll_public = @poll
     if current_user != nil
       @remainings = Poll.compute_remaining_combinations(@poll_public, current_user.id)
+      @percentage = Poll.compute_percentage(@poll_public, current_user.id)
     else
       @remainings = Poll.compute_remaining_combinations(@poll_public, session.id)
+      @percentage = Poll.compute_percentage(@poll_public, session.id)
     end
     @comparison = @remainings.sample
     @total_score = Poll.compute_total_score(@poll_public)
+
     #sleep 0.3
   end
 
