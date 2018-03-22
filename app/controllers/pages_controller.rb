@@ -4,20 +4,26 @@ class PagesController < ApplicationController
   def home
     @magic_8_ball = [
       "It is certain",
+      "It is decidedly so",
       "Without doubt",
-      "As I see it",
-      "Yes!",
-      "Most Likely",
+      "Yes definitely",
+      "You may rely on it",
+      "As I see it, yes",
+      "Most likely",
       "Outlook good",
       "Yes",
-      "My reply: no",
+      "Signs point to yes",
+      "Reply hazy try again",
+      "Ask again later",
+      "Better not tell you now",
+      "Cannot predict now",
+      "Concentrate and ask again",
+      "Dont count on it",
+      "My reply is no",
       "Very doubtful",
-      "Reply hazy",
-      "Try again",
-      "Concentrate",
-      "Ask again"
-
-
+      "My sources say no",
+      "Outlook not so good",
+      "Very doubtful"
     ]
 
     @poll = Poll.new()
