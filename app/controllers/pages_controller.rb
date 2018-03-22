@@ -24,7 +24,9 @@ class PagesController < ApplicationController
     #public_polls = Poll.all.select{|poll| poll.status}
     #@poll_public = public_polls.sample
 
-    public_polls = Poll.all.select{|poll| poll.public_poll}
+    # IMPORTANT! here we use the 'status' attributeof the poll to show specific polls only
+    # on the frontpage! Not the 'public_poll' attribute.
+    public_polls = Poll.all.select{|poll| poll.status}
     @poll_public = public_polls.sample
     #end
     if @poll_public == nil
