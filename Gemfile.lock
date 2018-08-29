@@ -152,6 +152,7 @@ GEM
       pry (>= 0.10.4)
     puma (3.10.0)
     rack (2.0.3)
+    rack-cors (1.0.2)
     rack-test (0.7.0)
       rack (>= 1.0, < 3)
     rails (5.1.4)
@@ -203,6 +204,10 @@ GEM
     simple_form (3.5.0)
       actionpack (> 4, < 5.2)
       activemodel (> 4, < 5.2)
+    simple_token_authentication (1.15.1)
+      actionmailer (>= 3.2.6, < 6)
+      actionpack (>= 3.2.6, < 6)
+      devise (>= 3.2, < 6)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -261,10 +266,12 @@ DEPENDENCIES
   pry-byebug
   pry-rails
   puma
+  rack-cors
   rails (= 5.1.4)
   redis
   sass-rails
   simple_form
+  simple_token_authentication
   spring
   spring-watcher-listen (~> 2.0.0)
   uglifier
@@ -275,4 +282,8 @@ RUBY VERSION
    ruby 2.3.5p376
 
 BUNDLED WITH
+<<<<<<< HEAD
    1.16.4
+=======
+   1.16.1
+>>>>>>> ed9f1e5af05d06bed0a9b7e5e8e0f83e3d0cfdaa

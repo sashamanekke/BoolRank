@@ -37,11 +37,8 @@
 }
 
 .poll-profile-right {
-
-
-   flex-direction: column;
+  flex-direction: column;
   justify-content: space-around;
-
 }
 
 .profile-avatar {
@@ -51,15 +48,15 @@
 }
 
 .top-back {
-
   text-align: center;
   margin-bottom: 4%;
   margin-top: 6%;
+  a:hover{
+    cursor:pointer;
+  }
 }
 
 .poll-header {
-  overflow:hidden;
-  overflow-x: scroll;
   display: flex;
   flex-direction: column;
   h1 {

@@ -27,6 +27,8 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
+gem "simple_token_authentication"
+gem 'rack-cors'
 
 group :development, :test do
   gem 'pry-byebug'

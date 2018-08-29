@@ -1,7 +1,7 @@
 
 <%= simple_form_for(@poll) do |f| %>
   <p>Poll Title:</p>
-    <%= f.input :title, placeholder: "Enter the Title", value: @poll.title, label: false, :maxlength => 20 %>
+    <%= f.input :title, placeholder: "Enter the Title", value: @poll.title, label: false, :maxlength => 200 %>
     <%= f.hidden_field :description, placeholder: "Give a small description (optional)" %>
     <%= f.hidden_field :photo, placeholder: "Add a photo (optional)"%>
     <%= f.hidden_field :status, value: true %>

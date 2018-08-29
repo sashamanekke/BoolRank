@@ -1,5 +1,9 @@
 
 
+#home-button{
+  border-radius: 0px 0px 100px 100px;
+}
+
 .btn-medium {
   min-height: 30px;
   color: white !important;
@@ -8,6 +12,7 @@
   background-color: black !important;
   border: 2px solid black !important;
 }
+
 .btn-medium:hover {
   opacity: 1;
   text-decoration: none;
@@ -29,7 +34,6 @@
 }
 
 .gray-btn {
-
   width: 100%;
   text-align: center;
   font-size: 1.3rem;
@@ -37,17 +41,10 @@
   border: 0.5px solid $dark-gray;
   transition: background .33333s, transform 2s;
   color: $dark-gray;
-
-
-
   a:hover {
-
-
     font-size: 1.6rem;
     line-height: 2.1;
-
   }
-
 }
 
 .white-btn-funny {
@@ -106,32 +103,37 @@
 }
 
 .btn-burger {
-   cursor: pointer;
-margin: auto;
-margin-top:30px;
-margin-bottom: 30px;
-          padding: 0px 20px;
-    height: 5rem;
+  cursor: pointer;
+  margin: auto;
+  margin-top:30px;
+  margin-bottom: 30px;
+  padding: 0px 20px;
+  height: 5rem;
   background-color: $dark-gray;
-  color: #fff;
-  font-size: 1.3em;
+  color: black;
+  font-size: 1em;
   font-weight: 700;
   letter-spacing: .05em;
   -webkit-font-smoothing: antialiased;
   text-align: center;
-   a {
-    color: white;
+  background-color: $green;
+  border-radius: 100px;
+  border: 2px solid black;
+  a {
+    color: black;
     text-align: center;
-   }
-   i {
+  }
+  i {
     color: white !important;
-   }
-
+  }
+  &:hover{
+    background-color: black;
+    color: white;
+    border: 2px solid $green;
+  }
 }
 
-
-
-// btn-default --!! otherwrite class bootstrap
+// btn-default --!! overwrite class bootstrap
 
 
 .btn {
@@ -172,12 +174,10 @@ margin-bottom: 30px;
 }
 
 .btn-default {
-  color: $dark-gray;
-  background-color: #fff;
-  border-color: $dark-gray;
+  color: black;
+  background-color: $green;
   border-radius: 0px;
   width: 100%;
-  margin-top: 20px;
   margin-bottom: 10px;
 }
 
@@ -186,11 +186,6 @@ margin-bottom: 30px;
   margin-top: 0 !important;
   margin-bottom: 5px !important;
 }
-
-
-
-
-
 
 .btn-location:hover {
   background-color: #fcee21;
@@ -241,8 +236,8 @@ margin-bottom: 30px;
   margin: 0 0 .06em 0;
 }
 
-.btn-action {
-
-
+.btn-start-voting{
+  margin-left: 27%;
+  width: 46%;
 }
 

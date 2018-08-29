@@ -2,6 +2,14 @@ Rails.application.routes.draw do
   mount Attachinary::Engine => "/attachinary"
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :polls, only: [ :index, :show, :update, :create, :destroy ]
+      resources :votes, only: [ :create]
+      resources :sessions, only: [:create, :destroy]
+      resources :registrations, only: [:create, :destroy]
+    end
+  end
   root to: 'pages#home'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -19,6 +27,8 @@ Rails.application.routes.draw do
       get "results", to: 'polls#results'
       get "start", to: 'polls#start'
       get "results", to: 'polls#results'
+      get "home_special", to: 'polls#home_special'
+      get "home_results", to: 'polls#home_results'
       get "add_propositions", to: 'polls#add_propositions'
       patch "toggle_closed"
       patch "toggle_public_poll"

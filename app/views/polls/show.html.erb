@@ -28,55 +28,45 @@
 </a>
 
 
-<div class="site-content flex-box-column">
-  <div class="container flex-box-column padding-n">
-
-
+<div class="site-content flex-box">
+  <div class="container-profile flex-box-column ">
     <div class="top-back">
      <%= link_to '< Back', :back%>
     </div>
-
-    <button type="button" class="btn-burger flex-box text-uppercase text-center" data-toggle="modal" data-target="#share-modal"><h1 style="color: white; font-weight: bold">share</h1> <i class="fa fa-share" aria-hidden="true" style= "margin-left: 10px"></i>
+    <button type="button" class="btn-burger flex-box text-uppercase text-center" data-toggle="modal" data-target="#share-modal">Share<i class="fa fa-share" aria-hidden="true" style= "margin-left: 10px"></i>
     </button>
-
     <div class="poll-wrapper" >
-      <div class="poll-header text-center" style="height: 15vh">
-        <h1 class="bold text-center text-uppercase" style="margin-top: 4vh"><%= @poll.title %></h1>
+      <div class="poll-header text-center">
+        <h1 class="bold text-center text-uppercase" style="margin-top: 4vh; word-wrap: break-word; "><%= @poll.title %></h1>
       </div>
-      <hr>
       <div class="poll-profile ">
         <div class="poll-profile-left margin-20 ">
-          <div>
-            <h3 class="text-center margin-b-small text-uppercase bold">
-              <%= "Logged in as:" %>
-              <% if current_user.first_name.nil? %>
+          <h3 class="text-center margin-b-small text-uppercase bold">
+            <%= "Logged in as:" %>
+            <% if current_user.first_name.nil? %>
               <%= "Anonymous" %>
-              <% else%>
+            <% else%>
               <%= current_user.first_name%>
-              <% end %>
-            </h3>
+            <% end %>
+          </h3>
             <!--  <hr> -->
-          </div>
           <div class="profile-avatar " >
             <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
             <%= image_tag avatar_url, class: "avatar-square-lg"%>
           </div>
         </div>
         <div class="poll-profile-right margin-20">
-          <div>
-            <%= link_to 'All polls', polls_path, class: "btn btn-default btn-medium"%>
-          </div>
-          <div>
-            <% if @poll.user == current_user %>
-            <!-- The open close checkbox -->
+          <%= link_to 'All polls', polls_path, class: "btn btn-default btn-medium"%>
+          <% if @poll.user == current_user %>
+          <!-- The open close checkbox -->
             <div class="checkbox-update-poll">
               <input class="hidden" type="checkbox" name="closed" id="closed" value=<%=@poll.id%> data-remote="true" data-url="/polls/<%= @poll.id %>/toggle_closed" data-method="PATCH" checked="checked">
               <label id="toggle-button" class="<%= "active-checkbox" unless @poll.closed %> checkbox-on btn btn-default btn-medium" for="closed">
                 <% if @poll.closed %>
-                <%= "Closed" %>
+                  <%= "Closed" %>
                 <% else %>
-                <%= "Open" %>
-                <i class='fa fa-check'></i>
+                  <%= "Open" %>
+                  <i class='fa fa-check'></i>
                 <% end %>
               </label>
             </div>
@@ -85,26 +75,25 @@
               <input class="hidden" type="checkbox" name="public_poll" id="public_poll" value=<%=@poll.id%> data-remote="true" data-url="/polls/<%= @poll.id %>/toggle_public_poll" data-method="PATCH" checked="checked">
               <label id="toggle-button-public" class="<%= "active-checkbox" if @poll.public_poll %> checkbox-on btn btn-default btn-medium" for="public_poll">
                 <% if @poll.public_poll %>
-                <%= "Public" %>
-                <i class='fa fa-check'></i>
+                  <%= "Public" %>
+                  <i class='fa fa-check'></i>
                 <% else %>
-                <%= "Private" %>
+                  <%= "Private" %>
                 <% end %>
               </label>
             </div>
-            <% else %>
+          <% else %>
             <div class="checkbox-update-poll no-cursor">
               <label class="<%= "active-checkbox" unless @poll.closed %> no-cursor btn btn-default btn-medium">
                 <% if @poll.closed %>
-                <%= "Closed" %>
+                  <%= "Closed" %>
                 <% else %>
-                <%= "Open" %>
+                  <%= "Open" %>
                 <i class='fa fa-check'></i>
                 <% end %>
               </label>
             </div>
-            <% end %>
-          </div>
+          <% end %>
         </div>
       </div>
     </div>
@@ -112,10 +101,10 @@
 
 
     <% if @total_score >= (@poll.propositions.length)*0.5%>
-    <div class="poll-share-button-bottom">
-      <%= link_to 'Results', results_poll_path(@poll), class: "btn btn-default btn-medium "%>
-    </div>
-    <button type="button" class="btn btn-default btn-medium" data-toggle="modal" data-target="#share-res">Share Results</button>
+      <div class="poll-share-button-bottom">
+        <%= link_to 'Results', results_poll_path(@poll), class: "btn btn-default btn-medium "%>
+      </div>
+      <button type="button" class="btn btn-default btn-medium" data-toggle="modal" data-target="#share-res">Share Results</button>
     <% end %>
 <!-- <div class="poll-footer">
   <div></div>
@@ -123,9 +112,10 @@
 
 
 
-    <div class="btn-burger flex-box text-uppercase">
-      <%= link_to "Start Voting", start_poll_path(@poll) %>
-    </div>
+    <%= link_to start_poll_path(@poll), :action => 'go' do %>
+      <div class="btn-burger flex-box text-uppercase btn-start-voting">Start Voting
+      </div>
+    <% end %>
 
     <div class="prop-container background-gif  margin-top margin-b" id="propositions">
       <div class="btn-location-blue prop-title">
@@ -134,26 +124,26 @@
         </h3>
       </div>
       <% @poll.propositions.each do |proposition| %>
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="prop-box">
-            <div class="photo-box">
-              <% unless proposition.photo.nil?  %>
-              <div class="created-photo" style="background-image: url('<%= cl_image_path  proposition.photo.path %>')">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="prop-box">
+              <div class="photo-box">
+                <% unless proposition.photo.nil?  %>
+                  <div class="created-photo" style="background-image: url('<%= cl_image_path  proposition.photo.path %>')">
+                  </div>
+                <% else %>
+                  <div class="created-photo" style="background-color: <%=proposition.color%>">
+                  </div>
+                <% end %>
               </div>
-              <% else %>
-              <div class="created-photo" style="background-color: <%=proposition.color%>">
-              </div>
-              <% end %>
-            </div>
-            <div class="name-box">
-              <div class="created-name">
-                <h3><%= proposition.name %></h3>
+              <div class="name-box">
+                <div class="created-name">
+                  <h3><%= proposition.name %></h3>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
       <% end %>
     </div>
 
@@ -166,32 +156,31 @@
       <button type="button" class="btn btn-default btn-medium" id="participant" style="font-size: 15px;"> <i class="fa fa-users" aria-hidden="true" style="color: white; margin-right: 10px"></i><%= @poll.participants.count %>
       </button>
       <% @poll.participants.each do |participant| %>
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="prop-box">
-            <div class="photo-box">
-              <% if participant.user.profile.photo.nil? %>
-                <% avatar_url = participant.user.facebook_picture_url || "http://www.abc.net.au/news/image/8314104-1x1-940x940.jpg" %>
-              <% else %>
-                  <% avatar_url = participant.user.photo || "http://www.abc.net.au/news/image/8314104-1x1-940x940.jpg" %>
-              <div class="created-part-photo" style="background-color: <%=proposition.color%>"></div>
-              <% end %>
-            </div>
-            <div class="name-box">
-              <div class="created-part-name">
-                <% unless participant.user.first_name.nil? %>
-                  <h3><%= participant.user.first_name %></h3>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="prop-box">
+              <div class="photo-box">
+                <% if participant.user.profile.photo.nil? %>
+                  <% avatar_url = participant.user.facebook_picture_url || "http://www.abc.net.au/news/image/8314104-1x1-940x940.jpg" %>
                 <% else %>
-                  <h3><%= "Anonymous" %></h3>
+                  <% avatar_url = participant.user.photo || "http://www.abc.net.au/news/image/8314104-1x1-940x940.jpg" %>
+                  <div class="created-part-photo" style="background-color: <%=proposition.color%>"></div>
                 <% end %>
+              </div>
+              <div class="name-box">
+                <div class="created-part-name">
+                  <% unless participant.user.first_name.nil? %>
+                    <h3><%= participant.user.first_name %></h3>
+                  <% else %>
+                    <h3><%= "Anonymous" %></h3>
+                  <% end %>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
       <% end %>
     </div>
-
   </div>
 </div>
 

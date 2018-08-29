@@ -13,48 +13,50 @@
 </div>
 
 
-
-<div class="btn-dropdown dropdown" >
-  <span class="btn-square">
-    <span class="btn__inner" >
-      <div class="navbar-wagon-item">
-       <%#= yield(:navbar_link) %>
-
-       <div class="dropdown">
-
-        <% if user_signed_in? %>
-        <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-
+<div class="navbar-wagon-item">
+  <div class="dropdown">
+    <div class="btn-dropdown " >
+      <div class="dropdown-toggle" data-toggle="dropdown">
+        <span class="btn-square " >
+          <span class="btn__inner" >
+             <%#= yield(:navbar_link) %>
+              <i class="fa fa-bars "></i>
+          </span>
+        </span>
+      </div>
+      <% if user_signed_in? %>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li><%= link_to profiles_path do %>
-            <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-            <% end %></li>
-            <li> <%= link_to root_path do %>
+          <li>
+            <%= link_to profiles_path do %>
+              <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+                <% end %>
+              </li>
+          <li>
+            <%= link_to root_path do %>
               <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
-              <% end %></li>
-              <li> <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-                <% end %></li>
-                <li> <%= link_to polls_path do %>
-                <i class="fa fa-globe" aria-hidden="true"></i> <%= t(".profile", default: "Public Polls")%>
-                <% end %></li>
-
-                </ul>
-
-                <% else %>
-                <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-                <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-                  <li>    <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-                    <% end %></li></ul>
-
-                  </div>
-
-                </div>
-              </span>
-            </span>
-          </div>
-
-
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to polls_path do %>
+              <i class="fa fa-globe" aria-hidden="true"></i> <%= t(".profile", default: "Public Polls")%>
+            <% end %>
+          </li>
+        </ul>
+      <% else %>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li>
+            <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 
 

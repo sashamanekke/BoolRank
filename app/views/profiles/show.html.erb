@@ -1,80 +1,61 @@
 
 <div class="navbar-box">
-    <div class="borte-t">
-      <%= link_to '< Back', :back%>
-    </div>
+  <div class="borte-t">
+    <%= link_to '< Back', :back%>
   </div>
+</div>
 
-  <div class="site-content flex-box">
-    <div class="container-profil flex-box-column">
-
-
-
-  <div class="profile-container">
-    <div class="profile text-center">
-      <div class="main">
-        <div class="main-content">
-          <!-- <img src="<%#= @user.avatar %>" alt=""> -->
-
-          <%= render partial: "shared/profile_cards" %>
-          <%= link_to 'Edit Profile', edit_profiles_path(current_user.profile), class: "btn btn-medium" %>
-
-
-        </div>
-      </div>
-
-
-    </div>
-  </div>
-
-
-
-  <div class="prop-container background-gif margin-top" id="participants">
-    <div class="btn-location-green prop-title">
-     <h3 class="bold text-uppercase text-center">
-       All your polls
-     </h3>
-   </div>
-
-
-   <% if current_user.profile.user.polls.empty? %>
-   <h3>No Polls</3>
-    <% else %>
-    <% current_user.profile.user.polls.each_with_index do |poll, index| %>
-<%= link_to poll_path(poll) do %>
-    <div class="row">
-      <div class="col-xs-12">
-
-        <div class="prop-box">
-
-          <div class="photo-box-profile">
-            <h3>poll:<br> <%= index + 1 %></h3>
-          </div>
-
-          <div class="name-box">
-            <div class="created-part-name">
-              <h3 style="max-width: 180px;">poll title: <%= poll.title %></h3>
-
-            </div>
-            </div>  <div class="created-participants" >
-              <i class="fa fa-users" aria-hidden="true"></i><br>
-              <%= poll.participants.count %>
-            </div>
+<div class="site-content flex-box">
+  <div class="container-profile flex-box-column">
+    <div class="profile-container">
+      <div class="profile text-center">
+        <div class="main">
+          <div class="main-content">
+            <!-- <img src="<%#= @user.avatar %>" alt=""> -->
+            <%= render partial: "shared/profile_cards" %>
+            <%= link_to 'Edit Profile', edit_profiles_path(current_user.profile), class: "btn btn-medium" %>
           </div>
         </div>
       </div>
- <% end %>
-      <% end %>
-      <% end %>
-
     </div>
-
-
- <button type="button" class="btn-burger text-uppercase" style="margin-bottom: 64px;     margin-top: 40px;" data-toggle="modal" data-target="#share-modal" id="share">
+    <div class="prop-container background-gif margin-top" id="participants">
+      <div class="btn-location-green prop-title">
+        <h3 class="bold text-uppercase text-center">
+          All your polls
+        </h3>
+      </div>
+      <% if current_user.profile.user.polls.empty? %>
+        <h3>No Polls</3>
+      <% else %>
+        <% current_user.profile.user.polls.each_with_index do |poll, index| %>
+          <%= link_to poll_path(poll) do %>
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="prop-box">
+                  <div class="photo-box-profile">
+                    <h3>poll:<br> <%= index + 1 %></h3>
+                  </div>
+                  <div class="name-box">
+                    <div class="created-part-name">
+                      <h3 style="max-width: 180px;">poll title: <%= poll.title %></h3>
+                    </div>
+                  </div>
+                  <div class="created-participants" >
+                    <i class="fa fa-users" aria-hidden="true"></i><br>
+                      <%= poll.participants.count %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+    <button type="button" class="btn-burger text-uppercase" style="margin-bottom: 64px; margin-top: 40px;" data-toggle="modal" data-target="#share-modal" id="share">
       <%= link_to 'Join a public poll !', polls_path %>
     </button>
-
-
+  </div>
+</div>
 
    <!--  <button type="button" class="btn btn-default btn-medium margin-b-results" data-toggle="modal" data-target="#share-modal" id="share">
       Share Poll!
@@ -83,10 +64,8 @@
 
 
 
-  </div>
 
- </div>
-  </div>
+
 
 
 <!--   create_table "profiles", force: :cascade do |t|

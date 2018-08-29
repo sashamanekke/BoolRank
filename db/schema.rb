@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171121154849) do
+ActiveRecord::Schema.define(version: 20180315082456) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,11 @@ ActiveRecord::Schema.define(version: 20171121154849) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent"
+  end
+
+  create_table "comparisons", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "participants", force: :cascade do |t|
@@ -94,6 +99,8 @@ ActiveRecord::Schema.define(version: 20171121154849) do
     t.string "last_name"
     t.string "token"
     t.datetime "token_expiry"
+    t.string "authentication_token", limit: 30
+    t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -105,6 +112,7 @@ ActiveRecord::Schema.define(version: 20171121154849) do
     t.bigint "rejected_proposition_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "session_user_id"
     t.index ["accepted_proposition_id"], name: "index_votes_on_accepted_proposition_id"
     t.index ["poll_id"], name: "index_votes_on_poll_id"
     t.index ["rejected_proposition_id"], name: "index_votes_on_rejected_proposition_id"

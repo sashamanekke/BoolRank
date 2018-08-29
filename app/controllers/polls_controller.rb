@@ -1,6 +1,6 @@
 class PollsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:start]
-  before_action :set_poll, only: [:show, :add_propositions, :edit, :update, :destroy, :compare, :results, :start, :toggle_closed, :toggle_public_poll]
+  skip_before_action :authenticate_user!, only: [:start, :home_special, :home_results]
+  before_action :set_poll, only: [:show, :add_propositions, :edit, :update, :destroy, :compare, :results, :start, :toggle_closed, :toggle_public_poll, :home_special, :home_results]
 
 
   def index
@@ -76,50 +76,38 @@ class PollsController < ApplicationController
   end
 
   def compare
-    #generate the basic combinations => [1,2] [3,4] [5,6] ..."
-    first_combinations = generate_first_combinations(@poll.propositions)
-    #generate all the combinations already voted by the current user
-    existing_combinations = generate_existing_combinations(@poll.votes.where(user: current_user))
-    #compute the remaining combinations
-    remaining_combinations = (first_combinations - existing_combinations)
-    @remainings = remaining_combinations
-      #generate all the combinations possible
-      all_combinations = generate_combinations(@poll.propositions)
-    if remaining_combinations == []
-      remaining_combinations = (all_combinations - existing_combinations)
-    end
-    @comparison = remaining_combinations.sample
-
-    @total_score = 0
-    @prop_lenth = @poll.propositions.length
-    @poll.propositions.each do |prop|
-      @total_score += prop.score
-    end
+    @remainings = Poll.compute_remaining_combinations(@poll, current_user.id)
+    @comparison = @remainings.sample
+    @total_score = Poll.compute_total_score(@poll)
     sleep 0.3
+  end
 
-    # ### Just to test and see ###
-    # @test_array_all = all_combinations.map{ |el|
-    #   [el.first.id, el.last.id]
-    # }
-    # @test_array = first_combinations.map{ |el|
-    #   [el.first.id, el.last.id]
-    # }
-    # @test_array_2 = existing_combinations.map{ |el|
-    #   [el.first.id, el.last.id]
-    # }
-    # # @test_array_3 = @poll.votes.where(user: current_user).map{ |el|
-    # #   [el.accepted_proposition.id, el.rejected_proposition.id]
-    # # }
-    # @test_array_4 = @remainings.map{ |el|
-    #   [el.first.id, el.last.id]
-    # }
-    # ### end ###
+  def home_special
+    @poll_public = @poll
+    if current_user != nil
+      @remainings = Poll.compute_remaining_combinations(@poll_public, current_user.id)
+      @percentage = Poll.compute_percentage(@poll_public, current_user.id)
+    else
+      @remainings = Poll.compute_remaining_combinations(@poll_public, session.id)
+      @percentage = Poll.compute_percentage(@poll_public, session.id)
+    end
+    @comparison = @remainings.sample
+    @total_score = Poll.compute_total_score(@poll_public)
+    if @remainings == []
+       redirect_to home_results_poll_path(@poll_public)
+    end
+    #sleep 0.3
+  end
+
+  def home_results
+    @propositions = @poll.propositions.order(:score).reverse
   end
 
   def start
   end
 
   def results
+    #byebug
     @propositions = @poll.propositions.order(:score).reverse
   end
 
@@ -149,41 +137,6 @@ class PollsController < ApplicationController
   end
   def poll_params
     params.require(:poll).permit(:title, :description, :photo, :status)
-  end
-
-  def generate_combinations(props)
-    props = props.sort { |a, b|  a.id <=> b.id }
-    all_combinations = []
-    props.each_with_index do |p1, index|
-      props[(index + 1)..-1].each do |p2|
-        all_combinations << [p1,p2].sort! { |a, b|  a.id <=> b.id }
-      end
-    end
-    all_combinations
-  end
-
-  def generate_existing_combinations(votes)
-
-    existing_combinations = []
-    votes.each do |vote|
-      combination = [vote.accepted_proposition, vote.rejected_proposition]
-      combination.sort! { |a, b|  a.id <=> b.id }
-      existing_combinations << combination
-    end
-    existing_combinations
-  end
-
-  def generate_first_combinations(props)
-    props = props.sort { |a, b|  a.id <=> b.id }
-    first_combinations = []
-    props.each_slice(2) do |slice|
-      if props.length.odd? && slice.first == props.last
-        slice << props.first
-      end
-      slice.sort! { |a, b|  a.id <=> b.id }
-      first_combinations << slice
-    end
-    first_combinations.sort!
   end
 
 end

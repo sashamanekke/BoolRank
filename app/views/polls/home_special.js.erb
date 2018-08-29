@@ -1,0 +1,9 @@
+console.log('hi from ajax');
+
+function addComparison(comparisonHTML) {
+  const comparison = document.getElementById('landing-comparison');
+  //comparison.insertAdjacentHTML('beforeend', comparisonHTML);
+  comparison.innerHTML = comparisonHTML;
+}
+
+addComparison(`<%= render '/polls/home_special', public_poll: @poll_public %>`);

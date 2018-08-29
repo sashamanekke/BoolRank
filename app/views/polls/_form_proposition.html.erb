@@ -2,14 +2,14 @@
 
 
   <div class="name-box">
-<p>Proposition Name:</p>
-    <%= f.input :name, placeholder: "Option", label: false, :maxlength => 20, autofocus: true %>
+<p>Short option description:</p>
+    <%= f.input :name, placeholder: "Option", label: false, :maxlength => 30, autofocus: true %>
     <%= f.hidden_field :score, value: 0 %>
 
 </div>
 
 <div class="photo-box">
-  <p>Add pictures!</p>
+  <p>(picture:)</p>
     <%= f.input :photo, as: :attachinary %>
 </div>
     </div>
