@@ -282,8 +282,5 @@ RUBY VERSION
    ruby 2.3.5p376
 
 BUNDLED WITH
-<<<<<<< HEAD
-   1.16.4
-=======
    1.16.1
->>>>>>> ed9f1e5af05d06bed0a9b7e5e8e0f83e3d0cfdaa
+
