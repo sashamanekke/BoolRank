@@ -30,11 +30,6 @@ ActiveRecord::Schema.define(version: 20180315082456) do
     t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent"
   end
 
-  create_table "comparisons", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "participants", force: :cascade do |t|
     t.bigint "poll_id"
     t.bigint "user_id"
